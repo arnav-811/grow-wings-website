@@ -114,22 +114,22 @@
       <div class="fade-in glass-card rounded-[32px] p-10 shadow-xl sticky top-28">
         <h2 class="font-headline-md text-headline-md text-primary mb-2">Talk to Us!</h2>
         <p class="text-on-surface-variant text-sm mb-8">Fill in the details and we'll get back to you within 24 hours.</p>
-        <form class="space-y-5" onsubmit="handleSubmit(event)">
+        <form id="contact-form" class="space-y-5">
           <div>
             <label class="block font-label-bold text-on-surface-variant mb-2 text-sm">Name *</label>
-            <input type="text" placeholder="Your full name" required class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3 font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"/>
+            <input id="c-name" type="text" placeholder="Your full name" class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3 font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"/>
           </div>
           <div>
             <label class="block font-label-bold text-on-surface-variant mb-2 text-sm">Email *</label>
-            <input type="email" placeholder="you@company.com" required class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3 font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"/>
+            <input id="c-email" type="email" placeholder="you@company.com" class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3 font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"/>
           </div>
           <div>
             <label class="block font-label-bold text-on-surface-variant mb-2 text-sm">Phone Number</label>
-            <input type="tel" placeholder="+91 98765 43210" class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3 font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"/>
+            <input id="c-phone" type="tel" placeholder="+91 98765 43210" class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3 font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"/>
           </div>
           <div>
             <label class="block font-label-bold text-on-surface-variant mb-2 text-sm">I am enquiring for…</label>
-            <select class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3 font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors">
+            <select id="c-type" class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3 font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors">
               <option>Corporate Offerings</option>
               <option>Future Ready Campus</option>
               <option>General Enquiry</option>
@@ -137,16 +137,28 @@
           </div>
           <div>
             <label class="block font-label-bold text-on-surface-variant mb-2 text-sm">Message *</label>
-            <textarea rows="4" required placeholder="Tell us about your team, students, or vision…" class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3 font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors resize-none"></textarea>
+            <textarea id="c-msg" rows="4" placeholder="Tell us about your team, students, or vision…" class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3 font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors resize-none"></textarea>
           </div>
           <button type="submit" class="w-full bg-secondary-container hover:bg-secondary text-white py-4 rounded-full font-label-bold transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
             Drop Us a Message
             <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">send</span>
           </button>
         </form>
-        <div id="form-success" class="hidden mt-5 p-4 bg-success-green/10 border border-success-green/30 rounded-2xl text-center">
-          <span class="material-symbols-outlined text-success-green block mb-1" style="font-variation-settings:'FILL' 1;">check_circle</span>
-          <p class="font-label-bold text-success-green text-sm">Message sent! We'll be in touch within 24 hours.</p>
+
+        <!-- Success state -->
+        <div id="contact-success" class="hidden text-center py-6">
+          <div class="w-16 h-16 rounded-full bg-success-green/10 flex items-center justify-center mx-auto mb-4">
+            <span class="material-symbols-outlined text-success-green text-4xl" style="font-variation-settings:'FILL' 1;">check_circle</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-primary mb-2">Ready to Send!</h3>
+          <p class="text-on-surface-variant text-sm mb-6">Your message is prepared. Tap below to open WhatsApp and hit Send.</p>
+          <a id="contact-wa-link" href="#" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-label-bold px-8 py-4 rounded-full transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 mb-3">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.852L0 24l6.335-1.508A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.888.933-3.64-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
+            Send on WhatsApp
+          </a>
+          <br/>
+          <button onclick="resetContactForm()" class="text-sm text-on-surface-variant hover:text-primary underline underline-offset-4 transition-colors">Send another message</button>
         </div>
       </div>
     </div>
@@ -201,7 +213,55 @@
   document.querySelectorAll('.fade-in').forEach(el=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1}).observe(el));
   document.querySelectorAll('.acc-btn').forEach(b=>b.addEventListener('click',()=>b.closest('.acc-item').classList.toggle('accordion-open')));
 </script>
-<script>function handleSubmit(e){e.preventDefault();document.getElementById('form-success').classList.remove('hidden');e.target.reset()}</script>
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Validate
+    var valid = true;
+    ['c-name', 'c-email', 'c-msg'].forEach(function(id) {
+      var el = document.getElementById(id);
+      el.style.borderColor = el.value.trim() ? '' : '#ba1a1a';
+      if (!el.value.trim()) valid = false;
+    });
+    var emailEl = document.getElementById('c-email');
+    if (emailEl.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
+      emailEl.style.borderColor = '#ba1a1a'; valid = false;
+    }
+    if (!valid) return;
+
+    // Build WhatsApp message
+    var name  = document.getElementById('c-name').value.trim();
+    var email = document.getElementById('c-email').value.trim();
+    var phone = document.getElementById('c-phone').value.trim();
+    var type  = document.getElementById('c-type').value;
+    var msg   = document.getElementById('c-msg').value.trim();
+
+    var lines = [
+      '👋 *New Enquiry from Growwings Website*',
+      '',
+      '*Name:* ' + name,
+      '*Email:* ' + email,
+      phone ? '*Phone:* ' + phone : null,
+      '*Enquiry Type:* ' + type,
+      '',
+      '*Message:*',
+      msg
+    ].filter(function(l){ return l !== null; }).join('\n');
+
+    var waURL = 'https://wa.me/919619941750?text=' + encodeURIComponent(lines);
+
+    document.getElementById('contact-wa-link').href = waURL;
+    document.getElementById('contact-form').classList.add('hidden');
+    document.getElementById('contact-success').classList.remove('hidden');
+  });
+
+  function resetContactForm() {
+    document.getElementById('contact-form').reset();
+    document.getElementById('contact-form').classList.remove('hidden');
+    document.getElementById('contact-success').classList.add('hidden');
+  }
+</script>
 <script src="animations.js"></script>
 <script src="modal.js"></script>
 </body></html>
