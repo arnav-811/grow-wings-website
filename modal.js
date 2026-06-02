@@ -294,25 +294,28 @@
     e.preventDefault();
     let valid = true;
 
+    // Validate required fields
     ['ttu-name', 'ttu-email', 'ttu-msg'].forEach(id => {
       const el = document.getElementById(id);
       el.classList.remove('ttu-error');
       if (!el.value.trim()) { el.classList.add('ttu-error'); valid = false; }
     });
 
-    const email = document.getElementById('ttu-email');
-    if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-      email.classList.add('ttu-error'); valid = false;
+    const emailEl = document.getElementById('ttu-email');
+    if (emailEl.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
+      emailEl.classList.add('ttu-error'); valid = false;
     }
 
     if (!valid) return;
 
+    // Collect values
     const name  = document.getElementById('ttu-name').value.trim();
-    const email = document.getElementById('ttu-email').value.trim();
+    const email = emailEl.value.trim();
     const phone = document.getElementById('ttu-phone').value.trim();
     const type  = document.getElementById('ttu-type').options[document.getElementById('ttu-type').selectedIndex].text;
     const msg   = document.getElementById('ttu-msg').value.trim();
 
+    // Build WhatsApp message
     const text = [
       '👋 *New Enquiry from Growwings Website*',
       '',
@@ -321,13 +324,20 @@
       phone ? `*Phone:* ${phone}` : null,
       `*Enquiry Type:* ${type}`,
       '',
-      `*Message:*\n${msg}`,
+      `*Message:*`,
+      msg,
     ].filter(l => l !== null).join('\n');
 
     const waURL = `https://wa.me/919619941750?text=${encodeURIComponent(text)}`;
 
-    // Open WhatsApp immediately — must stay within the user gesture (no setTimeout)
-    window.open(waURL, '_blank');
+    // Use a programmatic anchor click — never blocked by popup blockers
+    const a = document.createElement('a');
+    a.href = waURL;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 
     form.classList.add('ttu-hidden');
     success.classList.remove('ttu-hidden');
