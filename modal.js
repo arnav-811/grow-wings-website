@@ -61,9 +61,13 @@
       <div class="ttu-success-icon">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
-      <h3>Message Sent!</h3>
-      <p>We'll get back to you within 24 hours.</p>
-      <button class="ttu-done" id="ttu-done">Done</button>
+      <h3>Ready to Send!</h3>
+      <p>Your message is prepared. Tap below to open WhatsApp and hit Send.</p>
+      <a id="ttu-wa-link" href="#" target="_blank" rel="noopener noreferrer" class="ttu-wa-btn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.852L0 24l6.335-1.508A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.888.933-3.64-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
+        Send on WhatsApp
+      </a>
+      <button class="ttu-done" id="ttu-done">Close</button>
     </div>
   </div>
 </div>`;
@@ -226,14 +230,26 @@
   font-family: 'Inter', sans-serif;
   color: #42474f; margin: 0 0 24px;
 }
-.ttu-done {
-  background: #32999b; color: #fff;
-  font-family: 'Inter', sans-serif; font-weight: 600;
-  border: none; border-radius: 999px;
-  padding: 12px 32px; cursor: pointer;
-  transition: background .2s, transform .2s;
+.ttu-wa-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #25D366; color: #fff;
+  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 14px 32px;
+  margin-bottom: 12px;
+  transition: background .2s, transform .2s, box-shadow .2s;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.35);
 }
-.ttu-done:hover { background: #1b7a7c; transform: translateY(-2px); }
+.ttu-wa-btn:hover { background: #1ebe5d; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.45); }
+.ttu-done {
+  background: transparent; color: #727780;
+  font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+  border: 1.5px solid #c2c7d1; border-radius: 999px;
+  padding: 10px 28px; cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.ttu-done:hover { background: #f1f5f9; color: #0b1c30; }
 </style>`;
 
   document.head.insertAdjacentHTML('beforeend', styles);
@@ -330,14 +346,9 @@
 
     const waURL = `https://wa.me/919619941750?text=${encodeURIComponent(text)}`;
 
-    // Use a programmatic anchor click — never blocked by popup blockers
-    const a = document.createElement('a');
-    a.href = waURL;
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    // Set the real href on the WhatsApp button — user clicks it themselves
+    // This is the only approach that works on every browser and device
+    document.getElementById('ttu-wa-link').href = waURL;
 
     form.classList.add('ttu-hidden');
     success.classList.remove('ttu-hidden');
