@@ -326,11 +326,11 @@
 
     const waURL = `https://wa.me/919619941750?text=${encodeURIComponent(text)}`;
 
+    // Open WhatsApp immediately — must stay within the user gesture (no setTimeout)
+    window.open(waURL, '_blank');
+
     form.classList.add('ttu-hidden');
     success.classList.remove('ttu-hidden');
-
-    // Open WhatsApp after a brief moment so user sees success state
-    setTimeout(() => window.open(waURL, '_blank'), 600);
   });
 
 })();
