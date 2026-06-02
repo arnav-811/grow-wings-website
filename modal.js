@@ -307,17 +307,30 @@
 
     if (!valid) return;
 
-    const btn = form.querySelector('.ttu-submit');
-    btn.classList.add('ttu-loading');
-    btn.querySelector('.ttu-submit-text').textContent = 'Sending…';
+    const name  = document.getElementById('ttu-name').value.trim();
+    const email = document.getElementById('ttu-email').value.trim();
+    const phone = document.getElementById('ttu-phone').value.trim();
+    const type  = document.getElementById('ttu-type').options[document.getElementById('ttu-type').selectedIndex].text;
+    const msg   = document.getElementById('ttu-msg').value.trim();
 
-    // Simulate send
-    setTimeout(() => {
-      btn.classList.remove('ttu-loading');
-      btn.querySelector('.ttu-submit-text').textContent = 'Drop Us a Message';
-      form.classList.add('ttu-hidden');
-      success.classList.remove('ttu-hidden');
-    }, 1200);
+    const text = [
+      '👋 *New Enquiry from Growwings Website*',
+      '',
+      `*Name:* ${name}`,
+      `*Email:* ${email}`,
+      phone ? `*Phone:* ${phone}` : null,
+      `*Enquiry Type:* ${type}`,
+      '',
+      `*Message:*\n${msg}`,
+    ].filter(l => l !== null).join('\n');
+
+    const waURL = `https://wa.me/919619941750?text=${encodeURIComponent(text)}`;
+
+    form.classList.add('ttu-hidden');
+    success.classList.remove('ttu-hidden');
+
+    // Open WhatsApp after a brief moment so user sees success state
+    setTimeout(() => window.open(waURL, '_blank'), 600);
   });
 
 })();
