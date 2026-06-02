@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Advanced Executive Communication | Growwings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-glass":"rgba(255,255,255,0.7)","tertiary-fixed-dim":"#75d1ff","success-green":"#22C55E",
+          "secondary-fixed":"#ffdbc8","tertiary-fixed":"#c2e8ff","outline-variant":"#c2c7d1","surface-variant":"#d3e4fe",
+          "background-main":"#F8FAFC","on-primary-container":"#8ebdf9","on-tertiary-fixed-variant":"#004d67",
+          "secondary-fixed-dim":"#ffb68b","surface-container-highest":"#d3e4fe","on-secondary-container":"#592600",
+          "primary":"#00355f","on-tertiary-fixed":"#001e2b","on-secondary-fixed-variant":"#753400","on-tertiary":"#ffffff",
+          "inverse-on-surface":"#eaf1ff","surface-container":"#e5eeff","secondary-container":"#fb7800",
+          "surface-container-lowest":"#ffffff","surface-container-high":"#dce9ff","secondary":"#994700",
+          "on-primary-fixed-variant":"#07497d","on-background":"#0b1c30","on-tertiary-container":"#3dc6ff",
+          "on-error":"#ffffff","primary-fixed":"#d2e4ff","primary-fixed-dim":"#a0c9ff","surface-dim":"#cbdbf5",
+          "surface-tint":"#2d6197","inverse-surface":"#213145","outline":"#727780","background":"#f8f9ff",
+          "text-display":"#0F172A","on-surface":"#0b1c30","surface-container-low":"#eff4ff","on-secondary-fixed":"#321200",
+          "on-secondary":"#ffffff","on-error-container":"#93000a","tertiary-container":"#00506c","surface":"#f8f9ff",
+          "error-container":"#ffdad6","primary-container":"#0f4c81","tertiary":"#00384c","error":"#ba1a1a",
+          "inverse-primary":"#a0c9ff","on-surface-variant":"#42474f","surface-bright":"#f8f9ff",
+          "on-primary-fixed":"#001c37","on-primary":"#ffffff"
+        },
+        borderRadius:{ DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px" },
+        spacing:{ gutter:"24px","section-padding-sm":"40px",base:"8px","section-padding-lg":"80px","container-max":"1280px" },
+        fontFamily:{ "headline-lg-mobile":["Montserrat"],"body-md":["Inter"],"body-lg":["Inter"],"headline-md":["Montserrat"],"headline-lg":["Montserrat"],"display-xl":["Montserrat"],"label-bold":["Inter"] },
+        fontSize:{
+          "headline-lg-mobile":["32px",{lineHeight:"40px",fontWeight:"700"}],
+          "body-md":["16px",{lineHeight:"24px",fontWeight:"400"}],
+          "body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],
+          "headline-md":["24px",{lineHeight:"32px",fontWeight:"700"}],
+          "headline-lg":["40px",{lineHeight:"48px",fontWeight:"700"}],
+          "display-xl":["64px",{lineHeight:"72px",letterSpacing:"-0.02em",fontWeight:"800"}],
+          "label-bold":["14px",{lineHeight:"20px",fontWeight:"600"}]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+  .glass-card { background:rgba(255,255,255,0.7); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.3); }
+  .shimmer-progress::after {
+    content:""; position:absolute; top:0; left:0; right:0; bottom:0;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);
+    animation:shimmer 2s infinite;
+  }
+  @keyframes shimmer { 0%{transform:translateX(-100%)} 100%{transform:translateX(100%)} }
+  .accordion-content { max-height:0; overflow:hidden; transition:max-height 0.3s ease-out; }
+  .accordion-open .accordion-content { max-height:500px; }
+  .accordion-open .accordion-icon { transform: rotate(180deg); }
+  .accordion-icon { transition: transform 0.3s; }
+  #mobile-menu { transition:max-height .3s ease,opacity .3s ease; max-height:0; opacity:0; overflow:hidden; }
+  #mobile-menu.open { max-height:400px; opacity:1; }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+
+<!-- Navigation -->
+<header id="main-header" class="w-full sticky top-0 bg-surface-glass backdrop-blur-md shadow-sm z-50">
+  <nav class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+    <a href="index.html" class="flex items-center gap-2"><img src="logo.png" alt="Growwings" class="h-10 w-auto"/><span class="font-headline-md text-headline-md font-bold text-primary hidden sm:block">Growwings</span></a>
+    <div class="hidden md:flex gap-8 items-center">
+      <a href="courses.html" class="font-body-md text-body-md text-secondary border-b-2 border-secondary pb-1 transition-colors">Courses</a>
+      <a href="methodology.html" class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors">Methodology</a>
+      <a href="testimonials.html" class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors">Testimonials</a>
+      <a href="about.html" class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors">About</a>
+    </div>
+    <div class="flex gap-4">
+      <a href="dashboard.html" class="hidden md:block text-primary font-label-bold px-4 py-2 hover:text-secondary transition-colors">Login</a>
+      <button class="bg-secondary-container text-white font-label-bold px-6 py-2 rounded-full hover:scale-105 transition-transform shadow-md">Get Started</button>
+    </div>
+    <button id="menu-toggle" class="md:hidden text-primary ml-4"><span class="material-symbols-outlined">menu</span></button>
+  </nav>
+  <div id="mobile-menu" class="md:hidden bg-white border-t border-outline-variant/20 px-gutter">
+    <div class="py-4 space-y-3">
+      <a href="courses.html" class="block py-2 font-body-md text-secondary font-semibold">Courses</a>
+      <a href="methodology.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Methodology</a>
+      <a href="testimonials.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Testimonials</a>
+      <a href="about.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">About</a>
+      <a href="dashboard.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Login</a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-container-max mx-auto px-gutter py-section-padding-sm lg:py-section-padding-lg">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+    <!-- Left Column: Main Content -->
+    <div class="lg:col-span-8 space-y-16">
+
+      <!-- Hero -->
+      <header class="space-y-6">
+        <nav class="flex items-center gap-2 text-sm text-on-surface-variant">
+          <a href="courses.html" class="hover:text-primary transition-colors">Courses</a>
+          <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+          <span class="text-primary font-label-bold">Advanced Executive Communication</span>
+        </nav>
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full text-primary font-label-bold">
+          <span class="material-symbols-outlined text-[18px]">verified</span>
+          Professional Development
+        </div>
+        <h1 class="font-display-xl text-display-xl text-text-display">Advanced Executive Communication</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+          Master the art of influence and clarity. Upgrade your leadership presence and command every room with high-stakes communication frameworks used by Fortune 500 CEOs.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-4">
+          <button class="bg-[#FF7A00] text-white font-headline-md px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all">Enroll Now</button>
+          <button class="flex items-center gap-2 border-2 border-primary text-primary font-label-bold px-8 py-4 rounded-full hover:bg-primary-container/10 transition-colors">
+            <span class="material-symbols-outlined">play_circle</span>
+            Watch Trailer
+          </button>
+        </div>
+      </header>
+
+      <!-- What You'll Learn -->
+      <section>
+        <h2 class="font-headline-lg text-headline-lg mb-8">What You'll Learn</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-8 rounded-[32px] bg-surface-container-low shadow-sm border border-outline-variant/30 hover:border-primary/30 transition-all group">
+            <div class="w-12 h-12 rounded-2xl bg-primary-fixed flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">psychology</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md mb-2">The Influence Mindset</h3>
+            <p class="text-on-surface-variant">Clear the mindset blocks that hold you back from speaking with true executive authority.</p>
+          </div>
+          <div class="p-8 rounded-[32px] bg-white shadow-sm border border-outline-variant/30 hover:border-secondary/30 transition-all group">
+            <div class="w-12 h-12 rounded-2xl bg-secondary-fixed flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">campaign</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md mb-2">Strategic Storytelling</h3>
+            <p class="text-on-surface-variant">Learn to frame complex data into compelling narratives that drive organizational change.</p>
+          </div>
+          <div class="p-8 rounded-[32px] bg-white shadow-sm border border-outline-variant/30 hover:border-tertiary-fixed-dim/30 transition-all group">
+            <div class="w-12 h-12 rounded-2xl bg-tertiary-fixed flex items-center justify-center mb-6 text-tertiary group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">forum</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md mb-2">High-Stakes Negotiation</h3>
+            <p class="text-on-surface-variant">Master micro-expressions and tonal control to win negotiations before they even begin.</p>
+          </div>
+          <div class="p-8 rounded-[32px] bg-surface-container-low shadow-sm border border-outline-variant/30 hover:border-success-green/30 transition-all group">
+            <div class="w-12 h-12 rounded-2xl bg-[#E8F5E9] flex items-center justify-center mb-6 text-success-green group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">groups</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md mb-2">Presence &amp; Body Language</h3>
+            <p class="text-on-surface-variant">A deep dive into the non-verbal cues that signal competence, warmth, and leadership.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Curriculum -->
+      <section>
+        <div class="flex justify-between items-end mb-8">
+          <h2 class="font-headline-lg text-headline-lg">Curriculum Breakdown</h2>
+          <span class="text-on-surface-variant font-label-bold">12 Modules • 24 Hours</span>
+        </div>
+        <div class="space-y-4" id="accordion">
+
+          <div class="accordion-item rounded-2xl bg-white border border-outline-variant/50 overflow-hidden">
+            <button class="accordion-btn w-full flex items-center justify-between p-6 text-left hover:bg-surface-container-lowest transition-colors">
+              <div class="flex items-center gap-4">
+                <span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">01</span>
+                <span class="font-headline-md text-headline-md">The Foundations of Executive Presence</span>
+              </div>
+              <span class="material-symbols-outlined accordion-icon">expand_more</span>
+            </button>
+            <div class="accordion-content">
+              <div class="pb-6 pl-18 space-y-3 ml-12 px-6">
+                <div class="flex items-center justify-between py-2 border-b border-outline-variant/20">
+                  <div class="flex items-center gap-3"><span class="material-symbols-outlined text-outline">play_circle</span><span>Defining Your Personal Leadership Brand</span></div>
+                  <span class="text-sm text-outline">12:45</span>
+                </div>
+                <div class="flex items-center justify-between py-2 border-b border-outline-variant/20">
+                  <div class="flex items-center gap-3"><span class="material-symbols-outlined text-outline">play_circle</span><span>The Psychology of Authority</span></div>
+                  <span class="text-sm text-outline">18:20</span>
+                </div>
+                <div class="flex items-center justify-between py-2">
+                  <div class="flex items-center gap-3"><span class="material-symbols-outlined text-outline">description</span><span>Leadership Audit Worksheet</span></div>
+                  <span class="text-sm text-outline">PDF</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item accordion-open rounded-2xl bg-white border border-outline-variant/50 overflow-hidden">
+            <button class="accordion-btn w-full flex items-center justify-between p-6 text-left hover:bg-surface-container-lowest transition-colors">
+              <div class="flex items-center gap-4">
+                <span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">02</span>
+                <span class="font-headline-md text-headline-md">Influence &amp; Persuasion Frameworks</span>
+              </div>
+              <span class="material-symbols-outlined accordion-icon">expand_more</span>
+            </button>
+            <div class="accordion-content">
+              <div class="pb-6 space-y-3 ml-12 px-6">
+                <div class="flex items-center justify-between py-2 border-b border-outline-variant/20">
+                  <div class="flex items-center gap-3"><span class="material-symbols-outlined text-outline">play_circle</span><span>The 3 Pillars of Strategic Persuasion</span></div>
+                  <span class="text-sm text-outline">15:10</span>
+                </div>
+                <div class="flex items-center justify-between py-2">
+                  <div class="flex items-center gap-3"><span class="material-symbols-outlined text-outline">video_library</span><span>Case Study: Turning a 'No' into a 'Yes'</span></div>
+                  <span class="text-sm text-outline">22:05</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item rounded-2xl bg-white border border-outline-variant/50 overflow-hidden">
+            <button class="accordion-btn w-full flex items-center justify-between p-6 text-left hover:bg-surface-container-lowest transition-colors">
+              <div class="flex items-center gap-4">
+                <span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">03</span>
+                <span class="font-headline-md text-headline-md">Managing High-Stakes Conflict</span>
+              </div>
+              <span class="material-symbols-outlined accordion-icon">expand_more</span>
+            </button>
+            <div class="accordion-content">
+              <div class="pb-6 ml-12 px-6">
+                <p class="text-on-surface-variant italic pt-4">Content arriving in Phase 2.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Video Preview -->
+      <section>
+        <h2 class="font-headline-lg text-headline-lg mb-8">Course Preview</h2>
+        <div class="relative group aspect-video w-full rounded-[32px] overflow-hidden bg-on-background shadow-2xl">
+          <img class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+               src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&q=80"
+               alt="Executive communication workshop"/>
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <button class="w-20 h-20 bg-[#FF7A00] rounded-full flex items-center justify-center text-white shadow-xl group-hover:scale-110 transition-all">
+              <span class="material-symbols-outlined text-[48px]" style="font-variation-settings:'FILL' 1;">play_arrow</span>
+            </button>
+            <p class="mt-6 text-white font-headline-md">Watch Lesson 1: The Human OS Upgrade</p>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-on-background/80 to-transparent">
+            <div class="flex items-center gap-4">
+              <div class="flex-1 h-1 bg-white/20 rounded-full relative">
+                <div class="absolute top-0 left-0 h-full w-1/3 bg-secondary-container rounded-full shimmer-progress"></div>
+              </div>
+              <span class="text-white text-sm font-label-bold">04:20 / 12:45</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Right Column: Sidebar -->
+    <aside class="lg:col-span-4 space-y-8">
+      <!-- Course Info Card -->
+      <div class="glass-card p-8 rounded-[32px] sticky top-28 space-y-8 shadow-lg">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-on-surface-variant">Current Price</span>
+            <span class="font-display-xl text-headline-lg text-primary">$499</span>
+          </div>
+          <div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+            <div class="h-full w-4/5 bg-secondary shimmer-progress relative rounded-full"></div>
+          </div>
+          <p class="text-sm text-secondary font-label-bold text-center">80% of seats filled for this Cohort!</p>
+        </div>
+        <div class="space-y-4 border-t border-outline-variant/30 pt-8">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+              <span class="material-symbols-outlined">signal_cellular_alt</span>
+            </div>
+            <div><p class="text-sm text-on-surface-variant leading-none">Course Level</p><p class="font-label-bold">Advanced Executive</p></div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+              <span class="material-symbols-outlined">person</span>
+            </div>
+            <div><p class="text-sm text-on-surface-variant leading-none">Students Enrolled</p><p class="font-label-bold">1,248 Professionals</p></div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+              <span class="material-symbols-outlined">workspace_premium</span>
+            </div>
+            <div><p class="text-sm text-on-surface-variant leading-none">Certification</p><p class="font-label-bold">Human OS Verified</p></div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+              <span class="material-symbols-outlined">update</span>
+            </div>
+            <div><p class="text-sm text-on-surface-variant leading-none">Duration</p><p class="font-label-bold">6 Weeks (Self-Paced)</p></div>
+          </div>
+        </div>
+        <div class="space-y-4 pt-4">
+          <button class="w-full bg-[#FF7A00] text-white font-headline-md py-4 rounded-full shadow-lg hover:shadow-xl transition-all">Claim Your Seat</button>
+          <p class="text-[12px] text-on-surface-variant text-center">30-Day Money Back Guarantee</p>
+        </div>
+        <div class="bg-primary/5 p-6 rounded-2xl border border-primary/10">
+          <h4 class="font-label-bold text-primary mb-2 flex items-center gap-2">
+            <span class="material-symbols-outlined text-[18px]">verified_user</span>
+            Corporate Offerings
+          </h4>
+          <p class="text-sm text-on-surface-variant mb-4">Training for 5+ employees? Get customized team pricing and reporting dashboards.</p>
+          <a href="#" class="text-primary font-label-bold text-sm underline underline-offset-4 hover:text-secondary transition-colors">Request a Demo</a>
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="p-6 rounded-[32px] bg-on-background text-white space-y-4">
+        <div class="flex gap-1 text-secondary-container">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+        </div>
+        <p class="font-body-md italic opacity-90">"The transition from a technical lead to an executive was daunting. This course gave me the language to bridge the gap."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center font-bold text-primary text-sm">DC</div>
+          <div>
+            <p class="font-label-bold leading-none">David Chen</p>
+            <p class="text-[12px] opacity-70">VP of Engineering, CloudScale</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-on-background w-full py-section-padding-sm text-white mt-section-padding-lg">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-gutter max-w-container-max mx-auto">
+    <div class="space-y-4">
+      <div class="font-headline-md text-headline-md font-bold text-primary-fixed">Growwings</div>
+      <p class="font-body-md text-body-md text-outline-variant">Upgrade your Human OS with outcome-obsessed leadership training.</p>
+      <div class="flex gap-4">
+        <span class="material-symbols-outlined text-outline-variant hover:text-white cursor-pointer transition-colors">social_leaderboard</span>
+        <span class="material-symbols-outlined text-outline-variant hover:text-white cursor-pointer transition-colors">language</span>
+        <span class="material-symbols-outlined text-outline-variant hover:text-white cursor-pointer transition-colors">group</span>
+      </div>
+    </div>
+    <div class="space-y-4">
+      <h4 class="font-label-bold text-primary-fixed">Programs</h4>
+      <ul class="space-y-2">
+        <li><a href="courses.html" class="text-outline-variant hover:text-white transition-colors">For Colleges</a></li>
+        <li><a href="courses.html" class="text-outline-variant hover:text-white transition-colors">For Companies</a></li>
+        <li><a href="courses.html" class="text-outline-variant hover:text-white transition-colors">All Courses</a></li>
+      </ul>
+    </div>
+    <div class="space-y-4">
+      <h4 class="font-label-bold text-primary-fixed">Support</h4>
+      <ul class="space-y-2">
+        <li><a href="#" class="text-outline-variant hover:text-white transition-colors">Terms of Service</a></li>
+        <li><a href="#" class="text-outline-variant hover:text-white transition-colors">Privacy Policy</a></li>
+        <li><a href="#" class="text-outline-variant hover:text-white transition-colors">Contact Support</a></li>
+      </ul>
+    </div>
+    <div class="space-y-4">
+      <h4 class="font-label-bold text-primary-fixed">Newsletter</h4>
+      <p class="text-sm text-outline-variant">Get weekly leadership hacks.</p>
+      <div class="flex gap-2">
+        <input class="bg-white/10 border-white/20 rounded-lg px-4 py-2 text-white w-full focus:outline-none focus:border-secondary" placeholder="Email" type="email"/>
+        <button class="bg-primary text-white p-2 rounded-lg hover:bg-secondary transition-colors"><span class="material-symbols-outlined">send</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto px-gutter mt-12 pt-8 border-t border-white/10 text-center">
+    <p class="text-outline-variant text-sm">© 2024 Growwings. The Human OS Upgrade.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  });
+
+  // Accordion
+  document.querySelectorAll('.accordion-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.parentElement.classList.toggle('accordion-open');
+    });
+  });
+
+  // Navbar scroll
+  window.addEventListener('scroll', () => {
+    const h = document.getElementById('main-header');
+    h.classList.toggle('shadow-md', window.scrollY > 20);
+  });
+</script>
+</body>
+</html>

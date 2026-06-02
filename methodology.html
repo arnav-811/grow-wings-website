@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Our Methodology | Growwings — The Skill Revolution</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: {
+        "surface-glass":"rgba(255,255,255,0.7)","tertiary-fixed-dim":"#75d1ff","success-green":"#22C55E",
+        "secondary-fixed":"#ffdbc8","tertiary-fixed":"#c2e8ff","outline-variant":"#c2c7d1","surface-variant":"#d3e4fe",
+        "background-main":"#F8FAFC","on-primary-container":"#8ebdf9","secondary-fixed-dim":"#ffb68b",
+        "surface-container-highest":"#d3e4fe","on-secondary-container":"#592600","primary":"#00355f",
+        "on-tertiary-fixed":"#001e2b","on-tertiary":"#ffffff","inverse-on-surface":"#eaf1ff",
+        "surface-container":"#e5eeff","secondary-container":"#fb7800","surface-container-lowest":"#ffffff",
+        "surface-container-high":"#dce9ff","secondary":"#994700","on-background":"#0b1c30",
+        "on-tertiary-container":"#3dc6ff","primary-fixed":"#d2e4ff","primary-fixed-dim":"#a0c9ff",
+        "surface-dim":"#cbdbf5","inverse-surface":"#213145","outline":"#727780","background":"#f8f9ff",
+        "text-display":"#0F172A","on-surface":"#0b1c30","surface-container-low":"#eff4ff",
+        "on-secondary":"#ffffff","tertiary-container":"#00506c","surface":"#f8f9ff",
+        "primary-container":"#0f4c81","tertiary":"#00384c","inverse-primary":"#a0c9ff",
+        "on-surface-variant":"#42474f","on-primary":"#ffffff"
+      },
+      borderRadius:{ DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px" },
+      spacing:{ gutter:"24px","section-padding-sm":"40px",base:"8px","section-padding-lg":"80px","container-max":"1280px" },
+      fontFamily:{ "body-md":["Inter"],"body-lg":["Inter"],"headline-md":["Montserrat"],"headline-lg":["Montserrat"],"display-xl":["Montserrat"],"label-bold":["Inter"] },
+      fontSize:{
+        "body-md":["16px",{lineHeight:"24px",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],
+        "headline-md":["24px",{lineHeight:"32px",fontWeight:"700"}],"headline-lg":["40px",{lineHeight:"48px",fontWeight:"700"}],
+        "display-xl":["64px",{lineHeight:"72px",letterSpacing:"-0.02em",fontWeight:"800"}],
+        "label-bold":["14px",{lineHeight:"20px",fontWeight:"600"}]
+      }
+    }}
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+  .glass-card { background:rgba(255,255,255,0.7); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.3); box-shadow:0 4px 20px rgba(15,23,42,0.05); }
+  .shimmer-fill { background:linear-gradient(90deg,#00355f 0%,#2d6197 50%,#00355f 100%); background-size:200% 100%; animation:shimmer 3s infinite linear; }
+  .shimmer-orange { background:linear-gradient(90deg,#fb7800 0%,#ffdbc8 50%,#fb7800 100%); background-size:200% 100%; animation:shimmer 3s infinite linear; }
+  @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+  .step-line::after { content:""; display:block; width:2px; height:100%; background:linear-gradient(to bottom,#00355f,transparent); margin:8px auto 0; }
+  #mobile-menu { transition:max-height .3s ease,opacity .3s ease; max-height:0; opacity:0; overflow:hidden; }
+  #mobile-menu.open { max-height:400px; opacity:1; }
+  .fade-in { opacity:0; transform:translateY(24px); transition:opacity 0.5s ease,transform 0.5s ease; }
+  .fade-in.visible { opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body class="bg-background-main font-body-md text-on-surface">
+
+<!-- Navigation -->
+<header id="main-header" class="w-full sticky top-0 bg-surface-glass backdrop-blur-md shadow-sm z-50">
+  <nav class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+    <a href="index.html" class="flex items-center gap-2"><img src="logo.png" alt="Growwings" class="h-10 w-auto"/><span class="font-headline-md text-headline-md font-bold text-primary hidden sm:block">Growwings</span></a>
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="courses.html" class="text-on-surface-variant hover:text-secondary font-body-md transition-colors">Courses</a>
+      <a href="methodology.html" class="text-secondary border-b-2 border-secondary pb-1 font-body-md transition-colors">Methodology</a>
+      <a href="testimonials.html" class="text-on-surface-variant hover:text-secondary font-body-md transition-colors">Testimonials</a>
+      <a href="about.html" class="text-on-surface-variant hover:text-secondary font-body-md transition-colors">About</a>
+    </div>
+    <div class="hidden md:flex items-center gap-4">
+      <a href="dashboard.html" class="text-primary font-label-bold hover:text-secondary transition-colors">Login</a>
+      <a href="courses.html" class="bg-secondary-container hover:bg-secondary text-white px-6 py-2 rounded-full font-label-bold transition-all hover:scale-105">Get Started</a>
+    </div>
+    <button id="menu-toggle" class="md:hidden text-primary"><span class="material-symbols-outlined">menu</span></button>
+  </nav>
+  <div id="mobile-menu" class="md:hidden bg-white border-t border-outline-variant/20 px-gutter">
+    <div class="py-4 space-y-3">
+      <a href="courses.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Courses</a>
+      <a href="methodology.html" class="block py-2 font-body-md text-secondary font-semibold">Methodology</a>
+      <a href="testimonials.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Testimonials</a>
+      <a href="about.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">About</a>
+      <div class="pt-2 flex gap-3">
+        <a href="dashboard.html" class="text-primary font-label-bold hover:text-secondary">Login</a>
+        <a href="courses.html" class="bg-secondary-container text-white px-5 py-2 rounded-full font-label-bold text-sm">Get Started</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="relative overflow-hidden py-section-padding-lg px-gutter max-w-container-max mx-auto text-center">
+    <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-tertiary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="relative z-10 max-w-3xl mx-auto">
+      <span class="bg-primary text-white px-4 py-1.5 rounded-full font-label-bold text-label-bold mb-6 inline-block">THE 5-PART FRAMEWORK</span>
+      <h1 class="font-display-xl text-display-xl text-primary mb-6 leading-tight">
+        Not Just Training.<br/><span class="text-secondary-container">It's a Skill Revolution.</span>
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+        Our 5-part methodology is built to shift mindsets, not just teach techniques. Because real change doesn't happen only through theory — it happens through experience, reflection, and practice. Whether it's English fluency, confidence in communication, or emotional intelligence, we go deeper.
+      </p>
+    </div>
+  </section>
+
+  <!-- The 5 Steps -->
+  <section class="py-section-padding-lg px-gutter max-w-container-max mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+      <!-- Step timeline -->
+      <div class="space-y-8 lg:sticky lg:top-28">
+        <h2 class="font-headline-lg text-headline-lg text-primary">The 5-Part Framework</h2>
+        <p class="text-body-lg text-on-surface-variant">Each step is intentionally sequenced. We don't teach skills in isolation — we build them on top of each other, the way real transformation happens. The result? Participants who don't just learn — they transform.</p>
+        <div class="relative pl-10 space-y-8">
+          <div class="absolute left-4 top-2 bottom-2 w-0.5 bg-gradient-to-b from-primary via-secondary-container to-tertiary-fixed-dim rounded-full"></div>
+          <!-- Step dots -->
+          <div class="flex items-center gap-4">
+            <div class="absolute left-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm z-10">1</div>
+            <div class="ml-2">
+              <p class="font-label-bold text-primary">Emotion-First Approach</p>
+              <p class="text-sm text-on-surface-variant">Clear mental blocks before building skills</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="absolute left-0 w-8 h-8 rounded-full bg-secondary-container text-white flex items-center justify-center font-bold text-sm z-10">2</div>
+            <div class="ml-2">
+              <p class="font-label-bold text-primary">Real-World Simulations</p>
+              <p class="text-sm text-on-surface-variant">Apply learning in lifelike scenarios</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="absolute left-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm z-10">3</div>
+            <div class="ml-2">
+              <p class="font-label-bold text-primary">Active Practice Loops</p>
+              <p class="text-sm text-on-surface-variant">Repetition with structured feedback</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="absolute left-0 w-8 h-8 rounded-full bg-tertiary-container text-white flex items-center justify-center font-bold text-sm z-10">4</div>
+            <div class="ml-2">
+              <p class="font-label-bold text-primary">Small Group Labs</p>
+              <p class="text-sm text-on-surface-variant">Intimacy breeds confidence</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="absolute left-0 w-8 h-8 rounded-full bg-success-green text-white flex items-center justify-center font-bold text-sm z-10">5</div>
+            <div class="ml-2">
+              <p class="font-label-bold text-primary">Outcome Tracking</p>
+              <p class="text-sm text-on-surface-variant">Measure real transformation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detailed cards -->
+      <div class="space-y-6">
+
+        <!-- Step 1 -->
+        <div class="fade-in relative bg-white rounded-[32px] p-8 shadow-sm border border-outline-variant/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-secondary-fixed/30 rounded-bl-full"></div>
+          <div class="relative z-10">
+            <div class="flex items-start gap-6 mb-6">
+              <div class="w-14 h-14 rounded-2xl bg-secondary-fixed flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings:'FILL' 1;">psychology</span>
+              </div>
+              <div>
+                <span class="text-xs font-label-bold text-secondary uppercase tracking-widest">Step 01</span>
+                <h3 class="font-headline-md text-headline-md text-primary">Emotion-First Approach</h3>
+              </div>
+            </div>
+            <p class="text-body-md text-on-surface-variant mb-6">We start where most training programs never go — the inner world. Self-doubt, fear of judgment, and imposter syndrome are the invisible walls that block skill acquisition. We dismantle them first.</p>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                <span class="text-sm text-on-surface-variant">Identify and name personal mindset blocks</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                <span class="text-sm text-on-surface-variant">Replace fear-based responses with growth reflexes</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                <span class="text-sm text-on-surface-variant">Build psychological safety within the cohort</span>
+              </div>
+            </div>
+            <div class="mt-6 h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+              <div class="shimmer-orange h-full w-[85%] rounded-full"></div>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-1 text-right">85% impact score</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="fade-in relative bg-white rounded-[32px] p-8 shadow-sm border border-outline-variant/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-tertiary-fixed/40 rounded-bl-full"></div>
+          <div class="relative z-10">
+            <div class="flex items-start gap-6 mb-6">
+              <div class="w-14 h-14 rounded-2xl bg-tertiary-fixed flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-tertiary text-3xl" style="font-variation-settings:'FILL' 1;">model_training</span>
+              </div>
+              <div>
+                <span class="text-xs font-label-bold text-tertiary uppercase tracking-widest">Step 02</span>
+                <h3 class="font-headline-md text-headline-md text-primary">Real-World Simulations</h3>
+              </div>
+            </div>
+            <p class="text-body-md text-on-surface-variant mb-6">Every session is a rehearsal for reality. We recreate job interviews, client calls, boardroom presentations, and difficult conversations — so when the moment arrives, your team has already been there.</p>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                <span class="text-sm text-on-surface-variant">Mock interviews and assessment centers</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                <span class="text-sm text-on-surface-variant">Live client-call and conflict scenarios</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                <span class="text-sm text-on-surface-variant">Recorded roleplay with mentor debrief</span>
+              </div>
+            </div>
+            <div class="mt-6 h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+              <div class="shimmer-fill h-full w-[78%] rounded-full"></div>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-1 text-right">78% retention boost</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="fade-in relative bg-white rounded-[32px] p-8 shadow-sm border border-outline-variant/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-primary-fixed/50 rounded-bl-full"></div>
+          <div class="relative z-10">
+            <div class="flex items-start gap-6 mb-6">
+              <div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings:'FILL' 1;">sync</span>
+              </div>
+              <div>
+                <span class="text-xs font-label-bold text-primary uppercase tracking-widest">Step 03</span>
+                <h3 class="font-headline-md text-headline-md text-primary">Active Practice Loops</h3>
+              </div>
+            </div>
+            <p class="text-body-md text-on-surface-variant mb-6">We don't lecture. We loop. Every concept is introduced, practiced, critiqued, and refined — in the same session. Spaced repetition and deliberate feedback are the engine of lasting change.</p>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                <span class="text-sm text-on-surface-variant">Present → Perform → Reflect → Improve cycle</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                <span class="text-sm text-on-surface-variant">Peer critique and structured mentor feedback</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                <span class="text-sm text-on-surface-variant">Micro-homework between sessions</span>
+              </div>
+            </div>
+            <div class="mt-6 h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+              <div class="shimmer-fill h-full w-[91%] rounded-full"></div>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-1 text-right">91% skill application rate</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="fade-in relative bg-white rounded-[32px] p-8 shadow-sm border border-outline-variant/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-surface-container-high rounded-bl-full"></div>
+          <div class="relative z-10">
+            <div class="flex items-start gap-6 mb-6">
+              <div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings:'FILL' 1;">groups_3</span>
+              </div>
+              <div>
+                <span class="text-xs font-label-bold text-on-surface-variant uppercase tracking-widest">Step 04</span>
+                <h3 class="font-headline-md text-headline-md text-primary">Small Group Labs</h3>
+              </div>
+            </div>
+            <p class="text-body-md text-on-surface-variant mb-6">Large classrooms create spectators. We create performers. Groups of 8–12 people means everyone speaks, everyone is seen, and everyone grows. The intimacy breeds the courage to try and fail safely.</p>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                <span class="text-sm text-on-surface-variant">Max 12 participants per cohort</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                <span class="text-sm text-on-surface-variant">High participation-to-time ratio per learner</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                <span class="text-sm text-on-surface-variant">Peer accountability and cohort bonds</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="fade-in relative bg-white rounded-[32px] p-8 shadow-sm border border-outline-variant/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-[#E8F5E9] rounded-bl-full"></div>
+          <div class="relative z-10">
+            <div class="flex items-start gap-6 mb-6">
+              <div class="w-14 h-14 rounded-2xl bg-[#E8F5E9] flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-success-green text-3xl" style="font-variation-settings:'FILL' 1;">analytics</span>
+              </div>
+              <div>
+                <span class="text-xs font-label-bold text-success-green uppercase tracking-widest">Step 05</span>
+                <h3 class="font-headline-md text-headline-md text-primary">Outcome Tracking</h3>
+              </div>
+            </div>
+            <p class="text-body-md text-on-surface-variant mb-6">We don't measure attendance. We measure transformation. Pre/post assessments, confidence scorecards, and participation analytics give you proof of change — not just a certificate.</p>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                <span class="text-sm text-on-surface-variant">Pre/post confidence and fluency assessments</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                <span class="text-sm text-on-surface-variant">Participation and engagement analytics</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                <span class="text-sm text-on-surface-variant">Monthly progress reports for institutions</span>
+              </div>
+            </div>
+            <div class="mt-6 flex gap-4">
+              <div class="flex-1 bg-surface-container-low rounded-2xl p-4 text-center">
+                <p class="text-2xl font-bold text-success-green">4.9</p>
+                <p class="text-xs text-on-surface-variant">Avg feedback rating</p>
+              </div>
+              <div class="flex-1 bg-surface-container-low rounded-2xl p-4 text-center">
+                <p class="text-2xl font-bold text-primary">85%</p>
+                <p class="text-xs text-on-surface-variant">Skill retention at 30 days</p>
+              </div>
+              <div class="flex-1 bg-surface-container-low rounded-2xl p-4 text-center">
+                <p class="text-2xl font-bold text-secondary-container">92%</p>
+                <p class="text-xs text-on-surface-variant">Placement improvement</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- The Philosophy -->
+  <section class="bg-primary py-section-padding-lg px-gutter">
+    <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div class="space-y-6">
+        <span class="bg-white/10 text-white px-4 py-1.5 rounded-full font-label-bold text-label-bold inline-block">OUR PHILOSOPHY</span>
+        <h2 class="font-headline-lg text-headline-lg text-white">The Human OS Upgrade</h2>
+        <p class="text-body-lg text-primary-fixed opacity-90">
+          Software gets patched. Humans get upgraded through experience — through challenge, failure, reflection, and practice in conditions that feel real. That's the philosophy behind every single session we design.
+        </p>
+        <p class="text-body-md text-primary-fixed opacity-80">
+          We work with 🎓 Colleges for student fluency, placement prep, and orientation. We work with 🏢 Companies for sales teams, customer support, and internal growth. In both cases, the outcome is the same: people who show up differently after Growwings than before it.
+        </p>
+        <a href="courses.html" class="inline-flex items-center gap-2 bg-secondary-container hover:bg-secondary text-white px-8 py-4 rounded-full font-label-bold transition-all group">
+          Explore Programs
+          <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-2 gap-6">
+        <div class="bg-white/10 backdrop-blur-md rounded-[32px] p-8 text-center space-y-2">
+          <span class="material-symbols-outlined text-secondary-fixed text-4xl" style="font-variation-settings:'FILL' 1;">psychology</span>
+          <p class="font-headline-md text-headline-md text-white">Mindset</p>
+          <p class="text-sm text-primary-fixed opacity-80">Before skill, we work on will</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-md rounded-[32px] p-8 text-center space-y-2">
+          <span class="material-symbols-outlined text-secondary-fixed text-4xl" style="font-variation-settings:'FILL' 1;">model_training</span>
+          <p class="font-headline-md text-headline-md text-white">Practice</p>
+          <p class="text-sm text-primary-fixed opacity-80">Real scenarios, not slides</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-md rounded-[32px] p-8 text-center space-y-2">
+          <span class="material-symbols-outlined text-secondary-fixed text-4xl" style="font-variation-settings:'FILL' 1;">groups_3</span>
+          <p class="font-headline-md text-headline-md text-white">Community</p>
+          <p class="text-sm text-primary-fixed opacity-80">Peers who push you forward</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-md rounded-[32px] p-8 text-center space-y-2">
+          <span class="material-symbols-outlined text-secondary-fixed text-4xl" style="font-variation-settings:'FILL' 1;">analytics</span>
+          <p class="font-headline-md text-headline-md text-white">Proof</p>
+          <p class="text-sm text-primary-fixed opacity-80">Outcomes, not certificates</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-section-padding-lg px-gutter">
+    <div class="max-w-container-max mx-auto text-center">
+      <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Ready to Experience It?</h2>
+      <p class="text-body-lg text-on-surface-variant mb-10 max-w-xl mx-auto">
+        See the methodology in action. Browse our programs or book a discovery call with our team.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="courses.html" class="bg-secondary-container hover:bg-secondary text-white px-10 py-5 rounded-full font-label-bold transition-all shadow-lg">Browse Programs</a>
+        <a href="about.html#contact" class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-10 py-5 rounded-full font-label-bold transition-all">Talk to Us</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-on-background py-section-padding-sm text-white">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-gutter max-w-container-max mx-auto">
+    <div class="space-y-4">
+      <p class="font-headline-md text-headline-md font-bold text-primary-fixed">Growwings</p>
+      <p class="text-outline-variant text-sm">Upgrade your Human OS. Transformative learning for the future-ready leader.</p>
+    </div>
+    <div>
+      <h5 class="font-label-bold text-primary-fixed mb-4 uppercase tracking-wider text-xs">Navigate</h5>
+      <ul class="space-y-3 text-outline-variant text-sm">
+        <li><a href="courses.html" class="hover:text-white transition-colors">Courses</a></li>
+        <li><a href="methodology.html" class="hover:text-white transition-colors">Methodology</a></li>
+        <li><a href="testimonials.html" class="hover:text-white transition-colors">Testimonials</a></li>
+        <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="font-label-bold text-primary-fixed mb-4 uppercase tracking-wider text-xs">Legal</h5>
+      <ul class="space-y-3 text-outline-variant text-sm">
+        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Contact Support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="font-label-bold text-primary-fixed mb-4 uppercase tracking-wider text-xs">Connect</h5>
+      <div class="relative">
+        <input class="w-full bg-white/5 border border-white/20 rounded-full px-6 py-3 text-white focus:outline-none focus:border-secondary-container text-sm" placeholder="Email Address" type="email"/>
+        <button class="absolute right-2 top-2 bg-secondary-container text-white w-8 h-8 rounded-full flex items-center justify-center">
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="mt-12 pt-8 border-t border-white/10 text-center px-gutter max-w-container-max mx-auto">
+    <p class="text-outline-variant text-sm">© 2024 Growwings. The Human OS Upgrade.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  });
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-header').classList.toggle('shadow-md', window.scrollY > 50);
+  });
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

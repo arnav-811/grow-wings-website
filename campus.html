@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Future Ready Campus | Growwings</title>
+<meta name="description" content="Fluent. Fearless. Future-Ready. Give your students the communication edge they need to thrive."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config={theme:{extend:{
+    colors:{"surface-glass":"rgba(255,255,255,0.7)","tertiary-fixed-dim":"#75d1ff","success-green":"#22C55E",
+      "secondary-fixed":"#ffdbc8","tertiary-fixed":"#c2e8ff","outline-variant":"#c2c7d1","surface-variant":"#d3e4fe",
+      "background-main":"#F8FAFC","on-primary-container":"#c8efef","secondary-fixed-dim":"#ffb68b",
+      "surface-container-highest":"#d3e4fe","on-secondary-container":"#592600","primary":"#32999b",
+      "on-tertiary-fixed":"#001e2b","inverse-on-surface":"#eaf1ff","surface-container":"#e5eeff",
+      "secondary-container":"#fb7800","surface-container-lowest":"#ffffff","surface-container-high":"#dce9ff",
+      "secondary":"#994700","on-background":"#0a2526","primary-fixed":"#c8efef","primary-fixed-dim":"#7dcbcd",
+      "outline":"#727780","background":"#f8f9ff","text-display":"#0F172A","on-surface":"#0b1c30",
+      "surface-container-low":"#eff4ff","on-secondary":"#ffffff","tertiary-container":"#00506c",
+      "surface":"#f8f9ff","primary-container":"#1b7a7c","tertiary":"#00384c","on-surface-variant":"#42474f","on-primary":"#ffffff"},
+    borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},
+    spacing:{gutter:"24px","section-padding-sm":"40px",base:"8px","section-padding-lg":"80px","container-max":"1280px"},
+    fontFamily:{"body-md":["Inter"],"body-lg":["Inter"],"headline-md":["Montserrat"],"headline-lg":["Montserrat"],"display-xl":["Montserrat"],"label-bold":["Inter"]},
+    fontSize:{"body-md":["16px",{lineHeight:"24px",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],
+      "headline-md":["24px",{lineHeight:"32px",fontWeight:"700"}],"headline-lg":["40px",{lineHeight:"48px",fontWeight:"700"}],
+      "display-xl":["64px",{lineHeight:"72px",letterSpacing:"-0.02em",fontWeight:"800"}],
+      "label-bold":["14px",{lineHeight:"20px",fontWeight:"600"}]}
+  }}}
+</script>
+<style>
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+  .glass-card{background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.3);box-shadow:0 4px 20px rgba(15,23,42,0.05)}
+  #mobile-menu{transition:max-height .3s ease,opacity .3s ease;max-height:0;opacity:0;overflow:hidden}
+  #mobile-menu.open{max-height:500px;opacity:1}
+  .fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+  .fade-in.visible{opacity:1;transform:translateY(0)}
+  .shimmer-orange{background:linear-gradient(90deg,#fb7800 0%,#ffdbc8 50%,#fb7800 100%);background-size:200% 100%;animation:shimmer 2s infinite linear}
+  .gradient-border-card{position:relative;background:#fff;border-radius:32px;overflow:hidden}
+  .gradient-border-card::before{content:"";position:absolute;inset:0;padding:2px;border-radius:32px;background:linear-gradient(135deg,#32999b,#fb7800);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+  @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+  .acc-item .accordion-content{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .acc-item.accordion-open .accordion-content{max-height:600px}
+  .acc-item.accordion-open .acc-icon{transform:rotate(180deg)}
+  .acc-icon{transition:transform .3s}
+</style>
+  <link rel="stylesheet" href="animations.css"/>
+</head>
+<body class="bg-background-main font-body-md text-on-surface">
+<header id="main-header" class="w-full sticky top-0 bg-surface-glass backdrop-blur-md shadow-sm z-50">
+  <nav class="flex justify-between items-center px-gutter py-3 max-w-container-max mx-auto">
+    <a href="index.html" class="flex items-center gap-2 shrink-0"><img src="logo.png" alt="Growwings" class="h-10 w-auto"/></a>
+    <div class="hidden md:flex items-center space-x-8"><a href="corporate.html" class="text-on-surface-variant hover:text-primary font-body-md transition-colors duration-200">Corporate Offerings</a>
+      <a href="campus.html" class="text-secondary border-b-2 border-secondary pb-0.5 font-body-md transition-colors duration-200">Future Ready Campus</a>
+      <a href="contact.html" class="text-on-surface-variant hover:text-primary font-body-md transition-colors duration-200">Book Appointment</a>
+      </div>
+    <a href="contact.html" class="magnetic btn-pulse hidden md:inline-flex bg-secondary-container hover:bg-secondary text-white px-6 py-2 rounded-full font-label-bold transition-all hover:scale-105" data-modal="talk">Talk to Us!</a>
+    <button id="menu-toggle" class="md:hidden text-primary"><span class="material-symbols-outlined">menu</span></button>
+  </nav>
+  <div id="mobile-menu" class="md:hidden bg-white border-t border-outline-variant/20 px-gutter">
+    <div class="py-4 space-y-1"><a href="corporate.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Corporate Offerings</a>
+      <a href="campus.html" class="block py-2 font-body-md text-secondary font-semibold">Future Ready Campus</a>
+      <a href="contact.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Book Appointment</a>
+      <a href="contact.html" class="inline-block mt-3 bg-secondary-container text-white px-6 py-2 rounded-full font-label-bold text-sm" data-modal="talk">Talk to Us!</a></div>
+  </div>
+</header>
+<main>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden py-section-padding-lg px-gutter max-w-container-max mx-auto">
+    <div class="anim-blob anim-blob-3 absolute -top-20 -left-20 w-96 h-96 bg-tertiary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="fade-in">
+        <span class="bg-tertiary-fixed text-on-tertiary-fixed px-4 py-1.5 rounded-full font-label-bold text-xs uppercase tracking-wide mb-6 inline-block">🎓 For Colleges</span>
+        <h1 class="font-display-xl text-display-xl text-primary mb-6 leading-tight">Fluent.<br/>Fearless.<br/><span class="text-secondary-container shimmer-text">Future-Ready.</span></h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-10">Give your students the <strong>communication edge</strong> they need to thrive — in interviews, internships, and the real world.</p>
+        <a href="contact.html" class="magnetic btn-pulse inline-flex items-center gap-2 bg-secondary-container hover:bg-secondary text-white px-8 py-4 rounded-full font-label-bold transition-all group shadow-lg">Partner with Us <span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">arrow_forward</span></a>
+      </div>
+      <div class="relative fade-in">
+        <img class="rounded-[40px] shadow-2xl w-full object-cover aspect-[4/3]" src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=800&q=80" alt="Students in workshop"/>
+        <div class="absolute -bottom-6 -right-6 glass-card p-5 rounded-2xl z-10 flex items-center gap-4">
+          <div class="bg-success-green/10 p-3 rounded-full"><span class="material-symbols-outlined text-success-green" style="font-variation-settings:'FILL' 1;">school</span></div>
+          <div><p class="text-primary font-bold text-2xl">4000+</p><p class="text-on-surface-variant text-sm">Students Trained</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="bg-primary py-12">
+    <div class="max-w-container-max mx-auto px-gutter grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div><h3 class="text-secondary-fixed-dim font-display-xl text-[48px] leading-tight mb-1" stat-count">4000</h3><p class="text-primary-fixed opacity-80">Students Trained</p></div>
+      <div><h3 class="text-secondary-fixed-dim font-display-xl text-[48px] leading-tight mb-1" stat-count">7 LPA</h3><p class="text-primary-fixed opacity-80">Avg. Packages</p></div>
+      <div><h3 class="text-secondary-fixed-dim font-display-xl text-[48px] leading-tight mb-1" stat-count">10+</h3><p class="text-primary-fixed opacity-80">Campus Tie-Ups</p></div>
+      <div><h3 class="text-secondary-fixed-dim font-display-xl text-[48px] leading-tight mb-1" stat-count">122+</h3><p class="text-primary-fixed opacity-80">Experienced Faculty</p></div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="py-section-padding-lg px-gutter max-w-container-max mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
+      <h2 class="font-headline-lg text-headline-lg text-primary mb-6">We don't just teach…<br/>We transform how students show up in the world.</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant">Our 3-part approach ensures your students are emotionally ready, professionally fluent, and placement confident.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="fade-in gradient-border-card p-10 hover:shadow-xl transition-all">
+        <div class="w-14 h-14 rounded-2xl bg-secondary-fixed flex items-center justify-center mb-6"><span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings:'FILL' 1;">favorite</span></div>
+        <h3 class="font-headline-md text-headline-md text-primary mb-3">Emotional Readiness</h3>
+        <p class="text-on-surface-variant font-body-md">Help students break hesitation, self-doubt, and the fear of speaking. Before skill, we work on will.</p>
+      </div>
+      <div class="fade-in bg-primary rounded-[32px] p-10 text-white hover:shadow-xl transition-all relative overflow-hidden">
+        <div class="absolute -right-6 -top-6 w-32 h-32 bg-secondary-container/20 rounded-full blur-2xl"></div>
+        <div class="relative z-10">
+          <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-6"><span class="material-symbols-outlined text-secondary-fixed text-3xl" style="font-variation-settings:'FILL' 1;">record_voice_over</span></div>
+          <h3 class="font-headline-md text-headline-md mb-3">Communication Fluency</h3>
+          <p class="text-primary-fixed opacity-90 font-body-md">Build real-world English skills through speaking labs, storytelling, and active listening.</p>
+        </div>
+      </div>
+      <div class="fade-in gradient-border-card p-10 hover:shadow-xl transition-all">
+        <div class="w-14 h-14 rounded-2xl bg-tertiary-fixed flex items-center justify-center mb-6"><span class="material-symbols-outlined text-tertiary text-3xl" style="font-variation-settings:'FILL' 1;">work</span></div>
+        <h3 class="font-headline-md text-headline-md text-primary mb-3">Career Confidence</h3>
+        <p class="text-on-surface-variant font-body-md">Interview prep, placement grooming, and workplace communication training for day one and beyond.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Triple Win -->
+  <section class="bg-surface-container-low py-section-padding-lg px-gutter">
+    <div class="max-w-container-max mx-auto">
+      <div class="text-center mb-12 fade-in">
+        <h2 class="font-headline-lg text-headline-lg text-primary mb-4">That's our model — Built for scale and trust.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="fade-in bg-white rounded-[32px] p-10 text-center shadow-sm hover:shadow-xl transition-all hover:-translate-y-1">
+          <div class="text-4xl mb-4">🏆</div>
+          <h3 class="font-headline-md text-headline-md text-primary mb-3">Colleges Win</h3>
+          <p class="text-on-surface-variant">Because placements go up, and so does reputation.</p>
+        </div>
+        <div class="fade-in bg-primary rounded-[32px] p-10 text-center text-white shadow-sm hover:shadow-xl transition-all hover:-translate-y-1">
+          <div class="text-4xl mb-4">🏆</div>
+          <h3 class="font-headline-md text-headline-md mb-3">Students Win</h3>
+          <p class="text-primary-fixed opacity-90">Because they're truly job-ready.</p>
+        </div>
+        <div class="fade-in bg-white rounded-[32px] p-10 text-center shadow-sm hover:shadow-xl transition-all hover:-translate-y-1">
+          <div class="text-4xl mb-4">🏆</div>
+          <h3 class="font-headline-md text-headline-md text-primary mb-3">Companies Win</h3>
+          <p class="text-on-surface-variant">Because they hire the right talent without compromise.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Offerings -->
+  <section class="py-section-padding-lg px-gutter max-w-container-max mx-auto">
+    <div class="text-center mb-12 fade-in">
+      <h2 class="font-headline-lg text-headline-lg text-primary mb-4">What We Cover</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="fade-in bg-surface-container-low rounded-[32px] p-8 hover:shadow-lg transition-all">
+        <div class="w-12 h-12 rounded-2xl bg-secondary-fixed flex items-center justify-center mb-5"><span class="material-symbols-outlined text-secondary" style="font-variation-settings:'FILL' 1;">campaign</span></div>
+        <h3 class="font-headline-md text-headline-md text-primary mb-4">Soft Skills &amp; Workplace Communication</h3>
+        <ul class="space-y-2 text-on-surface-variant text-sm">
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-success-green text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Spoken English &amp; Confidence</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-success-green text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Group Discussions &amp; Interview Prep</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-success-green text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Workplace Etiquette &amp; Presentation Skills</li>
+        </ul>
+      </div>
+      <div class="fade-in bg-surface-container-low rounded-[32px] p-8 hover:shadow-lg transition-all">
+        <div class="w-12 h-12 rounded-2xl bg-primary-fixed flex items-center justify-center mb-5"><span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1;">engineering</span></div>
+        <h3 class="font-headline-md text-headline-md text-primary mb-4">Technical &amp; Domain Readiness</h3>
+        <ul class="space-y-2 text-on-surface-variant text-sm">
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-success-green text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Industry-specific knowledge sessions</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-success-green text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Role-plays &amp; real-world projects</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-success-green text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Job-role-based learning tracks</li>
+        </ul>
+      </div>
+      <div class="fade-in bg-surface-container-low rounded-[32px] p-8 hover:shadow-lg transition-all">
+        <div class="w-12 h-12 rounded-2xl bg-tertiary-fixed flex items-center justify-center mb-5"><span class="material-symbols-outlined text-tertiary" style="font-variation-settings:'FILL' 1;">table_chart</span></div>
+        <h3 class="font-headline-md text-headline-md text-primary mb-4">Excel &amp; Workplace Tools</h3>
+        <ul class="space-y-2 text-on-surface-variant text-sm">
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-success-green text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Basic to Intermediate Excel</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-success-green text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Data handling &amp; reporting</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-success-green text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Practical use-cases for corporate settings</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section class="bg-surface-container-low py-section-padding-lg px-gutter">
+    <div class="max-w-container-max mx-auto">
+      <div class="text-center mb-14 fade-in">
+        <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Program Formats</h2>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div class="fade-in bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all">
+          <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700&q=80" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Bootcamp"/></div>
+          <div class="p-8">
+            <span class="text-xs font-label-bold text-primary uppercase tracking-widest">Long Term Program</span>
+            <h3 class="font-headline-md text-headline-md text-primary mt-2 mb-4">Ace Your Placements Bootcamp</h3>
+            <p class="text-on-surface-variant mb-6">A comprehensive, multi-track learning journey that prepares students holistically for the real world.</p>
+            <div class="space-y-2 mb-6">
+              <div class="flex items-center gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-success-green text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Soft Skills &amp; Communication</div>
+              <div class="flex items-center gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-success-green text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Technical &amp; Domain Readiness</div>
+              <div class="flex items-center gap-2 text-sm text-on-surface-variant"><span class="material-symbols-outlined text-success-green text-sm" style="font-variation-settings:'FILL' 1;">check_circle</span>Excel &amp; Workplace Tools</div>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <span class="text-xs bg-surface-container px-3 py-1.5 rounded-full text-on-surface-variant font-label-bold">👥 3rd Year &amp; Placement Aspirants</span>
+              <span class="text-xs bg-surface-container px-3 py-1.5 rounded-full text-on-surface-variant font-label-bold">🗓 12+ Weeks | Weekly Sessions</span>
+              <span class="text-xs bg-surface-container px-3 py-1.5 rounded-full text-on-surface-variant font-label-bold">📱 LMS Support &amp; Assessments</span>
+            </div>
+          </div>
+        </div>
+        <div class="fade-in bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all">
+          <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Workshop"/></div>
+          <div class="p-8">
+            <span class="text-xs font-label-bold text-secondary uppercase tracking-widest">Short Term Engagement</span>
+            <h3 class="font-headline-md text-headline-md text-primary mt-2 mb-4">PowerUP Workshops</h3>
+            <p class="text-on-surface-variant mb-6">High-impact, interactive workshops designed to create awareness, spark change, and build essential skills.</p>
+            <p class="text-sm font-label-bold text-on-surface-variant mb-3">Pick your topics:</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-xs bg-secondary-fixed text-secondary px-3 py-1 rounded-full font-label-bold">Confidence &amp; Communication</span>
+              <span class="text-xs bg-secondary-fixed text-secondary px-3 py-1 rounded-full font-label-bold">GD &amp; Personal Interviews</span>
+              <span class="text-xs bg-secondary-fixed text-secondary px-3 py-1 rounded-full font-label-bold">Resume Building</span>
+              <span class="text-xs bg-secondary-fixed text-secondary px-3 py-1 rounded-full font-label-bold">Problem Solving &amp; EI</span>
+              <span class="text-xs bg-secondary-fixed text-secondary px-3 py-1 rounded-full font-label-bold">Entrepreneurial Thinking</span>
+              <span class="text-xs bg-secondary-fixed text-secondary px-3 py-1 rounded-full font-label-bold">Excel &amp; Data Handling</span>
+              <span class="text-xs bg-secondary-fixed text-secondary px-3 py-1 rounded-full font-label-bold">Workplace Etiquette</span>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <span class="text-xs bg-surface-container px-3 py-1.5 rounded-full text-on-surface-variant font-label-bold">🗓 2–3 Days | 6–12 Hours</span>
+              <span class="text-xs bg-surface-container px-3 py-1.5 rounded-full text-on-surface-variant font-label-bold">⚡ Activity-Driven</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-section-padding-lg px-gutter max-w-container-max mx-auto">
+    <div class="text-center mb-12 fade-in">
+      <h2 class="font-headline-lg text-headline-lg text-primary mb-4">What They're Saying</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      <div class="fade-in bg-white p-10 rounded-[32px] shadow-sm hover:shadow-xl transition-all">
+        <div class="flex gap-1 text-secondary-container mb-5"><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span></div>
+        <p class="font-headline-md text-headline-md text-primary leading-relaxed mb-6">"Our students became more confident in just 3 days. It wasn't just about English — it was a mindset shift."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center font-bold text-primary text-sm">PO</div>
+          <div><p class="font-label-bold text-primary">Placement Officer</p><p class="text-sm text-on-surface-variant">Partner College</p></div>
+        </div>
+      </div>
+      <div class="fade-in bg-primary p-10 rounded-[32px] shadow-sm hover:shadow-xl transition-all text-white">
+        <div class="flex gap-1 text-secondary-fixed mb-5"><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span></div>
+        <p class="font-headline-md text-headline-md leading-relaxed mb-6">"Earlier I never raised my hand in class. Now I've hosted events and cracked my interview."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center font-bold text-white text-sm">BE</div>
+          <div><p class="font-label-bold">BE Student, FY</p><p class="text-sm text-primary-fixed opacity-80">Partner Campus</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-headline-lg text-headline-lg text-primary mb-8 text-center fade-in">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <div class="acc-item bg-white rounded-2xl border border-outline-variant/40 overflow-hidden fade-in">
+          <button class="acc-btn w-full flex items-center justify-between p-6 text-left hover:bg-surface-container-lowest transition-colors">
+            <span class="font-headline-md text-headline-md text-primary pr-4">How do your programs align with our academic and placement calendar?</span>
+            <span class="material-symbols-outlined acc-icon shrink-0 text-primary">expand_more</span>
+          </button>
+          <div class="accordion-content"><div class="px-6 pb-6 text-on-surface-variant">We offer flexible formats — from 2-day workshops to 3-month journeys — that can be slotted into semester breaks, placement windows, or even orientation weeks. We adapt to your timeline, not the other way around.</div></div>
+        </div>
+        <div class="acc-item bg-white rounded-2xl border border-outline-variant/40 overflow-hidden fade-in">
+          <button class="acc-btn w-full flex items-center justify-between p-6 text-left hover:bg-surface-container-lowest transition-colors">
+            <span class="font-headline-md text-headline-md text-primary pr-4">What measurable outcomes can we expect from your training?</span>
+            <span class="material-symbols-outlined acc-icon shrink-0 text-primary">expand_more</span>
+          </button>
+          <div class="accordion-content"><div class="px-6 pb-6 text-on-surface-variant">You'll see real changes — more students speaking up, performing better in mock interviews, and cracking placements with clarity and confidence. We also provide feedback summaries and participation data after sessions. Additionally, through our placement partners, students gain access to 60+ hiring companies with an average package range of ₹10–15 LPA.</div></div>
+        </div>
+        <div class="acc-item bg-white rounded-2xl border border-outline-variant/40 overflow-hidden fade-in">
+          <button class="acc-btn w-full flex items-center justify-between p-6 text-left hover:bg-surface-container-lowest transition-colors">
+            <span class="font-headline-md text-headline-md text-primary pr-4">Are your sessions customized for different streams or year groups?</span>
+            <span class="material-symbols-outlined acc-icon shrink-0 text-primary">expand_more</span>
+          </button>
+          <div class="accordion-content"><div class="px-6 pb-6 text-on-surface-variant">Absolutely. Whether it's first-year orientation, pre-placement prep, or stream-specific soft skills, we tailor each session's content, tone, and activities to match the group's context and maturity level.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="py-section-padding-lg px-gutter">
+    <div class="max-w-container-max mx-auto bg-primary rounded-[48px] overflow-hidden relative">
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white,transparent)]"></div>
+      <div class="relative z-10 px-8 py-16 md:px-20 md:py-20 text-center">
+        <h2 class="font-headline-lg text-headline-lg text-white mb-4">Build a Future-Ready Campus</h2>
+        <p class="text-primary-fixed text-body-lg mb-10 max-w-xl mx-auto opacity-90">Tell us your campus goals, and we'll suggest the right training plan.</p>
+        <a href="contact.html" class="magnetic btn-pulse inline-block bg-secondary-container hover:bg-secondary text-white px-12 py-5 rounded-full font-label-bold transition-all shadow-xl text-base">Partner with Us</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer class="bg-on-background py-section-padding-sm text-white">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-gutter max-w-container-max mx-auto">
+    <div class="space-y-5">
+      <img src="logo.png" alt="Growwings" class="h-11 w-auto brightness-0 invert"/>
+      <p class="text-outline-variant text-sm leading-relaxed">We craft learning journeys that turn fresh talent and seasoned professionals into confident, outcome-obsessed leaders.</p>
+      <div class="flex gap-3">
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary-container transition-colors text-xs font-bold">f</a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary-container transition-colors text-xs font-bold">𝕏</a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary-container transition-colors"><span class="material-symbols-outlined text-sm">photo_camera</span></a>
+      </div>
+    </div>
+    <div>
+      <h5 class="font-label-bold text-primary-fixed mb-5 uppercase tracking-wider text-xs">Quick Links</h5>
+      <ul class="space-y-3 text-outline-variant text-sm">
+        <li><a href="index.html" class="hover:text-white transition-colors">Home Page</a></li>
+        <li><a href="corporate.html" class="hover:text-white transition-colors">Corporate Offerings</a></li>
+        <li><a href="campus.html" class="hover:text-white transition-colors">Future Ready Campus</a></li>
+        <li><a href="contact.html" class="hover:text-white transition-colors">Book Appointment</a></li>
+        <li><a href="blogs.html" class="hover:text-white transition-colors">Blogs and Case Studies</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="font-label-bold text-primary-fixed mb-5 uppercase tracking-wider text-xs">Follow Us</h5>
+      <ul class="space-y-3 text-outline-variant text-sm">
+        <li><a href="#" class="hover:text-white transition-colors">Facebook</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Instagram</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">X (Twitter)</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="font-label-bold text-primary-fixed mb-5 uppercase tracking-wider text-xs">Stay Updated</h5>
+      <p class="text-outline-variant text-sm mb-4">Get the latest from Growwings.</p>
+      <div class="relative">
+        <input type="email" placeholder="Email Address" class="w-full bg-white/5 border border-white/20 rounded-full px-5 py-3 text-white text-sm focus:outline-none focus:border-secondary-container"/>
+        <button class="absolute right-2 top-2 bg-secondary-container text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-secondary transition-colors"><span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="mt-12 pt-8 border-t border-white/10 text-center px-gutter">
+    <p class="text-outline-variant text-sm">© 2024 Growwings. Grow. Lead. Change the Game.</p>
+  </div>
+</footer>
+<script>
+  document.getElementById('menu-toggle').addEventListener('click',()=>document.getElementById('mobile-menu').classList.toggle('open'));
+  window.addEventListener('scroll',()=>document.getElementById('main-header').classList.toggle('shadow-md',window.scrollY>50));
+  document.querySelectorAll('.fade-in').forEach(el=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1}).observe(el));
+  document.querySelectorAll('.acc-btn').forEach(b=>b.addEventListener('click',()=>b.closest('.acc-item').classList.toggle('accordion-open')));
+</script>
+<script src="animations.js"></script>
+<script src="modal.js"></script>
+</body></html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Testimonials & Case Studies | Growwings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: {
+        "surface-glass":"rgba(255,255,255,0.7)","tertiary-fixed-dim":"#75d1ff","success-green":"#22C55E",
+        "secondary-fixed":"#ffdbc8","tertiary-fixed":"#c2e8ff","outline-variant":"#c2c7d1","surface-variant":"#d3e4fe",
+        "background-main":"#F8FAFC","on-primary-container":"#8ebdf9","secondary-fixed-dim":"#ffb68b",
+        "surface-container-highest":"#d3e4fe","on-secondary-container":"#592600","primary":"#00355f",
+        "on-tertiary-fixed":"#001e2b","on-tertiary":"#ffffff","inverse-on-surface":"#eaf1ff",
+        "surface-container":"#e5eeff","secondary-container":"#fb7800","surface-container-lowest":"#ffffff",
+        "surface-container-high":"#dce9ff","secondary":"#994700","on-background":"#0b1c30",
+        "on-tertiary-container":"#3dc6ff","primary-fixed":"#d2e4ff","primary-fixed-dim":"#a0c9ff",
+        "outline":"#727780","background":"#f8f9ff","text-display":"#0F172A","on-surface":"#0b1c30",
+        "surface-container-low":"#eff4ff","on-secondary":"#ffffff","tertiary-container":"#00506c",
+        "surface":"#f8f9ff","primary-container":"#0f4c81","tertiary":"#00384c","on-surface-variant":"#42474f","on-primary":"#ffffff"
+      },
+      borderRadius:{ DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px" },
+      spacing:{ gutter:"24px","section-padding-sm":"40px",base:"8px","section-padding-lg":"80px","container-max":"1280px" },
+      fontFamily:{ "body-md":["Inter"],"body-lg":["Inter"],"headline-md":["Montserrat"],"headline-lg":["Montserrat"],"display-xl":["Montserrat"],"label-bold":["Inter"] },
+      fontSize:{
+        "body-md":["16px",{lineHeight:"24px",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],
+        "headline-md":["24px",{lineHeight:"32px",fontWeight:"700"}],"headline-lg":["40px",{lineHeight:"48px",fontWeight:"700"}],
+        "display-xl":["64px",{lineHeight:"72px",letterSpacing:"-0.02em",fontWeight:"800"}],
+        "label-bold":["14px",{lineHeight:"20px",fontWeight:"600"}]
+      }
+    }}
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+  .glass-card { background:rgba(255,255,255,0.7); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.3); box-shadow:0 4px 20px rgba(15,23,42,0.05); }
+  #mobile-menu { transition:max-height .3s ease,opacity .3s ease; max-height:0; opacity:0; overflow:hidden; }
+  #mobile-menu.open { max-height:400px; opacity:1; }
+  .fade-in { opacity:0; transform:translateY(24px); transition:opacity 0.5s ease,transform 0.5s ease; }
+  .fade-in.visible { opacity:1; transform:translateY(0); }
+  .filter-btn.active { background:#00355f; color:white; }
+</style>
+</head>
+<body class="bg-background-main font-body-md text-on-surface">
+
+<!-- Navigation -->
+<header id="main-header" class="w-full sticky top-0 bg-surface-glass backdrop-blur-md shadow-sm z-50">
+  <nav class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+    <a href="index.html" class="flex items-center gap-2"><img src="logo.png" alt="Growwings" class="h-10 w-auto"/><span class="font-headline-md text-headline-md font-bold text-primary hidden sm:block">Growwings</span></a>
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="courses.html" class="text-on-surface-variant hover:text-secondary font-body-md transition-colors">Courses</a>
+      <a href="methodology.html" class="text-on-surface-variant hover:text-secondary font-body-md transition-colors">Methodology</a>
+      <a href="testimonials.html" class="text-secondary border-b-2 border-secondary pb-1 font-body-md transition-colors">Testimonials</a>
+      <a href="about.html" class="text-on-surface-variant hover:text-secondary font-body-md transition-colors">About</a>
+    </div>
+    <div class="hidden md:flex items-center gap-4">
+      <a href="dashboard.html" class="text-primary font-label-bold hover:text-secondary transition-colors">Login</a>
+      <a href="courses.html" class="bg-secondary-container hover:bg-secondary text-white px-6 py-2 rounded-full font-label-bold transition-all hover:scale-105">Get Started</a>
+    </div>
+    <button id="menu-toggle" class="md:hidden text-primary"><span class="material-symbols-outlined">menu</span></button>
+  </nav>
+  <div id="mobile-menu" class="md:hidden bg-white border-t border-outline-variant/20 px-gutter">
+    <div class="py-4 space-y-3">
+      <a href="courses.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Courses</a>
+      <a href="methodology.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Methodology</a>
+      <a href="testimonials.html" class="block py-2 font-body-md text-secondary font-semibold">Testimonials</a>
+      <a href="about.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">About</a>
+      <div class="pt-2 flex gap-3">
+        <a href="dashboard.html" class="text-primary font-label-bold hover:text-secondary">Login</a>
+        <a href="courses.html" class="bg-secondary-container text-white px-5 py-2 rounded-full font-label-bold text-sm">Get Started</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="py-section-padding-lg px-gutter max-w-container-max mx-auto text-center">
+    <span class="bg-tertiary-fixed text-on-tertiary-fixed px-4 py-1.5 rounded-full font-label-bold text-label-bold mb-6 inline-block">REAL RESULTS</span>
+    <h1 class="font-display-xl text-display-xl text-primary mb-6 leading-tight">
+      The Change You Can<br/><span class="text-secondary-container">See (and Hear).</span>
+    </h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+      5,500+ humans trained across colleges and companies. Hear from the leaders who witnessed the transformation.
+    </p>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="bg-primary py-12 px-gutter">
+    <div class="max-w-container-max mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div><h3 class="text-secondary-fixed-dim font-display-xl text-[48px] leading-tight mb-1">5500+</h3><p class="text-primary-fixed opacity-80 text-sm">Humans Trained</p></div>
+      <div><h3 class="text-secondary-fixed-dim font-display-xl text-[48px] leading-tight mb-1">4.9</h3><p class="text-primary-fixed opacity-80 text-sm">Feedback Rating</p></div>
+      <div><h3 class="text-secondary-fixed-dim font-display-xl text-[48px] leading-tight mb-1">10+</h3><p class="text-primary-fixed opacity-80 text-sm">Campus Tie-Ups</p></div>
+      <div><h3 class="text-secondary-fixed-dim font-display-xl text-[48px] leading-tight mb-1">7 LPA</h3><p class="text-primary-fixed opacity-80 text-sm">Avg. Campus Package</p></div>
+    </div>
+  </section>
+
+  <!-- Filter + Cards -->
+  <section class="py-section-padding-lg px-gutter max-w-container-max mx-auto">
+    <!-- Filters -->
+    <div class="flex flex-wrap gap-3 mb-12 justify-center" id="filters">
+      <button data-filter="all" class="filter-btn active px-6 py-2.5 rounded-full font-label-bold border border-outline-variant transition-all hover:border-primary text-sm">All Stories</button>
+      <button data-filter="college" class="filter-btn px-6 py-2.5 rounded-full font-label-bold border border-outline-variant transition-all hover:border-primary text-on-surface-variant text-sm">Colleges</button>
+      <button data-filter="corporate" class="filter-btn px-6 py-2.5 rounded-full font-label-bold border border-outline-variant transition-all hover:border-primary text-on-surface-variant text-sm">Corporate</button>
+      <button data-filter="student" class="filter-btn px-6 py-2.5 rounded-full font-label-bold border border-outline-variant transition-all hover:border-primary text-on-surface-variant text-sm">Students</button>
+    </div>
+
+    <!-- Testimonial Grid -->
+    <div id="testimonial-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Card 1 - College -->
+      <div data-type="college" class="fade-in bg-white p-8 rounded-[32px] shadow-sm flex flex-col justify-between hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div>
+          <div class="flex gap-1 text-secondary-container mb-6">
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+          </div>
+          <p class="font-headline-md text-headline-md text-primary leading-relaxed mb-6">
+            "It wasn't just English — it was a mindset shift. Our students became more confident in just 3 days."
+          </p>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center font-bold text-primary text-sm">PO</div>
+          <div>
+            <p class="font-label-bold text-label-bold text-primary">Placement Officer</p>
+            <p class="text-sm text-on-surface-variant">Partner College</p>
+            <span class="text-xs bg-tertiary-fixed text-on-tertiary-fixed px-2 py-0.5 rounded-full mt-1 inline-block">College</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 - Corporate -->
+      <div data-type="corporate" class="fade-in bg-white p-8 rounded-[32px] shadow-sm flex flex-col justify-between hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div>
+          <div class="flex gap-1 text-secondary-container mb-6">
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+          </div>
+          <p class="font-headline-md text-headline-md text-primary leading-relaxed mb-6">
+            "Our team now speaks with more clarity — on calls, with clients, and internally."
+          </p>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-secondary-fixed rounded-full flex items-center justify-center font-bold text-secondary text-sm">HR</div>
+          <div>
+            <p class="font-label-bold text-label-bold text-primary">HR Manager</p>
+            <p class="text-sm text-on-surface-variant">Software Company, Bangalore</p>
+            <span class="text-xs bg-secondary-fixed text-secondary px-2 py-0.5 rounded-full mt-1 inline-block">Corporate</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 - Student -->
+      <div data-type="student" class="fade-in bg-primary p-8 rounded-[32px] shadow-sm flex flex-col justify-between hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div>
+          <div class="flex gap-1 text-secondary-container mb-6">
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+          </div>
+          <p class="font-headline-md text-headline-md text-white leading-relaxed mb-6">
+            "I went from dreading group discussions to leading them. Growwings didn't just teach me to speak — it taught me to think on my feet."
+          </p>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center font-bold text-white text-sm">RS</div>
+          <div>
+            <p class="font-label-bold text-label-bold text-white">Rahul S.</p>
+            <p class="text-sm text-primary-fixed opacity-80">Final Year Student, IT</p>
+            <span class="text-xs bg-white/20 text-white px-2 py-0.5 rounded-full mt-1 inline-block">Student</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 - Corporate -->
+      <div data-type="corporate" class="fade-in bg-white p-8 rounded-[32px] shadow-sm flex flex-col justify-between hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div>
+          <div class="flex gap-1 text-secondary-container mb-6">
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+          </div>
+          <p class="font-headline-md text-headline-md text-primary leading-relaxed mb-6">
+            "Participants were more engaged and the learning stuck. We saw immediate behaviour change on calls and in client meetings."
+          </p>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center font-bold text-primary text-sm">VP</div>
+          <div>
+            <p class="font-label-bold text-label-bold text-primary">VP Sales</p>
+            <p class="text-sm text-on-surface-variant">Tyson Foods</p>
+            <span class="text-xs bg-secondary-fixed text-secondary px-2 py-0.5 rounded-full mt-1 inline-block">Corporate</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 - College -->
+      <div data-type="college" class="fade-in bg-white p-8 rounded-[32px] shadow-sm flex flex-col justify-between hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div>
+          <div class="flex gap-1 text-secondary-container mb-6">
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+          </div>
+          <p class="font-headline-md text-headline-md text-primary leading-relaxed mb-6">
+            "Our students became more confident in just 3 days. It wasn't just about English — it was a mindset shift."
+          </p>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center font-bold text-primary text-sm">PR</div>
+          <div>
+            <p class="font-label-bold text-label-bold text-primary">Placement Officer</p>
+            <p class="text-sm text-on-surface-variant">EY / PeriFerry / Godrej Properties</p>
+            <span class="text-xs bg-tertiary-fixed text-on-tertiary-fixed px-2 py-0.5 rounded-full mt-1 inline-block">College</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 - Student -->
+      <div data-type="student" class="fade-in bg-surface-container-high p-8 rounded-[32px] shadow-sm flex flex-col justify-between hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div>
+          <div class="flex gap-1 text-secondary-container mb-6">
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+          </div>
+          <p class="font-headline-md text-headline-md text-primary leading-relaxed mb-6">
+            "I cracked my dream job offer. The mock interview sessions gave me an edge that no textbook ever could. Genuinely life-changing."
+          </p>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-primary-fixed rounded-full flex items-center justify-center font-bold text-primary text-sm">PK</div>
+          <div>
+            <p class="font-label-bold text-label-bold text-primary">Priya K.</p>
+            <p class="text-sm text-on-surface-variant">Placed at Infosys, 2024</p>
+            <span class="text-xs bg-surface-container text-primary px-2 py-0.5 rounded-full mt-1 inline-block">Student</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7 - Corporate -->
+      <div data-type="corporate" class="fade-in bg-white p-8 rounded-[32px] shadow-sm flex flex-col justify-between hover:shadow-xl transition-all duration-300 hover:-translate-y-1 md:col-span-2 lg:col-span-1">
+        <div>
+          <div class="flex gap-1 text-secondary-container mb-6">
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+          </div>
+          <p class="font-headline-md text-headline-md text-primary leading-relaxed mb-6">
+            "The transition from a technical lead to an executive was daunting. Growwings gave me the language to bridge that gap with confidence."
+          </p>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center font-bold text-primary text-sm">DC</div>
+          <div>
+            <p class="font-label-bold text-label-bold text-primary">David Chen</p>
+            <p class="text-sm text-on-surface-variant">VP Engineering, CloudScale</p>
+            <span class="text-xs bg-secondary-fixed text-secondary px-2 py-0.5 rounded-full mt-1 inline-block">Corporate</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Case Study Banner -->
+  <section class="py-section-padding-lg px-gutter bg-surface-container-low">
+    <div class="max-w-container-max mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Case Study Highlights</h2>
+        <p class="text-body-lg text-on-surface-variant max-w-xl mx-auto">Real engagements. Measurable outcomes. Here's what the numbers look like after a Growwings program.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-[32px] p-8 shadow-sm hover:shadow-xl transition-all fade-in">
+          <div class="w-12 h-12 rounded-2xl bg-tertiary-fixed flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-tertiary" style="font-variation-settings:'FILL' 1;">school</span>
+          </div>
+          <span class="text-xs font-label-bold text-tertiary uppercase tracking-widest">College Program</span>
+          <h3 class="font-headline-md text-headline-md text-primary mt-2 mb-4">Partner College</h3>
+          <p class="text-body-md text-on-surface-variant mb-6">6-week Fluency Lab for 120 final-year students before campus placements.</p>
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-on-surface-variant">Placement Rate</span>
+              <span class="font-label-bold text-success-green">↑ 34%</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-on-surface-variant">Confidence Score</span>
+              <span class="font-label-bold text-primary">4.8 / 5.0</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-on-surface-variant">Students Trained</span>
+              <span class="font-label-bold text-primary">120</span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-[32px] p-8 shadow-sm hover:shadow-xl transition-all fade-in">
+          <div class="w-12 h-12 rounded-2xl bg-secondary-fixed flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-secondary" style="font-variation-settings:'FILL' 1;">business</span>
+          </div>
+          <span class="text-xs font-label-bold text-secondary uppercase tracking-widest">Corporate Program</span>
+          <h3 class="font-headline-md text-headline-md text-primary mt-2 mb-4">Tyson Foods</h3>
+          <p class="text-body-md text-on-surface-variant mb-6">2-week Clarity & Influence program for a 40-person sales team.</p>
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-on-surface-variant">Sales Conversion</span>
+              <span class="font-label-bold text-success-green">↑ 18%</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-on-surface-variant">Client Satisfaction</span>
+              <span class="font-label-bold text-primary">↑ 22%</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-on-surface-variant">Team Members</span>
+              <span class="font-label-bold text-primary">40</span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-[32px] p-8 shadow-sm hover:shadow-xl transition-all fade-in">
+          <div class="w-12 h-12 rounded-2xl bg-primary-fixed flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1;">groups</span>
+          </div>
+          <span class="text-xs font-label-bold text-primary uppercase tracking-widest">Hybrid Program</span>
+          <h3 class="font-headline-md text-headline-md text-primary mt-2 mb-4">EY / PeriFerry / Godrej Properties</h3>
+          <p class="text-body-md text-on-surface-variant mb-6">Leadership Mindset program for MBA students and visiting executives.</p>
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-on-surface-variant">Feedback Rating</span>
+              <span class="font-label-bold text-success-green">4.9 / 5.0</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-on-surface-variant">Skill Retention (30d)</span>
+              <span class="font-label-bold text-primary">87%</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-on-surface-variant">Participants</span>
+              <span class="font-label-bold text-primary">85</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-section-padding-lg px-gutter">
+    <div class="max-w-container-max mx-auto bg-primary rounded-[48px] overflow-hidden relative">
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white,transparent)]"></div>
+      <div class="relative z-10 px-8 py-16 md:px-20 md:py-24 text-center">
+        <h2 class="font-headline-lg text-headline-lg text-white mb-6">Your team could be next.</h2>
+        <p class="text-primary-fixed text-body-lg mb-10 max-w-2xl mx-auto">Tell us about your students or team — we'll design a program that delivers results you can measure.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="courses.html" class="bg-secondary-container hover:bg-secondary text-white px-10 py-5 rounded-full font-label-bold transition-all shadow-xl">Explore Programs</a>
+          <a href="about.html#contact" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md px-10 py-5 rounded-full font-label-bold transition-all">Book a Call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-on-background py-section-padding-sm text-white">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-gutter max-w-container-max mx-auto">
+    <div class="space-y-4">
+      <p class="font-headline-md text-headline-md font-bold text-primary-fixed">Growwings</p>
+      <p class="text-outline-variant text-sm">Upgrade your Human OS. Transformative learning for the future-ready leader.</p>
+    </div>
+    <div>
+      <h5 class="font-label-bold text-primary-fixed mb-4 uppercase tracking-wider text-xs">Navigate</h5>
+      <ul class="space-y-3 text-outline-variant text-sm">
+        <li><a href="courses.html" class="hover:text-white transition-colors">Courses</a></li>
+        <li><a href="methodology.html" class="hover:text-white transition-colors">Methodology</a></li>
+        <li><a href="testimonials.html" class="hover:text-white transition-colors">Testimonials</a></li>
+        <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="font-label-bold text-primary-fixed mb-4 uppercase tracking-wider text-xs">Legal</h5>
+      <ul class="space-y-3 text-outline-variant text-sm">
+        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Contact Support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="font-label-bold text-primary-fixed mb-4 uppercase tracking-wider text-xs">Connect</h5>
+      <div class="relative">
+        <input class="w-full bg-white/5 border border-white/20 rounded-full px-6 py-3 text-white focus:outline-none focus:border-secondary-container text-sm" placeholder="Email Address" type="email"/>
+        <button class="absolute right-2 top-2 bg-secondary-container text-white w-8 h-8 rounded-full flex items-center justify-center">
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="mt-12 pt-8 border-t border-white/10 text-center px-gutter max-w-container-max mx-auto">
+    <p class="text-outline-variant text-sm">© 2024 Growwings. The Human OS Upgrade.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  });
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-header').classList.toggle('shadow-md', window.scrollY > 50);
+  });
+
+  // Filter logic
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('active');
+        b.classList.add('text-on-surface-variant');
+      });
+      btn.classList.add('active');
+      btn.classList.remove('text-on-surface-variant');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('#testimonial-grid > div').forEach(card => {
+        if (filter === 'all' || card.dataset.type === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Fade-in
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

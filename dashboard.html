@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Growwings | Student Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    darkMode:"class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-glass":"rgba(255,255,255,0.7)","tertiary-fixed-dim":"#75d1ff","success-green":"#22C55E",
+          "secondary-fixed":"#ffdbc8","tertiary-fixed":"#c2e8ff","outline-variant":"#c2c7d1","surface-variant":"#d3e4fe",
+          "background-main":"#F8FAFC","on-primary-container":"#8ebdf9","on-tertiary-fixed-variant":"#004d67",
+          "secondary-fixed-dim":"#ffb68b","surface-container-highest":"#d3e4fe","on-secondary-container":"#592600",
+          "primary":"#00355f","on-tertiary-fixed":"#001e2b","on-secondary-fixed-variant":"#753400","on-tertiary":"#ffffff",
+          "inverse-on-surface":"#eaf1ff","surface-container":"#e5eeff","secondary-container":"#fb7800",
+          "surface-container-lowest":"#ffffff","surface-container-high":"#dce9ff","secondary":"#994700",
+          "on-primary-fixed-variant":"#07497d","on-background":"#0b1c30","on-tertiary-container":"#3dc6ff",
+          "on-error":"#ffffff","primary-fixed":"#d2e4ff","primary-fixed-dim":"#a0c9ff","surface-dim":"#cbdbf5",
+          "surface-tint":"#2d6197","inverse-surface":"#213145","outline":"#727780","background":"#f8f9ff",
+          "text-display":"#0F172A","on-surface":"#0b1c30","surface-container-low":"#eff4ff","on-secondary-fixed":"#321200",
+          "on-secondary":"#ffffff","on-error-container":"#93000a","tertiary-container":"#00506c","surface":"#f8f9ff",
+          "error-container":"#ffdad6","primary-container":"#0f4c81","tertiary":"#00384c","error":"#ba1a1a",
+          "inverse-primary":"#a0c9ff","on-surface-variant":"#42474f","surface-bright":"#f8f9ff",
+          "on-primary-fixed":"#001c37","on-primary":"#ffffff"
+        },
+        borderRadius:{ DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px" },
+        spacing:{ gutter:"24px","section-padding-sm":"40px",base:"8px","section-padding-lg":"80px","container-max":"1280px" },
+        fontFamily:{ "headline-lg-mobile":["Montserrat"],"body-md":["Inter"],"body-lg":["Inter"],"headline-md":["Montserrat"],"headline-lg":["Montserrat"],"display-xl":["Montserrat"],"label-bold":["Inter"] },
+        fontSize:{
+          "headline-lg-mobile":["32px",{lineHeight:"40px",fontWeight:"700"}],
+          "body-md":["16px",{lineHeight:"24px",fontWeight:"400"}],
+          "body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],
+          "headline-md":["24px",{lineHeight:"32px",fontWeight:"700"}],
+          "headline-lg":["40px",{lineHeight:"48px",fontWeight:"700"}],
+          "display-xl":["64px",{lineHeight:"72px",letterSpacing:"-0.02em",fontWeight:"800"}],
+          "label-bold":["14px",{lineHeight:"20px",fontWeight:"600"}]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+  .glass-card { background:rgba(255,255,255,0.7); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.3); }
+  .shimmer-progress { position:relative; overflow:hidden; }
+  .shimmer-progress::after {
+    content:""; position:absolute; top:0; left:-100%; width:50%; height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);
+    animation:shimmer 2s infinite;
+  }
+  @keyframes shimmer { 0%{left:-100%} 100%{left:200%} }
+  .circular-progress {
+    --percentage: 0;
+    background: conic-gradient(var(--progress-color) calc(var(--percentage) * 1%), #e2e8f0 0);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .circular-progress::before {
+    content:""; position:absolute; width:80%; height:80%;
+    background:white; border-radius:50%;
+  }
+  #mobile-sidebar { transform:translateX(-100%); transition:transform 0.3s ease; }
+  #mobile-sidebar.open { transform:translateX(0); }
+  #sidebar-overlay { opacity:0; pointer-events:none; transition:opacity 0.3s; }
+  #sidebar-overlay.open { opacity:1; pointer-events:all; }
+</style>
+  <link rel="stylesheet" href="animations.css"/>
+</head>
+<body class="bg-background-main font-body-md text-on-surface overflow-x-hidden">
+
+<!-- Mobile Sidebar Overlay -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black/40 z-40 md:hidden" onclick="closeSidebar()"></div>
+
+<!-- Mobile Sidebar -->
+<aside id="mobile-sidebar" class="fixed top-0 left-0 h-full w-72 bg-on-background text-white z-50 flex flex-col md:hidden">
+  <div class="p-8 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="logo.png" alt="Growwings" class="h-8 w-auto brightness-0 invert"/>
+      <span class="font-headline-md text-headline-md font-bold text-primary-fixed">Growwings</span>
+    </a>
+    <button onclick="closeSidebar()" class="text-outline-variant hover:text-white"><span class="material-symbols-outlined">close</span></button>
+  </div>
+  <nav class="flex-1 px-4 space-y-2">
+    <a href="dashboard.html" class="flex items-center gap-4 px-4 py-3 rounded-xl bg-primary-container text-on-primary-container">
+      <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">dashboard</span>
+      <span class="font-label-bold text-label-bold">Dashboard</span>
+    </a>
+    <a href="corporate.html" class="flex items-center gap-4 px-4 py-3 rounded-xl text-outline-variant hover:bg-white/10 hover:text-white transition-all">
+      <span class="material-symbols-outlined">menu_book</span>
+      <span class="font-label-bold text-label-bold">My Courses</span>
+    </a>
+    <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-xl text-outline-variant hover:bg-white/10 hover:text-white transition-all">
+      <span class="material-symbols-outlined">military_tech</span>
+      <span class="font-label-bold text-label-bold">Achievements</span>
+    </a>
+    <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-xl text-outline-variant hover:bg-white/10 hover:text-white transition-all">
+      <span class="material-symbols-outlined">account_circle</span>
+      <span class="font-label-bold text-label-bold">Profile</span>
+    </a>
+    <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-xl text-outline-variant hover:bg-white/10 hover:text-white transition-all">
+      <span class="material-symbols-outlined">help_center</span>
+      <span class="font-label-bold text-label-bold">Help</span>
+    </a>
+  </nav>
+  <div class="p-8 border-t border-white/10">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center font-bold text-white">AR</div>
+      <div>
+        <p class="font-label-bold text-label-bold text-white">Alex Rivera</p>
+        <p class="text-xs text-outline-variant">Student ID: 4429</p>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- Layout Container -->
+<div class="flex min-h-screen">
+  <!-- Desktop Sidebar -->
+  <aside class="hidden md:flex flex-col w-72 bg-on-background text-white sticky top-0 h-screen z-50 shrink-0">
+    <div class="p-8">
+      <a href="index.html" class="flex items-center gap-2 mb-1">
+        <img src="logo.png" alt="Growwings" class="h-9 w-auto brightness-0 invert"/>
+        <span class="font-headline-md text-headline-md font-bold text-primary-fixed">Growwings</span>
+      </a>
+      <p class="text-[10px] uppercase tracking-widest text-outline-variant opacity-70">The Human OS Upgrade</p>
+    </div>
+    <nav class="flex-1 px-4 space-y-2">
+      <a href="dashboard.html" class="flex items-center gap-4 px-4 py-3 rounded-xl bg-primary-container text-on-primary-container group transition-all duration-200">
+        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">dashboard</span>
+        <span class="font-label-bold text-label-bold">Dashboard</span>
+      </a>
+      <a href="corporate.html" class="flex items-center gap-4 px-4 py-3 rounded-xl text-outline-variant hover:bg-white/10 hover:text-white transition-all duration-200">
+        <span class="material-symbols-outlined">menu_book</span>
+        <span class="font-label-bold text-label-bold">My Courses</span>
+      </a>
+      <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-xl text-outline-variant hover:bg-white/10 hover:text-white transition-all duration-200">
+        <span class="material-symbols-outlined">military_tech</span>
+        <span class="font-label-bold text-label-bold">Achievements</span>
+      </a>
+      <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-xl text-outline-variant hover:bg-white/10 hover:text-white transition-all duration-200">
+        <span class="material-symbols-outlined">account_circle</span>
+        <span class="font-label-bold text-label-bold">Profile</span>
+      </a>
+      <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-xl text-outline-variant hover:bg-white/10 hover:text-white transition-all duration-200">
+        <span class="material-symbols-outlined">help_center</span>
+        <span class="font-label-bold text-label-bold">Help</span>
+      </a>
+    </nav>
+    <div class="p-8 border-t border-white/10">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center font-bold text-white text-sm">AR</div>
+        <div>
+          <p class="font-label-bold text-label-bold text-white">Alex Rivera</p>
+          <p class="text-xs text-outline-variant">Student ID: 4429</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 min-w-0">
+    <!-- Top App Bar -->
+    <header class="w-full sticky top-0 z-40 bg-surface-glass backdrop-blur-xl border-b border-surface-variant/20 px-gutter py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <button id="menu-open" onclick="openSidebar()" class="md:hidden text-primary">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <div class="md:hidden">
+          <img src="logo.png" alt="Growwings" class="h-8 w-auto"/>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center gap-2 text-on-surface-variant">
+        <span class="material-symbols-outlined text-outline">search</span>
+        <input class="bg-transparent border-none focus:ring-0 text-body-md w-64 outline-none" placeholder="Search courses, mentors..." type="text"/>
+      </div>
+      <div class="flex items-center gap-6">
+        <button class="relative text-on-surface-variant hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">notifications</span>
+          <span class="absolute top-0 right-0 w-2 h-2 bg-secondary rounded-full"></span>
+        </button>
+        <div class="hidden md:block">
+          <a href="corporate.html" class="bg-secondary-container text-white px-6 py-2 rounded-full font-label-bold hover:shadow-lg transition-all">Explore Courses</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="px-gutter py-8 max-w-container-max mx-auto space-y-section-padding-sm pb-24 md:pb-8">
+      <!-- Welcome -->
+      <section>
+        <div class="space-y-2">
+          <p class="text-secondary font-label-bold tracking-widest uppercase">The Human OS Dashboard</p>
+          <h2 class="font-headline-lg text-headline-lg text-primary">Welcome back, Leader.</h2>
+          <p class="text-body-lg text-on-surface-variant max-w-2xl">You've completed 75% of your weekly goals. Your strategic influence score has increased by 12 points this month. Keep the momentum.</p>
+        </div>
+      </section>
+
+      <!-- Bento Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+        <!-- Progress Column -->
+        <div class="lg:col-span-8 space-y-6">
+          <div class="flex items-center justify-between">
+            <h3 class="font-headline-md text-headline-md text-on-background">Your Progress</h3>
+            <button class="text-primary font-label-bold text-label-bold flex items-center gap-1 hover:underline">
+              Detailed Insights <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Circular 1 -->
+            <div class="hover-lift glass-card p-6 rounded-[32px] flex flex-col items-center text-center space-y-4 hover:shadow-xl transition-all duration-300">
+              <div class="relative w-32 h-32 circular-progress" style="--percentage:82;--progress-color:#00355f;">
+                <span class="relative z-10 font-headline-md text-headline-md text-primary">82%</span>
+              </div>
+              <div>
+                <p class="font-label-bold text-label-bold text-on-surface">Strategic Thinking</p>
+                <p class="text-xs text-on-surface-variant">Module 4 of 6</p>
+              </div>
+            </div>
+            <!-- Circular 2 -->
+            <div class="hover-lift glass-card p-6 rounded-[32px] flex flex-col items-center text-center space-y-4 hover:shadow-xl transition-all duration-300">
+              <div class="relative w-32 h-32 circular-progress" style="--percentage:45;--progress-color:#FF7A00;">
+                <span class="relative z-10 font-headline-md text-headline-md text-secondary">45%</span>
+              </div>
+              <div>
+                <p class="font-label-bold text-label-bold text-on-surface">Emotional Intel</p>
+                <p class="text-xs text-on-surface-variant">Module 2 of 5</p>
+              </div>
+            </div>
+            <!-- Circular 3 -->
+            <div class="hover-lift glass-card p-6 rounded-[32px] flex flex-col items-center text-center space-y-4 hover:shadow-xl transition-all duration-300">
+              <div class="relative w-32 h-32 circular-progress" style="--percentage:95;--progress-color:#22C55E;">
+                <span class="relative z-10 font-headline-md text-headline-md text-success-green">95%</span>
+              </div>
+              <div>
+                <p class="font-label-bold text-label-bold text-on-surface">Digital Mastery</p>
+                <p class="text-xs text-on-surface-variant">Almost complete!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Continue Learning -->
+          <div class="space-y-6 pt-4">
+            <h3 class="font-headline-md text-headline-md text-on-background">Continue Learning</h3>
+            <a href="course.html" class="glass-card p-0 rounded-[32px] overflow-hidden flex flex-col md:flex-row group cursor-pointer hover:shadow-2xl transition-all duration-500 block">
+              <div class="md:w-1/3 h-48 md:h-auto overflow-hidden">
+                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                     src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=80"
+                     alt="Advanced Influence course"/>
+              </div>
+              <div class="p-8 flex-1 space-y-4 relative">
+                <div class="flex justify-between items-start">
+                  <div class="space-y-1">
+                    <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-3 py-1 rounded-full text-xs font-label-bold">Module 5</span>
+                    <h4 class="font-headline-md text-headline-md text-primary">Advanced Influence &amp; Stakeholder Management</h4>
+                  </div>
+                  <span class="material-symbols-outlined text-secondary text-3xl">play_circle</span>
+                </div>
+                <p class="text-body-md text-on-surface-variant">Master the art of navigating complex organizational hierarchies and winning over key decision-makers through psychological framing.</p>
+                <div class="space-y-2">
+                  <div class="flex justify-between text-xs font-label-bold">
+                    <span class="text-on-surface-variant">Overall Progress</span>
+                    <span class="text-primary">68%</span>
+                  </div>
+                  <div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+                    <div class="h-full bg-secondary w-[68%] shimmer-progress rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Sidebar Stats -->
+        <div class="lg:col-span-4 space-y-gutter">
+          <!-- Level Card -->
+          <div class="bg-primary text-white p-8 rounded-[32px] space-y-6 shadow-xl relative overflow-hidden">
+            <div class="absolute -right-12 -top-12 w-48 h-48 bg-secondary/20 rounded-full blur-3xl"></div>
+            <div class="flex justify-between items-start relative z-10">
+              <div>
+                <p class="text-sm text-primary-fixed opacity-80">Current Level</p>
+                <p class="font-headline-md text-headline-md">Executive Lead</p>
+              </div>
+              <div class="bg-white/10 p-2 rounded-xl backdrop-blur-md">
+                <span class="material-symbols-outlined text-secondary-fixed">workspace_premium</span>
+              </div>
+            </div>
+            <div class="space-y-2 relative z-10">
+              <div class="flex justify-between text-xs">
+                <span>XP to Next Level</span>
+                <span>1,240 / 2,000</span>
+              </div>
+              <div class="w-full h-1.5 bg-white/20 rounded-full overflow-hidden">
+                <div class="h-full bg-secondary-fixed w-[62%]"></div>
+              </div>
+            </div>
+            <button class="w-full py-3 bg-white text-primary rounded-full font-label-bold hover:bg-secondary-fixed transition-colors relative z-10">View Skills Matrix</button>
+          </div>
+
+          <!-- Recommended -->
+          <div class="space-y-4">
+            <h3 class="font-headline-md text-headline-md text-on-background">Recommended</h3>
+            <div class="space-y-4">
+              <a href="course.html" class="glass-card p-4 rounded-2xl flex gap-4 hover:border-secondary transition-colors cursor-pointer block">
+                <div class="w-20 h-20 rounded-xl overflow-hidden shrink-0">
+                  <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=200&q=80" alt="Mastering the Pitch"/>
+                </div>
+                <div class="flex flex-col justify-center">
+                  <h5 class="font-label-bold text-label-bold text-primary">Mastering the Pitch</h5>
+                  <p class="text-xs text-on-surface-variant mt-1">Based on your Interest in Leadership</p>
+                  <div class="flex items-center gap-1 mt-2">
+                    <span class="material-symbols-outlined text-xs text-secondary" style="font-variation-settings:'FILL' 1;">star</span>
+                    <span class="text-[10px] font-label-bold text-on-surface-variant">4.9 (1.2k)</span>
+                  </div>
+                </div>
+              </a>
+              <a href="course.html" class="glass-card p-4 rounded-2xl flex gap-4 hover:border-secondary transition-colors cursor-pointer block">
+                <div class="w-20 h-20 rounded-xl overflow-hidden shrink-0">
+                  <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=200&q=80" alt="Outcome-Obsessed ROI"/>
+                </div>
+                <div class="flex flex-col justify-center">
+                  <h5 class="font-label-bold text-label-bold text-primary">Outcome-Obsessed ROI</h5>
+                  <p class="text-xs text-on-surface-variant mt-1">Popular with Executive Students</p>
+                  <div class="flex items-center gap-1 mt-2">
+                    <span class="material-symbols-outlined text-xs text-secondary" style="font-variation-settings:'FILL' 1;">star</span>
+                    <span class="text-[10px] font-label-bold text-on-surface-variant">4.8 (850)</span>
+                  </div>
+                </div>
+              </a>
+              <a href="corporate.html" class="w-full py-3 border border-outline rounded-2xl font-label-bold text-on-surface-variant hover:bg-surface-container-low transition-colors block text-center">
+                Explore All Courses
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-on-background text-white mt-section-padding-lg hidden md:block">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-gutter max-w-container-max mx-auto py-section-padding-sm">
+        <div class="space-y-4">
+          <h4 class="font-headline-md text-headline-md font-bold text-primary-fixed">Growwings</h4>
+          <p class="text-outline-variant font-body-md leading-relaxed">Upgrade your Human OS with outcome-obsessed leadership training.</p>
+        </div>
+        <div>
+          <h5 class="font-label-bold text-label-bold mb-4">Navigation</h5>
+          <ul class="space-y-2">
+            <li><a href="corporate.html" class="text-outline-variant hover:text-white transition-colors">Courses</a></li>
+            <li><a href="campus.html" class="text-outline-variant hover:text-white transition-colors">Methodology</a></li>
+            <li><a href="index.html" class="text-outline-variant hover:text-white transition-colors">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-label-bold text-label-bold mb-4">Support</h5>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-outline-variant hover:text-white transition-colors">Contact Support</a></li>
+            <li><a href="#" class="text-outline-variant hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="text-outline-variant hover:text-white transition-colors">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-label-bold text-label-bold mb-4">Follow Us</h5>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors">
+              <span class="material-symbols-outlined text-sm">public</span>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors">
+              <span class="material-symbols-outlined text-sm">diversity_3</span>
+            </a>
+          </div>
+          <p class="mt-8 text-xs text-outline-variant">© 2024 Growwings. The Human OS Upgrade.</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<!-- Bottom Nav (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-glass backdrop-blur-xl border-t border-surface-variant/20 px-4 py-3 flex justify-around items-center z-50">
+  <a href="dashboard.html" class="flex flex-col items-center gap-1 text-secondary">
+    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">dashboard</span>
+    <span class="text-[10px] font-label-bold">Home</span>
+  </a>
+  <a href="corporate.html" class="flex flex-col items-center gap-1 text-on-surface-variant">
+    <span class="material-symbols-outlined">menu_book</span>
+    <span class="text-[10px] font-label-bold">Courses</span>
+  </a>
+  <a href="#" class="flex flex-col items-center gap-1 text-on-surface-variant">
+    <span class="material-symbols-outlined">military_tech</span>
+    <span class="text-[10px] font-label-bold">Badges</span>
+  </a>
+  <a href="#" class="flex flex-col items-center gap-1 text-on-surface-variant">
+    <span class="material-symbols-outlined">account_circle</span>
+    <span class="text-[10px] font-label-bold">Profile</span>
+  </a>
+</nav>
+
+<script>
+  function openSidebar() {
+    document.getElementById('mobile-sidebar').classList.add('open');
+    document.getElementById('sidebar-overlay').classList.add('open');
+  }
+  function closeSidebar() {
+    document.getElementById('mobile-sidebar').classList.remove('open');
+    document.getElementById('sidebar-overlay').classList.remove('open');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Animate circular progress rings on load
+    document.querySelectorAll('.circular-progress').forEach(circle => {
+      const target = parseInt(circle.style.getPropertyValue('--percentage'));
+      let current = 0;
+      const interval = setInterval(() => {
+        if (current >= target) { clearInterval(interval); return; }
+        current++;
+        circle.style.setProperty('--percentage', current);
+      }, 12);
+    });
+
+    // Desktop sidebar active nav
+    document.querySelectorAll('aside.hidden.md\\:flex nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelectorAll('aside.hidden.md\\:flex nav a').forEach(l => {
+          l.classList.remove('bg-primary-container', 'text-on-primary-container');
+          l.classList.add('text-outline-variant');
+        });
+        link.classList.add('bg-primary-container', 'text-on-primary-container');
+        link.classList.remove('text-outline-variant');
+      });
+    });
+  });
+</script>
+<script src="animations.js"></script>
+<script src="modal.js"></script>
+</body>
+</html>

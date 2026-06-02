@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Course Catalog | Growwings — Catalyze Your Growth</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-glass": "rgba(255,255,255,0.7)",
+          "tertiary-fixed-dim": "#75d1ff",
+          "success-green": "#22C55E",
+          "secondary-fixed": "#ffdbc8",
+          "tertiary-fixed": "#c2e8ff",
+          "outline-variant": "#c2c7d1",
+          "surface-variant": "#d3e4fe",
+          "background-main": "#F8FAFC",
+          "on-primary-container": "#c8efef",
+          "on-tertiary-fixed-variant": "#004d67",
+          "secondary-fixed-dim": "#ffb68b",
+          "surface-container-highest": "#d3e4fe",
+          "on-secondary-container": "#592600",
+          "primary": "#32999b",
+          "on-tertiary-fixed": "#001e2b",
+          "on-secondary-fixed-variant": "#753400",
+          "on-tertiary": "#ffffff",
+          "inverse-on-surface": "#eaf1ff",
+          "surface-container": "#e5eeff",
+          "secondary-container": "#fb7800",
+          "surface-container-lowest": "#ffffff",
+          "surface-container-high": "#dce9ff",
+          "secondary": "#994700",
+          "on-primary-fixed-variant": "#1b7a7c",
+          "on-background": "#0a2526",
+          "on-tertiary-container": "#3dc6ff",
+          "on-error": "#ffffff",
+          "primary-fixed": "#c8efef",
+          "primary-fixed-dim": "#7dcbcd",
+          "surface-dim": "#cbdbf5",
+          "surface-tint": "#32999b",
+          "inverse-surface": "#213145",
+          "outline": "#727780",
+          "background": "#f8f9ff",
+          "text-display": "#0F172A",
+          "on-surface": "#0b1c30",
+          "surface-container-low": "#eff4ff",
+          "on-secondary-fixed": "#321200",
+          "on-secondary": "#ffffff",
+          "on-error-container": "#93000a",
+          "tertiary-container": "#00506c",
+          "surface": "#f8f9ff",
+          "error-container": "#ffdad6",
+          "primary-container": "#1b7a7c",
+          "tertiary": "#00384c",
+          "error": "#ba1a1a",
+          "inverse-primary": "#7dcbcd",
+          "on-surface-variant": "#42474f",
+          "surface-bright": "#f8f9ff",
+          "on-primary-fixed": "#002728",
+          "on-primary": "#ffffff"
+        },
+        borderRadius: { DEFAULT:"0.25rem", lg:"0.5rem", xl:"0.75rem", full:"9999px" },
+        spacing: { gutter:"24px", "section-padding-sm":"40px", base:"8px", "section-padding-lg":"80px", "container-max":"1280px" },
+        fontFamily: { "headline-lg-mobile":["Montserrat"], "body-md":["Inter"], "body-lg":["Inter"], "headline-md":["Montserrat"], "headline-lg":["Montserrat"], "display-xl":["Montserrat"], "label-bold":["Inter"] },
+        fontSize: {
+          "headline-lg-mobile":["32px",{lineHeight:"40px",fontWeight:"700"}],
+          "body-md":["16px",{lineHeight:"24px",fontWeight:"400"}],
+          "body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],
+          "headline-md":["24px",{lineHeight:"32px",fontWeight:"700"}],
+          "headline-lg":["40px",{lineHeight:"48px",fontWeight:"700"}],
+          "display-xl":["64px",{lineHeight:"72px",letterSpacing:"-0.02em",fontWeight:"800"}],
+          "label-bold":["14px",{lineHeight:"20px",fontWeight:"600"}]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+  .glass-card { background:rgba(255,255,255,0.7); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.2); }
+  #mobile-menu { transition:max-height .3s ease,opacity .3s ease; max-height:0; opacity:0; overflow:hidden; }
+  #mobile-menu.open { max-height:400px; opacity:1; }
+</style>
+</head>
+<body class="bg-background-main font-body-md text-on-surface selection:bg-secondary-container selection:text-white">
+
+<!-- Navigation -->
+<header id="main-header" class="w-full sticky top-0 bg-surface-glass backdrop-blur-md shadow-sm z-50">
+  <nav class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+    <a href="index.html" class="flex items-center gap-2"><img src="logo.png" alt="Growwings" class="h-10 w-auto"/><span class="font-headline-md text-headline-md font-bold text-primary hidden sm:block">Growwings</span></a>
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="courses.html" class="text-secondary border-b-2 border-secondary pb-1 font-body-md text-body-md transition-colors">Courses</a>
+      <a href="methodology.html" class="text-on-surface-variant hover:text-primary font-body-md text-body-md transition-colors">Methodology</a>
+      <a href="testimonials.html" class="text-on-surface-variant hover:text-primary font-body-md text-body-md transition-colors">Testimonials</a>
+      <a href="about.html" class="text-on-surface-variant hover:text-primary font-body-md text-body-md transition-colors">About</a>
+    </div>
+    <div class="flex items-center space-x-4">
+      <a href="dashboard.html" class="hidden lg:block text-primary font-label-bold px-4 py-2 hover:text-secondary transition-colors">Login</a>
+      <a href="course.html" class="bg-[#FF7A00] text-white px-6 py-2.5 rounded-full font-label-bold hover:scale-105 transition-transform shadow-md">Get Started</a>
+    </div>
+    <button id="menu-toggle" class="md:hidden text-primary ml-4">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </nav>
+  <div id="mobile-menu" class="md:hidden bg-white border-t border-outline-variant/20 px-gutter">
+    <div class="py-4 space-y-3">
+      <a href="courses.html" class="block py-2 font-body-md text-secondary font-semibold">Courses</a>
+      <a href="methodology.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Methodology</a>
+      <a href="testimonials.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Testimonials</a>
+      <a href="about.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">About</a>
+      <a href="dashboard.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Login</a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-container-max mx-auto px-gutter py-section-padding-sm lg:py-section-padding-lg">
+  <!-- Hero -->
+  <section class="mb-16 text-center lg:text-left">
+    <h1 class="font-display-xl text-display-xl text-text-display mb-4">
+      Confident Teams.<br/><span class="text-secondary-container">Better Conversations.</span>
+    </h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+      We help your people speak clearly, listen deeply, and show up with confidence. Learning gaps are business gaps — we close them.
+    </p>
+  </section>
+
+  <!-- Catalog Content -->
+  <div class="flex flex-col lg:flex-row gap-12">
+    <!-- Filter Sidebar -->
+    <aside class="w-full lg:w-64 space-y-8 shrink-0">
+      <div>
+        <h3 class="font-headline-md text-headline-md mb-6 flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary">filter_list</span> Filter
+        </h3>
+        <div class="space-y-6">
+          <div>
+            <p class="font-label-bold text-label-bold text-outline uppercase tracking-wider mb-3">Who it's for</p>
+            <div class="flex flex-wrap lg:flex-col gap-3">
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input checked class="w-5 h-5 rounded border-outline text-secondary-container focus:ring-secondary-container" type="checkbox"/>
+                <span class="font-body-md text-body-md group-hover:text-primary">🏢 Corporate Offerings</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input checked class="w-5 h-5 rounded border-outline text-secondary-container focus:ring-secondary-container" type="checkbox"/>
+                <span class="font-body-md text-body-md group-hover:text-primary">🎓 Future Ready Campus</span>
+              </label>
+            </div>
+          </div>
+          <div>
+            <p class="font-label-bold text-label-bold text-outline uppercase tracking-wider mb-3">Format</p>
+            <select class="w-full bg-white border border-outline-variant rounded-xl px-4 py-2 font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none">
+              <option>Any Format</option>
+              <option>Online</option>
+              <option>On-Site</option>
+              <option>Hybrid</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="p-6 rounded-3xl bg-surface-container-high border border-outline-variant/50">
+        <span class="material-symbols-outlined text-secondary-container mb-2" style="font-variation-settings:'FILL' 1;">manage_search</span>
+        <h4 class="font-headline-md text-[18px] mb-2">360° Needs Audit</h4>
+        <p class="text-body-md text-on-surface-variant text-sm leading-relaxed">
+          We assess HR insights, business head perspectives, and participant needs before designing your program.
+        </p>
+      </div>
+    </aside>
+
+    <!-- Course Grid -->
+    <div class="flex-1 space-y-10">
+
+      <!-- Corporate Section -->
+      <div id="corporate">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-2xl">🏢</span>
+          <h2 class="font-headline-md text-headline-md text-primary">Corporate Offerings</h2>
+          <span class="text-xs font-label-bold bg-secondary-fixed text-secondary px-3 py-1 rounded-full">For Companies</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+
+          <!-- StepUp! -->
+          <div class="group bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-secondary-container/20 flex flex-col">
+            <div class="relative h-48 overflow-hidden">
+              <img alt="StepUp! program" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80"/>
+              <div class="absolute top-4 left-4 bg-secondary-container text-white text-xs font-label-bold px-3 py-1 rounded-full uppercase tracking-wide">Corporate</div>
+            </div>
+            <div class="p-8 flex-1 flex flex-col">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-headline-md text-headline-md text-primary leading-tight">StepUp!</h3>
+                <div class="flex items-center gap-1 text-secondary-container">
+                  <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+                  <span class="text-label-bold">4.9</span>
+                </div>
+              </div>
+              <p class="text-on-surface-variant mb-6 flex-1">Prepares freshers and interns for workplace entry — communication, professional etiquette, and ownership. Turn day-one anxiety into day-one confidence.</p>
+              <div class="flex items-center justify-between mt-auto">
+                <div class="flex items-center gap-2 text-outline">
+                  <span class="material-symbols-outlined">group</span>
+                  <span class="text-label-bold">Freshers &amp; Interns</span>
+                </div>
+                <a href="course.html" class="bg-[#FF7A00] text-white px-6 py-3 rounded-full font-label-bold hover:bg-secondary transition-colors">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- LeadUp! -->
+          <div class="group bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-secondary-container/20 flex flex-col">
+            <div class="relative h-48 overflow-hidden">
+              <img alt="LeadUp! program" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                   src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80"/>
+              <div class="absolute top-4 left-4 bg-secondary-container text-white text-xs font-label-bold px-3 py-1 rounded-full uppercase tracking-wide">Corporate</div>
+            </div>
+            <div class="p-8 flex-1 flex flex-col">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-headline-md text-headline-md text-primary leading-tight">LeadUp!</h3>
+                <div class="flex items-center gap-1 text-secondary-container">
+                  <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+                  <span class="text-label-bold">4.9</span>
+                </div>
+              </div>
+              <p class="text-on-surface-variant mb-6 flex-1">Targets new managers with emotional intelligence, coaching skills, and leadership clarity. Designed for the jump from individual contributor to team leader.</p>
+              <div class="flex items-center justify-between mt-auto">
+                <div class="flex items-center gap-2 text-outline">
+                  <span class="material-symbols-outlined">manage_accounts</span>
+                  <span class="text-label-bold">New Managers</span>
+                </div>
+                <a href="course.html" class="bg-[#FF7A00] text-white px-6 py-3 rounded-full font-label-bold hover:bg-secondary transition-colors">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- SpeakUp! -->
+          <div class="group bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-secondary-container/20 flex flex-col">
+            <div class="relative h-48 overflow-hidden">
+              <img alt="SpeakUp! program" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                   src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&q=80"/>
+              <div class="absolute top-4 left-4 bg-secondary-container text-white text-xs font-label-bold px-3 py-1 rounded-full uppercase tracking-wide">Corporate</div>
+            </div>
+            <div class="p-8 flex-1 flex flex-col">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-headline-md text-headline-md text-primary leading-tight">SpeakUp!</h3>
+                <div class="flex items-center gap-1 text-secondary-container">
+                  <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+                  <span class="text-label-bold">4.8</span>
+                </div>
+              </div>
+              <p class="text-on-surface-variant mb-6 flex-1">Focuses on high-potential talent from Tier 2 and 3 regions — enhancing fluency, workplace communication, and professional presence for client-facing roles.</p>
+              <div class="flex items-center justify-between mt-auto">
+                <div class="flex items-center gap-2 text-outline">
+                  <span class="material-symbols-outlined">record_voice_over</span>
+                  <span class="text-label-bold">High-Potential Talent</span>
+                </div>
+                <a href="course.html" class="bg-[#FF7A00] text-white px-6 py-3 rounded-full font-label-bold hover:bg-secondary transition-colors">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- TeamUp! -->
+          <div class="group bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-secondary-container/20 flex flex-col">
+            <div class="relative h-48 overflow-hidden">
+              <img alt="TeamUp! program" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                   src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80"/>
+              <div class="absolute top-4 left-4 bg-secondary-container text-white text-xs font-label-bold px-3 py-1 rounded-full uppercase tracking-wide">Corporate</div>
+            </div>
+            <div class="p-8 flex-1 flex flex-col">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-headline-md text-headline-md text-primary leading-tight">TeamUp!</h3>
+                <div class="flex items-center gap-1 text-secondary-container">
+                  <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+                  <span class="text-label-bold">4.8</span>
+                </div>
+              </div>
+              <p class="text-on-surface-variant mb-6 flex-1">Designed for remote and distributed teams to strengthen collaboration, cross-functional bonds, and shared communication norms — wherever they work from.</p>
+              <div class="flex items-center justify-between mt-auto">
+                <div class="flex items-center gap-2 text-outline">
+                  <span class="material-symbols-outlined">groups</span>
+                  <span class="text-label-bold">Remote Teams</span>
+                </div>
+                <a href="course.html" class="bg-[#FF7A00] text-white px-6 py-3 rounded-full font-label-bold hover:bg-secondary transition-colors">View Details</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Campus Section -->
+      <div id="campus">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-2xl">🎓</span>
+          <h2 class="font-headline-md text-headline-md text-primary">Future Ready Campus</h2>
+          <span class="text-xs font-label-bold bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full">For Colleges</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+
+          <!-- Ace Your Placements -->
+          <div class="group bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-secondary-container/20 flex flex-col">
+            <div class="relative h-48 overflow-hidden">
+              <img alt="Ace Your Placements Bootcamp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                   src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=600&q=80"/>
+              <div class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container text-xs font-label-bold px-3 py-1 rounded-full uppercase tracking-wide">Campus</div>
+            </div>
+            <div class="p-8 flex-1 flex flex-col">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-headline-md text-headline-md text-primary leading-tight">Ace Your Placements Bootcamp</h3>
+                <div class="flex items-center gap-1 text-secondary-container">
+                  <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+                  <span class="text-label-bold">4.9</span>
+                </div>
+              </div>
+              <p class="text-on-surface-variant mb-6 flex-1">Fluency, fearlessness, and interview readiness — built over 12+ weeks through weekly sessions. The complete placement preparation experience for final-year students.</p>
+              <div class="flex items-center justify-between mt-auto">
+                <div class="flex items-center gap-2 text-outline">
+                  <span class="material-symbols-outlined">schedule</span>
+                  <span class="text-label-bold">12+ Weeks</span>
+                </div>
+                <a href="course.html" class="bg-[#FF7A00] text-white px-6 py-3 rounded-full font-label-bold hover:bg-secondary transition-colors">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PowerUP Workshops -->
+          <div class="group bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-secondary-container/20 flex flex-col">
+            <div class="relative h-48 overflow-hidden">
+              <img alt="PowerUP Workshops" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                   src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80"/>
+              <div class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container text-xs font-label-bold px-3 py-1 rounded-full uppercase tracking-wide">Campus</div>
+            </div>
+            <div class="p-8 flex-1 flex flex-col">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-headline-md text-headline-md text-primary leading-tight">PowerUP Workshops</h3>
+                <div class="flex items-center gap-1 text-secondary-container">
+                  <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+                  <span class="text-label-bold">4.8</span>
+                </div>
+              </div>
+              <p class="text-on-surface-variant mb-6 flex-1">High-energy, activity-driven workshops over 2–3 days (6–12 hours). Ideal for orientation, pre-placement weeks, or a quick confidence boost before campus drives.</p>
+              <div class="flex items-center justify-between mt-auto">
+                <div class="flex items-center gap-2 text-outline">
+                  <span class="material-symbols-outlined">schedule</span>
+                  <span class="text-label-bold">2–3 Days</span>
+                </div>
+                <a href="course.html" class="bg-[#FF7A00] text-white px-6 py-3 rounded-full font-label-bold hover:bg-secondary transition-colors">View Details</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- CTA -->
+<section class="max-w-container-max mx-auto px-gutter py-section-padding-sm mb-20">
+  <div class="bg-primary rounded-[40px] p-8 lg:p-16 text-white relative overflow-hidden">
+    <div class="absolute -right-24 -top-24 w-96 h-96 bg-secondary-container/20 rounded-full blur-3xl"></div>
+    <div class="relative z-10 lg:flex items-center justify-between gap-12">
+      <div class="lg:w-2/3">
+        <h2 class="font-headline-lg text-headline-lg mb-6">Still Exploring? Let's Talk.</h2>
+        <p class="font-body-lg text-body-lg text-primary-fixed mb-8">
+          Tell us about your team, students, or vision — we'll suggest the right program tailored to your specific needs.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="index.html#cta" class="bg-[#FF7A00] text-white px-8 py-4 rounded-full font-label-bold hover:scale-105 transition-transform shadow-lg">Book Appointment</a>
+          <button class="border border-primary-fixed text-primary-fixed px-8 py-4 rounded-full font-label-bold hover:bg-white/10 transition-colors">Talk to Us!</button>
+        </div>
+      </div>
+      <div class="hidden lg:block lg:w-1/3 mt-8 lg:mt-0">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white/10 backdrop-blur-md p-6 rounded-3xl text-center">
+            <div class="text-3xl font-bold mb-1">5500+</div>
+            <div class="text-xs uppercase tracking-widest text-primary-fixed">Humans Trained</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md p-6 rounded-3xl text-center">
+            <div class="text-3xl font-bold mb-1">4.9</div>
+            <div class="text-xs uppercase tracking-widest text-primary-fixed">Feedback Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="w-full py-section-padding-sm bg-on-background text-white">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-gutter max-w-container-max mx-auto">
+    <div class="space-y-6">
+      <div class="font-headline-md text-headline-md font-bold text-primary-fixed">Growwings</div>
+      <p class="text-outline-variant font-body-md text-sm leading-relaxed">Crafting learning journeys that turn talent into outcome-obsessed leaders.</p>
+      <div class="flex gap-4">
+        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary-container transition-colors"><span class="material-symbols-outlined text-[20px]">social_leaderboard</span></a>
+        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary-container transition-colors"><span class="material-symbols-outlined text-[20px]">public</span></a>
+        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary-container transition-colors"><span class="material-symbols-outlined text-[20px]">camera</span></a>
+      </div>
+    </div>
+    <div>
+      <h4 class="font-label-bold text-white mb-6 uppercase tracking-widest text-xs">Offerings</h4>
+      <ul class="space-y-4">
+        <li><a href="courses.html" class="text-outline-variant hover:text-white transition-colors">Corporate Offerings</a></li>
+        <li><a href="courses.html" class="text-outline-variant hover:text-white transition-colors">Future Ready Campus</a></li>
+        <li><a href="index.html#methodology" class="text-outline-variant hover:text-white transition-colors">Methodology</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-bold text-white mb-6 uppercase tracking-widest text-xs">Company</h4>
+      <ul class="space-y-4">
+        <li><a href="index.html" class="text-outline-variant hover:text-white transition-colors">About Us</a></li>
+        <li><a href="#" class="text-outline-variant hover:text-white transition-colors">Blogs and Case Studies</a></li>
+        <li><a href="#" class="text-outline-variant hover:text-white transition-colors">Contact Support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-bold text-white mb-6 uppercase tracking-widest text-xs">Updates</h4>
+      <p class="text-outline-variant text-sm mb-4">Get the latest on the Human OS Upgrade.</p>
+      <div class="flex gap-2">
+        <input class="bg-white/5 border border-white/10 rounded-full px-4 py-2 w-full text-sm focus:outline-none focus:border-secondary-container" placeholder="Email" type="email"/>
+        <button class="bg-secondary-container p-2 rounded-full hover:bg-secondary transition-colors"><span class="material-symbols-outlined">send</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto px-gutter mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-outline-variant text-sm">© 2024 Growwings. The Human OS Upgrade.</p>
+    <div class="flex gap-8 text-sm">
+      <a href="#" class="text-outline-variant hover:text-white">Terms of Service</a>
+      <a href="#" class="text-outline-variant hover:text-white">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  });
+  window.addEventListener('scroll', () => {
+    const h = document.getElementById('main-header');
+    if (window.scrollY > 20) {
+      h.classList.add('shadow-md');
+      h.classList.replace('bg-surface-glass', 'bg-white/90');
+    } else {
+      h.classList.remove('shadow-md');
+      h.classList.replace('bg-white/90', 'bg-surface-glass');
+    }
+  });
+</script>
+</body>
+</html>
