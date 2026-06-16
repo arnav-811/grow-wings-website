@@ -2,311 +2,414 @@
 <html class="scroll-smooth" lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>About Growwings | The Human OS Upgrade</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About Us | Growwings — All-Women-Founded L&D Company</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script>
-  tailwind.config = {
-    theme: { extend: {
-      colors: {
-        "surface-glass":"rgba(255,255,255,0.7)","tertiary-fixed-dim":"#75d1ff","success-green":"#22C55E",
-        "secondary-fixed":"#ffdbc8","tertiary-fixed":"#c2e8ff","outline-variant":"#c2c7d1","surface-variant":"#d3e4fe",
-        "background-main":"#F8FAFC","on-primary-container":"#8ebdf9","secondary-fixed-dim":"#ffb68b",
-        "surface-container-highest":"#d3e4fe","on-secondary-container":"#592600","primary":"#00355f",
-        "on-tertiary-fixed":"#001e2b","on-tertiary":"#ffffff","inverse-on-surface":"#eaf1ff",
-        "surface-container":"#e5eeff","secondary-container":"#fb7800","surface-container-lowest":"#ffffff",
-        "surface-container-high":"#dce9ff","secondary":"#994700","on-background":"#0b1c30",
-        "primary-fixed":"#d2e4ff","primary-fixed-dim":"#a0c9ff","outline":"#727780","background":"#f8f9ff",
-        "text-display":"#0F172A","on-surface":"#0b1c30","surface-container-low":"#eff4ff",
-        "on-secondary":"#ffffff","tertiary-container":"#00506c","surface":"#f8f9ff",
-        "primary-container":"#0f4c81","tertiary":"#00384c","on-surface-variant":"#42474f","on-primary":"#ffffff"
-      },
-      borderRadius:{ DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px" },
-      spacing:{ gutter:"24px","section-padding-sm":"40px",base:"8px","section-padding-lg":"80px","container-max":"1280px" },
-      fontFamily:{ "body-md":["Inter"],"body-lg":["Inter"],"headline-md":["Montserrat"],"headline-lg":["Montserrat"],"display-xl":["Montserrat"],"label-bold":["Inter"] },
-      fontSize:{
-        "body-md":["16px",{lineHeight:"24px",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],
-        "headline-md":["24px",{lineHeight:"32px",fontWeight:"700"}],"headline-lg":["40px",{lineHeight:"48px",fontWeight:"700"}],
-        "display-xl":["64px",{lineHeight:"72px",letterSpacing:"-0.02em",fontWeight:"800"}],
-        "label-bold":["14px",{lineHeight:"20px",fontWeight:"600"}]
-      }
-    }}
-  }
+  tailwind.config={theme:{extend:{
+    colors:{"surface-glass":"rgba(255,255,255,0.7)","tertiary-fixed-dim":"#75d1ff","success-green":"#22C55E",
+      "secondary-fixed":"#ffdbc8","tertiary-fixed":"#c2e8ff","outline-variant":"#c2c7d1","surface-variant":"#d3e4fe",
+      "background-main":"#F8FAFC","on-primary-container":"#c8efef","secondary-fixed-dim":"#ffb68b",
+      "surface-container-highest":"#d3e4fe","on-secondary-container":"#592600","primary":"#32999b",
+      "on-tertiary-fixed":"#001e2b","inverse-on-surface":"#eaf1ff","surface-container":"#e5eeff",
+      "secondary-container":"#fb7800","surface-container-lowest":"#ffffff","surface-container-high":"#dce9ff",
+      "secondary":"#994700","on-background":"#0a2526","primary-fixed":"#c8efef","primary-fixed-dim":"#7dcbcd",
+      "outline":"#727780","background":"#f8f9ff","text-display":"#0F172A","on-surface":"#0b1c30",
+      "surface-container-low":"#eff4ff","on-secondary":"#ffffff","tertiary-container":"#00506c",
+      "surface":"#f8f9ff","primary-container":"#1b7a7c","tertiary":"#00384c","on-surface-variant":"#42474f","on-primary":"#ffffff"},
+    borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},
+    spacing:{gutter:"24px","section-padding-sm":"40px",base:"8px","section-padding-lg":"80px","container-max":"1280px"},
+    fontFamily:{"body-md":["Inter"],"body-lg":["Inter"],"headline-md":["Montserrat"],"headline-lg":["Montserrat"],"display-xl":["Montserrat"],"label-bold":["Inter"]},
+    fontSize:{"body-md":["16px",{lineHeight:"24px",fontWeight:"400"}],"body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],
+      "headline-md":["24px",{lineHeight:"32px",fontWeight:"700"}],"headline-lg":["40px",{lineHeight:"48px",fontWeight:"700"}],
+      "display-xl":["64px",{lineHeight:"72px",letterSpacing:"-0.02em",fontWeight:"800"}],
+      "label-bold":["14px",{lineHeight:"20px",fontWeight:"600"}]}
+  }}}
 </script>
 <style>
-  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
-  .glass-card { background:rgba(255,255,255,0.7); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.3); box-shadow:0 4px 20px rgba(15,23,42,0.05); }
-  #mobile-menu { transition:max-height .3s ease,opacity .3s ease; max-height:0; opacity:0; overflow:hidden; }
-  #mobile-menu.open { max-height:400px; opacity:1; }
-  .fade-in { opacity:0; transform:translateY(24px); transition:opacity 0.5s ease,transform 0.5s ease; }
-  .fade-in.visible { opacity:1; transform:translateY(0); }
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+  .glass-card{background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.3);box-shadow:0 4px 20px rgba(15,23,42,0.05)}
+  .shimmer-orange{background:linear-gradient(90deg,#fb7800 0%,#ffdbc8 50%,#fb7800 100%);background-size:200% 100%;animation:shimmer 2s infinite linear}
+  .shimmer-teal{background:linear-gradient(90deg,#32999b 0%,#7dcbcd 50%,#32999b 100%);background-size:200% 100%;animation:shimmer 2s infinite linear}
+  @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+  #mobile-menu{transition:max-height .3s ease,opacity .3s ease;max-height:0;opacity:0;overflow:hidden}
+  #mobile-menu.open{max-height:500px;opacity:1}
+  .fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+  .fade-in.visible{opacity:1;transform:translateY(0)}
+  .founder-card:hover .founder-img{transform:scale(1.05)}
+  .founder-img{transition:transform .3s ease}
+  .iat-step{transition:all .3s ease}
+  .iat-step:hover{transform:translateY(-4px)}
+  .skill-pill{display:inline-block;background:#e5eeff;color:#32999b;border-radius:9999px;padding:4px 14px;font-size:13px;font-weight:600;margin:3px}
+  .skill-pill-heart{background:#fff0f0;color:#e05a5a}
+  .skill-pill-voice{background:#fffbe6;color:#b45309}
+  .anim-blob{animation:blobFloat 7s ease-in-out infinite}
+  .anim-blob-2{animation:blobFloat 9s ease-in-out infinite reverse}
+  @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(20px,20px) scale(1.05)}}
 </style>
+<link rel="stylesheet" href="animations.css"/>
 </head>
 <body class="bg-background-main font-body-md text-on-surface">
 
 <!-- Navigation -->
 <header id="main-header" class="w-full sticky top-0 bg-surface-glass backdrop-blur-md shadow-sm z-50">
-  <nav class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
-    <a href="index.html" class="flex items-center gap-2"><img src="logo.png" alt="Growwings" class="h-10 w-auto"/><span class="font-headline-md text-headline-md font-bold text-primary hidden sm:block">Growwings</span></a>
-    <div class="hidden md:flex items-center space-x-8">
-      <a href="courses.html" class="text-on-surface-variant hover:text-secondary font-body-md transition-colors">Courses</a>
-      <a href="methodology.html" class="text-on-surface-variant hover:text-secondary font-body-md transition-colors">Methodology</a>
-      <a href="testimonials.html" class="text-on-surface-variant hover:text-secondary font-body-md transition-colors">Testimonials</a>
-      <a href="about.html" class="text-secondary border-b-2 border-secondary pb-1 font-body-md transition-colors">About</a>
+  <nav class="flex justify-between items-center px-gutter py-3 max-w-container-max mx-auto">
+    <a href="index.html" class="flex items-center gap-2 shrink-0">
+      <img src="logo.png" alt="Growwings" class="h-10 w-auto"/>
+    </a>
+    <div class="hidden md:flex items-center space-x-6">
+      <a href="corporate.html" class="text-on-surface-variant hover:text-primary font-body-md transition-colors duration-200 text-sm">Corporate Offerings</a>
+      <a href="campus.html" class="text-on-surface-variant hover:text-primary font-body-md transition-colors duration-200 text-sm">Future Ready Campus</a>
+      <a href="youngminds.html" class="text-on-surface-variant hover:text-primary font-body-md transition-colors duration-200 text-sm">Young Minds</a>
+      <a href="about.html" class="text-primary border-b-2 border-primary pb-0.5 font-body-md font-semibold transition-colors duration-200 text-sm">About Us</a>
+      <a href="contact.html" class="text-on-surface-variant hover:text-primary font-body-md transition-colors duration-200 text-sm">Book Appointment</a>
     </div>
-    <div class="hidden md:flex items-center gap-4">
-      <a href="dashboard.html" class="text-primary font-label-bold hover:text-secondary transition-colors">Login</a>
-      <a href="courses.html" class="bg-secondary-container hover:bg-secondary text-white px-6 py-2 rounded-full font-label-bold transition-all hover:scale-105">Get Started</a>
-    </div>
+    <a href="contact.html" class="hidden md:inline-flex bg-secondary-container hover:bg-secondary text-white px-5 py-2 rounded-full font-label-bold transition-all hover:scale-105 text-sm" data-modal="talk">Talk to Us!</a>
     <button id="menu-toggle" class="md:hidden text-primary"><span class="material-symbols-outlined">menu</span></button>
   </nav>
   <div id="mobile-menu" class="md:hidden bg-white border-t border-outline-variant/20 px-gutter">
-    <div class="py-4 space-y-3">
-      <a href="courses.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Courses</a>
-      <a href="methodology.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Methodology</a>
-      <a href="testimonials.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Testimonials</a>
-      <a href="about.html" class="block py-2 font-body-md text-secondary font-semibold">About</a>
-      <div class="pt-2 flex gap-3">
-        <a href="dashboard.html" class="text-primary font-label-bold hover:text-secondary">Login</a>
-        <a href="courses.html" class="bg-secondary-container text-white px-5 py-2 rounded-full font-label-bold text-sm">Get Started</a>
-      </div>
+    <div class="py-4 space-y-1">
+      <a href="corporate.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Corporate Offerings</a>
+      <a href="campus.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Future Ready Campus</a>
+      <a href="youngminds.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Young Minds</a>
+      <a href="about.html" class="block py-2 font-body-md text-primary font-semibold">About Us</a>
+      <a href="contact.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Book Appointment</a>
+      <a href="contact.html" class="inline-block mt-3 bg-secondary-container text-white px-6 py-2 rounded-full font-label-bold text-sm" data-modal="talk">Talk to Us!</a>
     </div>
   </div>
 </header>
 
 <main>
   <!-- Hero -->
-  <section class="relative overflow-hidden py-section-padding-lg px-gutter max-w-container-max mx-auto">
-    <div class="absolute -top-20 -right-20 w-[500px] h-[500px] bg-secondary-fixed/20 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-tertiary-fixed/20 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <span class="bg-tertiary-fixed text-on-tertiary-fixed px-4 py-1.5 rounded-full font-label-bold text-label-bold mb-6 inline-block">OUR STORY</span>
-        <h1 class="font-display-xl text-display-xl text-primary mb-6 leading-tight">
-          Grow.<br/>Lead.<br/><span class="text-secondary-container">Change the Game.</span>
-        </h1>
-        <p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
-          Growwings was built on a single observation: Learning Gaps Are Business Gaps. The gap between what colleges teach and what workplaces demand isn't a skills gap — it's a communication and confidence gap.
-        </p>
-        <p class="font-body-md text-body-md text-on-surface-variant">
-          We set out to close that gap. Not with lectures. With transformative, human-centric learning experiences. We don't just teach — we transform how students and professionals show up in the world.
-        </p>
+  <section class="relative overflow-hidden pt-section-padding-sm md:pt-section-padding-lg pb-section-padding-lg px-gutter max-w-container-max mx-auto">
+    <div class="anim-blob absolute -top-20 -right-20 w-96 h-96 bg-tertiary-fixed/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="anim-blob-2 absolute -bottom-20 -left-20 w-80 h-80 bg-secondary-fixed/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="fade-in">
+        <span class="bg-tertiary-fixed text-on-tertiary-fixed px-4 py-1.5 rounded-full font-label-bold text-label-bold mb-6 inline-block tracking-wide">✨ ALL-WOMEN FOUNDED</span>
+        <h1 class="font-display-xl text-display-xl text-primary mb-6 leading-tight">Who We<br/><span class="text-secondary-container shimmer-text">Are.</span></h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-4">GrowWings is an <strong>all-women-founded L&D consulting company</strong> on a mission to build campuses and workplaces where people don't just work — they <strong>grow, lead, and shine</strong>.</p>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-8">We design managerial and leadership programs for corporates that create lasting behavioural change, partnering as trusted learning allies across industries like FMCG, BFSI, Manufacturing, IT & Consulting, Real Estate, PSU & Power, HR & Recruitment — <em>you name it, and we design it.</em></p>
+        <div class="flex flex-wrap gap-4">
+          <a href="contact.html" class="magnetic btn-pulse bg-secondary-container hover:bg-secondary text-white px-8 py-4 rounded-full font-label-bold shadow-lg transition-all flex items-center gap-2 group">Work With Us <span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">arrow_forward</span></a>
+          <a href="#founders" class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-full font-label-bold transition-all">Meet the Team</a>
+        </div>
       </div>
-      <div class="relative">
+      <div class="relative fade-in">
         <img class="rounded-[40px] shadow-2xl w-full object-cover aspect-[4/3]"
              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
              alt="Growwings team in a collaborative session"/>
         <div class="absolute -bottom-6 -left-6 glass-card p-5 rounded-2xl z-10 flex items-center gap-4">
           <div class="bg-secondary-container/10 p-3 rounded-full">
-            <span class="material-symbols-outlined text-secondary-container" style="font-variation-settings:'FILL' 1;">volunteer_activism</span>
+            <span class="material-symbols-outlined text-secondary-container text-2xl" style="font-variation-settings:'FILL' 1;">volunteer_activism</span>
           </div>
           <div>
-            <p class="text-primary font-bold text-lg">5500+</p>
-            <p class="text-on-surface-variant text-sm">Lives Transformed</p>
+            <p class="text-primary font-bold text-xl">20,000+</p>
+            <p class="text-on-surface-variant text-sm">Participants Trained</p>
+          </div>
+        </div>
+        <div class="absolute -top-4 -right-4 glass-card p-4 rounded-2xl z-10 flex items-center gap-3">
+          <div class="bg-primary/10 p-2 rounded-full">
+            <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings:'FILL' 1;">groups</span>
+          </div>
+          <div>
+            <p class="text-primary font-bold">200+ Trainers</p>
+            <p class="text-on-surface-variant text-xs">Across 11+ Cities</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Mission & Vision -->
-  <section class="bg-surface-container-low py-section-padding-lg px-gutter">
-    <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="fade-in bg-white rounded-[32px] p-10 shadow-sm hover:shadow-xl transition-all">
-        <div class="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center mb-6">
-          <span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings:'FILL' 1;">flag</span>
-        </div>
-        <h3 class="font-headline-md text-headline-md text-primary mb-4">Our Mission</h3>
-        <p class="text-body-md text-on-surface-variant">We craft learning journeys that turn fresh talent and seasoned professionals into confident, outcome-obsessed leaders — through experience, reflection, and practice. Not just exposure.</p>
-      </div>
-      <div class="fade-in bg-primary rounded-[32px] p-10 shadow-sm hover:shadow-xl transition-all relative overflow-hidden">
-        <div class="absolute -right-8 -top-8 w-32 h-32 bg-secondary-container/20 rounded-full blur-2xl"></div>
-        <div class="relative z-10">
-          <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-6">
-            <span class="material-symbols-outlined text-secondary-fixed text-3xl" style="font-variation-settings:'FILL' 1;">visibility</span>
+  <!-- Numbers at a Glance -->
+  <section class="bg-primary py-14">
+    <div class="max-w-container-max mx-auto px-gutter">
+      <p class="text-center text-primary-fixed opacity-70 font-label-bold uppercase tracking-widest text-xs mb-10">Our Numbers at a Glance</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Corporate -->
+        <div class="bg-white/10 backdrop-blur-md rounded-[32px] p-8 text-white">
+          <p class="text-secondary-fixed-dim font-label-bold uppercase tracking-wider text-xs mb-6">🏢 Corporate</p>
+          <div class="grid grid-cols-3 gap-6 text-center">
+            <div>
+              <p class="text-secondary-fixed-dim font-display-xl text-[42px] leading-none font-bold mb-2">11+</p>
+              <p class="text-primary-fixed opacity-80 text-sm">Cities</p>
+            </div>
+            <div>
+              <p class="text-secondary-fixed-dim font-display-xl text-[42px] leading-none font-bold mb-2">200+</p>
+              <p class="text-primary-fixed opacity-80 text-sm">Trainers</p>
+            </div>
+            <div>
+              <p class="text-secondary-fixed-dim font-display-xl text-[42px] leading-none font-bold mb-2">20K+</p>
+              <p class="text-primary-fixed opacity-80 text-sm">Participants</p>
+            </div>
           </div>
-          <h3 class="font-headline-md text-headline-md text-white mb-4">Our Vision</h3>
-          <p class="text-body-md text-primary-fixed opacity-90">We help your people speak clearly, listen deeply, and show up with confidence — whether they're freshers entering the workforce or managers leading teams.</p>
         </div>
-      </div>
-      <div class="fade-in bg-white rounded-[32px] p-10 shadow-sm hover:shadow-xl transition-all">
-        <div class="w-14 h-14 rounded-2xl bg-secondary-fixed flex items-center justify-center mb-6">
-          <span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings:'FILL' 1;">bolt</span>
+        <!-- Campus -->
+        <div class="bg-white/10 backdrop-blur-md rounded-[32px] p-8 text-white">
+          <p class="text-secondary-fixed-dim font-label-bold uppercase tracking-wider text-xs mb-6">🎓 Campus</p>
+          <div class="grid grid-cols-3 gap-6 text-center">
+            <div>
+              <p class="text-secondary-fixed-dim font-display-xl text-[42px] leading-none font-bold mb-2">200+</p>
+              <p class="text-primary-fixed opacity-80 text-sm">Companies Hiring</p>
+            </div>
+            <div>
+              <p class="text-secondary-fixed-dim font-display-xl text-[42px] leading-none font-bold mb-2">20+</p>
+              <p class="text-primary-fixed opacity-80 text-sm">Colleges Partnered</p>
+            </div>
+            <div>
+              <p class="text-secondary-fixed-dim font-display-xl text-[42px] leading-none font-bold mb-2">₹15L</p>
+              <p class="text-primary-fixed opacity-80 text-sm">Max Package</p>
+            </div>
+          </div>
         </div>
-        <h3 class="font-headline-md text-headline-md text-primary mb-4">Our Approach</h3>
-        <p class="text-body-md text-on-surface-variant">We design learning pathways that change behaviour, not just tick a box. Customisable programs across online, on-site, and hybrid formats for colleges and companies.</p>
       </div>
     </div>
   </section>
 
-  <!-- Team -->
+  <!-- Methodology I → A → T -->
   <section class="py-section-padding-lg px-gutter max-w-container-max mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="font-headline-lg text-headline-lg text-primary mb-4">The Team Behind the Transformation</h2>
-      <p class="text-body-lg text-on-surface-variant max-w-xl mx-auto">Educators, coaches, and facilitators who have been in the rooms they train you for.</p>
+    <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
+      <span class="bg-primary/10 text-primary px-4 py-1.5 rounded-full font-label-bold text-label-bold mb-6 inline-block">THE GROWWINGS SIGNATURE</span>
+      <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Our Methodology — I → A → T</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant">It's not just training; it's a before-and-after experience that teams can <strong>see, feel, and celebrate</strong>.</p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-
-      <div class="fade-in text-center group">
-        <div class="relative w-32 h-32 mx-auto mb-6">
-          <img class="w-full h-full object-cover rounded-full shadow-lg group-hover:scale-105 transition-transform duration-300"
-               src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=200&q=80" alt="Founder"/>
-          <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center">
-            <span class="material-symbols-outlined text-white text-sm" style="font-variation-settings:'FILL' 1;">workspace_premium</span>
-          </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="iat-step fade-in bg-white rounded-[32px] p-10 shadow-sm border border-outline-variant/20 hover:shadow-xl text-center">
+        <div class="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-6 shadow-lg">
+          <span class="text-white font-display-xl text-[32px] font-bold leading-none">I</span>
         </div>
-        <h4 class="font-headline-md text-headline-md text-primary mb-1">Arjun Mehta</h4>
-        <p class="text-sm text-secondary font-label-bold mb-2">Founder & Lead Facilitator</p>
-        <p class="text-sm text-on-surface-variant">15 years in corporate L&D. Ex-Infosys. Trained 3,000+ professionals across India.</p>
+        <h3 class="font-headline-md text-headline-md text-primary mb-4">Information</h3>
+        <p class="text-on-surface-variant font-body-md">We start by sharing <em>sharp, relevant insights</em> that open minds and challenge assumptions.</p>
       </div>
-
-      <div class="fade-in text-center group">
-        <div class="relative w-32 h-32 mx-auto mb-6">
-          <img class="w-full h-full object-cover rounded-full shadow-lg group-hover:scale-105 transition-transform duration-300"
-               src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80" alt="Lead Coach"/>
-          <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-tertiary-container rounded-full flex items-center justify-center">
-            <span class="material-symbols-outlined text-white text-sm" style="font-variation-settings:'FILL' 1;">psychology</span>
+      <div class="iat-step fade-in bg-primary rounded-[32px] p-10 shadow-xl text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white,transparent)]"></div>
+        <div class="relative z-10">
+          <div class="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-6">
+            <span class="text-white font-display-xl text-[32px] font-bold leading-none">A</span>
           </div>
+          <h3 class="font-headline-md text-headline-md text-white mb-4">Action</h3>
+          <p class="text-primary-fixed opacity-90 font-body-md">We convert those insights into <em>real-world practice</em> through repeated, hands-on activities.</p>
         </div>
-        <h4 class="font-headline-md text-headline-md text-primary mb-1">Priya Nair</h4>
-        <p class="text-sm text-secondary font-label-bold mb-2">Head of Curriculum</p>
-        <p class="text-sm text-on-surface-variant">Behavioral psychologist turned communication coach. Architect of the 5-part methodology.</p>
       </div>
-
-      <div class="fade-in text-center group">
-        <div class="relative w-32 h-32 mx-auto mb-6">
-          <img class="w-full h-full object-cover rounded-full shadow-lg group-hover:scale-105 transition-transform duration-300"
-               src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&q=80" alt="Corporate Head"/>
-          <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-success-green rounded-full flex items-center justify-center">
-            <span class="material-symbols-outlined text-white text-sm" style="font-variation-settings:'FILL' 1;">business</span>
+      <div class="iat-step fade-in bg-secondary-container rounded-[32px] p-10 shadow-xl text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white,transparent)]"></div>
+        <div class="relative z-10">
+          <div class="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-6">
+            <span class="text-white font-display-xl text-[32px] font-bold leading-none">T</span>
           </div>
+          <h3 class="font-headline-md text-headline-md text-white mb-4">Transformation</h3>
+          <p class="text-secondary-fixed opacity-90 font-body-md">We stay with participants until they experience a <em>visible shift in behaviour and outcomes</em>.</p>
         </div>
-        <h4 class="font-headline-md text-headline-md text-primary mb-1">Rohan Shah</h4>
-        <p class="text-sm text-secondary font-label-bold mb-2">Head of Corporate</p>
-        <p class="text-sm text-on-surface-variant">Manages enterprise partnerships and delivers executive communication programs for C-suite teams.</p>
       </div>
-
-      <div class="fade-in text-center group">
-        <div class="relative w-32 h-32 mx-auto mb-6">
-          <img class="w-full h-full object-cover rounded-full shadow-lg group-hover:scale-105 transition-transform duration-300"
-               src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80" alt="Campus Head"/>
-          <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-            <span class="material-symbols-outlined text-white text-sm" style="font-variation-settings:'FILL' 1;">school</span>
-          </div>
-        </div>
-        <h4 class="font-headline-md text-headline-md text-primary mb-1">Sneha Kulkarni</h4>
-        <p class="text-sm text-secondary font-label-bold mb-2">Head of Campus Programs</p>
-        <p class="text-sm text-on-surface-variant">Drives the Future Ready Campus program. Works with 80+ partner colleges across India.</p>
-      </div>
-
     </div>
   </section>
 
-  <!-- What We Stand For -->
-  <section class="bg-primary py-section-padding-lg px-gutter">
+  <!-- Philosophy Keep it 3D -->
+  <section class="bg-surface-container-low py-section-padding-lg px-gutter">
     <div class="max-w-container-max mx-auto">
-      <div class="text-center text-white mb-16">
-        <h2 class="font-headline-lg text-headline-lg mb-4">What We Stand For</h2>
-        <p class="text-primary-fixed opacity-80 font-body-lg max-w-xl mx-auto">Three beliefs that guide every program we design and every session we run.</p>
+      <div class="text-center mb-16 fade-in">
+        <span class="bg-secondary-fixed text-secondary px-4 py-1.5 rounded-full font-label-bold text-label-bold mb-6 inline-block">OUR PHILOSOPHY</span>
+        <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Keep it 3D!</h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">At GrowWings, we don't just teach skills. We fuel the <strong>MIND</strong>, nurture the <strong>HEART</strong>, and set your <strong>VOICE</strong> free.</p>
+        <p class="text-sm text-on-surface-variant mt-4 italic">⚠️ Warning: Side effects may include confidence, clarity and inconvenient amounts of self-belief.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white/10 backdrop-blur-md rounded-[32px] p-8 text-white hover:bg-white/15 transition-colors">
-          <span class="material-symbols-outlined text-secondary-fixed text-4xl mb-4 block" style="font-variation-settings:'FILL' 1;">favorite</span>
-          <h3 class="font-headline-md text-headline-md mb-3">Humans First</h3>
-          <p class="text-primary-fixed opacity-90 text-sm">Skills are tools. Mindset is the hand that wields them. We start with self-doubt, fear, and hesitation — and clear them head-on.</p>
+        <!-- MIND -->
+        <div class="fade-in bg-white rounded-[32px] p-8 shadow-sm hover:shadow-xl transition-all">
+          <div class="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings:'FILL' 1;">psychology</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-primary mb-2">MIND</h3>
+          <p class="text-secondary font-label-bold text-sm mb-5">Think clearer. Decide smarter.</p>
+          <div class="flex flex-wrap">
+            <span class="skill-pill">Self-Awareness & Mindset</span>
+            <span class="skill-pill">Decision Making</span>
+            <span class="skill-pill">Focus & Discipline</span>
+            <span class="skill-pill">Problem Solving & Critical Thinking</span>
+            <span class="skill-pill">Growth Orientation</span>
+            <span class="skill-pill">Time Management & Prioritization</span>
+            <span class="skill-pill">Resilience & Stress Management</span>
+            <span class="skill-pill">Goal Setting & Execution</span>
+          </div>
         </div>
-        <div class="bg-white/10 backdrop-blur-md rounded-[32px] p-8 text-white hover:bg-white/15 transition-colors">
-          <span class="material-symbols-outlined text-secondary-fixed text-4xl mb-4 block" style="font-variation-settings:'FILL' 1;">verified</span>
-          <h3 class="font-headline-md text-headline-md mb-3">Outcomes Over Attendance</h3>
-          <p class="text-primary-fixed opacity-90 text-sm">We measure transformation — not hours logged. Confident Teams. Better Conversations. Real Results.</p>
+        <!-- HEART -->
+        <div class="fade-in bg-white rounded-[32px] p-8 shadow-sm hover:shadow-xl transition-all">
+          <div class="w-16 h-16 rounded-2xl bg-[#e05a5a] flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings:'FILL' 1;">favorite</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-[#e05a5a] mb-2">HEART</h3>
+          <p class="text-secondary font-label-bold text-sm mb-5">Connect deeper. Lead kinder.</p>
+          <div class="flex flex-wrap">
+            <span class="skill-pill skill-pill-heart">Emotional Intelligence</span>
+            <span class="skill-pill skill-pill-heart">Leadership & People Management</span>
+            <span class="skill-pill skill-pill-heart">Team Building & Collaboration</span>
+            <span class="skill-pill skill-pill-heart">Conflict Resolution</span>
+            <span class="skill-pill skill-pill-heart">Empathy & Inclusion</span>
+            <span class="skill-pill skill-pill-heart">Giving & Receiving Feedback</span>
+            <span class="skill-pill skill-pill-heart">Motivation & Influence</span>
+            <span class="skill-pill skill-pill-heart">Relationship Building</span>
+          </div>
         </div>
-        <div class="bg-white/10 backdrop-blur-md rounded-[32px] p-8 text-white hover:bg-white/15 transition-colors">
-          <span class="material-symbols-outlined text-secondary-fixed text-4xl mb-4 block" style="font-variation-settings:'FILL' 1;">diversity_3</span>
-          <h3 class="font-headline-md text-headline-md mb-3">Accessible Excellence</h3>
-          <p class="text-primary-fixed opacity-90 text-sm">We serve colleges across India for placement prep and student fluency, and companies — from startups to enterprises like Tyson Foods, EY, PeriFerry, and Godrej Properties.</p>
+        <!-- VOICE -->
+        <div class="fade-in bg-white rounded-[32px] p-8 shadow-sm hover:shadow-xl transition-all">
+          <div class="w-16 h-16 rounded-2xl bg-[#b45309] flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings:'FILL' 1;">record_voice_over</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-[#b45309] mb-2">VOICE</h3>
+          <p class="text-secondary font-label-bold text-sm mb-5">Speak boldly. Show up fully.</p>
+          <div class="flex flex-wrap">
+            <span class="skill-pill skill-pill-voice">Communication Skills</span>
+            <span class="skill-pill skill-pill-voice">Public Speaking & Presentation</span>
+            <span class="skill-pill skill-pill-voice">Personal Branding</span>
+            <span class="skill-pill skill-pill-voice">Influence & Persuasion</span>
+            <span class="skill-pill skill-pill-voice">Clarity of Expression</span>
+            <span class="skill-pill skill-pill-voice">English Fluency</span>
+            <span class="skill-pill skill-pill-voice">Storytelling</span>
+            <span class="skill-pill skill-pill-voice">Interviewing & Networking</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact / CTA -->
-  <section id="contact" class="py-section-padding-lg px-gutter max-w-container-max mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-      <div>
-        <span class="bg-tertiary-fixed text-on-tertiary-fixed px-4 py-1.5 rounded-full font-label-bold text-label-bold mb-6 inline-block">GET IN TOUCH</span>
-        <h2 class="font-headline-lg text-headline-lg text-primary mb-6">Still Exploring?<br/>Let's Talk.</h2>
-        <p class="text-body-lg text-on-surface-variant mb-8">Tell us about your team, students, or vision — we'll suggest the right program.</p>
-        <div class="space-y-6">
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-2xl bg-surface-container-high flex items-center justify-center shrink-0">
-              <span class="material-symbols-outlined text-primary">mail</span>
-            </div>
-            <div>
-              <p class="font-label-bold text-primary">Email Us</p>
-              <p class="text-on-surface-variant text-sm">hello@growwings.in</p>
-            </div>
-          </div>
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-2xl bg-surface-container-high flex items-center justify-center shrink-0">
-              <span class="material-symbols-outlined text-primary">phone</span>
-            </div>
-            <div>
-              <p class="font-label-bold text-primary">Call Us</p>
-              <p class="text-on-surface-variant text-sm">+91 98765 43210</p>
+  <!-- Meet the Co-Founders -->
+  <section id="founders" class="py-section-padding-lg px-gutter max-w-container-max mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <span class="bg-tertiary-fixed text-on-tertiary-fixed px-4 py-1.5 rounded-full font-label-bold text-label-bold mb-6 inline-block">MEET THE CO-FOUNDERS</span>
+      <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Four Women. Four Powerhouse Skill Sets.</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">One shared belief: <strong>growth should feel exciting, not exhausting.</strong></p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <!-- Poonam -->
+      <div class="founder-card fade-in bg-white rounded-[32px] p-8 shadow-sm border border-outline-variant/20 hover:shadow-2xl transition-all overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-8 translate-x-8"></div>
+        <div class="flex gap-6 items-start relative z-10">
+          <div class="shrink-0">
+            <div class="w-24 h-24 rounded-2xl bg-primary/10 flex items-center justify-center overflow-hidden founder-img">
+              <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=200&q=80" alt="Dr. Poonam Ojha" class="w-full h-full object-cover"/>
             </div>
           </div>
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-2xl bg-surface-container-high flex items-center justify-center shrink-0">
-              <span class="material-symbols-outlined text-primary">location_on</span>
+          <div>
+            <h3 class="font-headline-md text-headline-md text-primary mb-1">Dr. Poonam Ojha</h3>
+            <p class="text-secondary-container font-label-bold text-sm mb-3">Behavioural Coach</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-label-bold">ACC Certified Coach</span>
+              <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-label-bold">PhD in English</span>
+              <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-label-bold">25+ years</span>
             </div>
-            <div>
-              <p class="font-label-bold text-primary">Find Us</p>
-              <p class="text-on-surface-variant text-sm">Pune, Maharashtra — serving colleges and companies across India</p>
-            </div>
+          </div>
+        </div>
+        <div class="mt-5 relative z-10">
+          <p class="text-on-surface-variant font-body-md mb-4">Specialist in <strong>communication and emotional intelligence</strong>, with programs delivered for Ernst & Young, Tyson Foods, Karle Infra, Neebal Technologies, and more.</p>
+          <div class="bg-surface-container-low rounded-2xl p-4">
+            <p class="text-xs font-label-bold text-secondary-container uppercase tracking-wider mb-1">Fun Fact</p>
+            <p class="text-sm text-on-surface-variant italic">Poonam has a way of dropping <strong>"wisdom bombs"</strong> — advice you didn't know you needed, but that instantly change how you view work, life, or leadership.</p>
           </div>
         </div>
       </div>
 
-      <!-- Contact Form -->
-      <div class="glass-card rounded-[32px] p-10 shadow-lg">
-        <h3 class="font-headline-md text-headline-md text-primary mb-8">Drop Us a Message</h3>
-        <form class="space-y-6" onsubmit="handleSubmit(event)">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label class="block font-label-bold text-label-bold text-on-surface-variant mb-2">First Name</label>
-              <input type="text" placeholder="Arjun" class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3 font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"/>
-            </div>
-            <div>
-              <label class="block font-label-bold text-label-bold text-on-surface-variant mb-2">Last Name</label>
-              <input type="text" placeholder="Mehta" class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3 font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"/>
+      <!-- Sharanya -->
+      <div class="founder-card fade-in bg-white rounded-[32px] p-8 shadow-sm border border-outline-variant/20 hover:shadow-2xl transition-all overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-secondary-container/5 rounded-full -translate-y-8 translate-x-8"></div>
+        <div class="flex gap-6 items-start relative z-10">
+          <div class="shrink-0">
+            <div class="w-24 h-24 rounded-2xl bg-secondary-fixed/30 flex items-center justify-center overflow-hidden founder-img">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80" alt="Sharanya Ojha" class="w-full h-full object-cover"/>
             </div>
           </div>
           <div>
-            <label class="block font-label-bold text-label-bold text-on-surface-variant mb-2">Email</label>
-            <input type="email" placeholder="arjun@company.com" class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3 font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"/>
+            <h3 class="font-headline-md text-headline-md text-primary mb-1">Sharanya Ojha</h3>
+            <p class="text-secondary-container font-label-bold text-sm mb-3">Soft Skills Trainer & Instructional Designer</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-secondary-fixed text-secondary text-xs px-3 py-1 rounded-full font-label-bold">Certified Learning Consultant</span>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5 relative z-10">
+          <p class="text-on-surface-variant font-body-md mb-4">Designed fluency modules for <strong>EY</strong>, trained <strong>800+ government school teachers</strong> (TRTI Maharashtra), and crafted Campus-to-Corporate journeys for <strong>ICFAI</strong> and <strong>Tyson Foods</strong>.</p>
+          <div class="bg-surface-container-low rounded-2xl p-4">
+            <p class="text-xs font-label-bold text-secondary-container uppercase tracking-wider mb-1">Fun Fact</p>
+            <p class="text-sm text-on-surface-variant italic">With a whiteboard, 5 minutes, and a strong coffee in hand, she can transform any passing thought into a full-blown training game.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kritika -->
+      <div class="founder-card fade-in bg-white rounded-[32px] p-8 shadow-sm border border-outline-variant/20 hover:shadow-2xl transition-all overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-tertiary-fixed/30 rounded-full -translate-y-8 translate-x-8"></div>
+        <div class="flex gap-6 items-start relative z-10">
+          <div class="shrink-0">
+            <div class="w-24 h-24 rounded-2xl bg-tertiary-fixed/50 flex items-center justify-center overflow-hidden founder-img">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80" alt="Kritika Singh" class="w-full h-full object-cover"/>
+            </div>
           </div>
           <div>
-            <label class="block font-label-bold text-label-bold text-on-surface-variant mb-2">I represent a…</label>
-            <select class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3 font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors">
-              <option>College / University</option>
-              <option>Company / Organisation</option>
-              <option>I'm an Individual</option>
-            </select>
+            <h3 class="font-headline-md text-headline-md text-primary mb-1">Kritika Singh</h3>
+            <p class="text-secondary-container font-label-bold text-sm mb-3">Content Strategist & Soft Skills Trainer</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-tertiary-fixed text-tertiary text-xs px-3 py-1 rounded-full font-label-bold">Practice-Driven Learning</span>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5 relative z-10">
+          <p class="text-on-surface-variant font-body-md mb-4">Delivered sessions for <strong>freshers at EY</strong>, <strong>retired professionals at Bank of Baroda</strong>, <strong>trans youth at Periferry</strong>, and more — helping each group meet their specific learning objectives.</p>
+          <div class="bg-surface-container-low rounded-2xl p-4">
+            <p class="text-xs font-label-bold text-secondary-container uppercase tracking-wider mb-1">Fun Fact</p>
+            <p class="text-sm text-on-surface-variant italic">Can take the most random idea and turn it into blockbuster content — sometimes while sipping her Diet Coke.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shreny -->
+      <div class="founder-card fade-in bg-white rounded-[32px] p-8 shadow-sm border border-outline-variant/20 hover:shadow-2xl transition-all overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-8 translate-x-8"></div>
+        <div class="flex gap-6 items-start relative z-10">
+          <div class="shrink-0">
+            <div class="w-24 h-24 rounded-2xl bg-primary/10 flex items-center justify-center overflow-hidden founder-img">
+              <img src="https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?w=200&q=80" alt="Shreny Mutha" class="w-full h-full object-cover"/>
+            </div>
           </div>
           <div>
-            <label class="block font-label-bold text-label-bold text-on-surface-variant mb-2">Message</label>
-            <textarea rows="4" placeholder="Tell us about your team or program needs…" class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3 font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors resize-none"></textarea>
+            <h3 class="font-headline-md text-headline-md text-primary mb-1">Shreny Mutha</h3>
+            <p class="text-secondary-container font-label-bold text-sm mb-3">Trainer Network Lead & Soft Skills Facilitator</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-label-bold">NABET Certified</span>
+              <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-label-bold">International SQA Certified</span>
+            </div>
           </div>
-          <button type="submit" class="w-full bg-secondary-container hover:bg-secondary text-white py-4 rounded-full font-label-bold transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
-            Send Message
-            <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">send</span>
-          </button>
-        </form>
-        <div id="form-success" class="hidden mt-6 p-4 bg-success-green/10 border border-success-green/30 rounded-2xl text-center">
-          <span class="material-symbols-outlined text-success-green mb-2 block" style="font-variation-settings:'FILL' 1;">check_circle</span>
-          <p class="font-label-bold text-success-green">Message sent! We'll get back to you within 24 hours.</p>
+        </div>
+        <div class="mt-5 relative z-10">
+          <p class="text-on-surface-variant font-body-md mb-4">Leading a <strong>national network of 100+ trainers</strong> and ensuring top-quality delivery across every project. Experienced in youth development, professional upskilling, and institution-wide programs.</p>
+          <div class="bg-surface-container-low rounded-2xl p-4">
+            <p class="text-xs font-label-bold text-secondary-container uppercase tracking-wider mb-1">Fun Fact</p>
+            <p class="text-sm text-on-surface-variant italic">Shreny is a natural <strong>people magnet</strong> — she can spark collaborations in a room before most people have even finished their introductions.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GrowWings Promise -->
+  <section class="py-section-padding-lg px-gutter">
+    <div class="max-w-container-max mx-auto bg-primary rounded-[48px] overflow-hidden relative">
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_30%_50%,white,transparent)]"></div>
+      <div class="absolute top-0 right-0 w-72 h-72 bg-secondary-container/20 rounded-full blur-3xl"></div>
+      <div class="relative z-10 px-8 py-16 md:px-20 md:py-24">
+        <div class="max-w-3xl">
+          <span class="bg-white/20 text-white px-4 py-1.5 rounded-full font-label-bold text-label-bold mb-8 inline-block">🌈 THE GROWWINGS PROMISE</span>
+          <h2 class="font-headline-lg text-headline-lg text-white mb-6">Whether it's a Fortune 500 boardroom or a buzzing MBA campus...</h2>
+          <p class="text-primary-fixed text-body-lg opacity-90 mb-6">Whether we're empowering future leaders on campus or energising a corporate team on a Monday morning, our goal is simple:</p>
+          <p class="text-secondary-fixed-dim font-headline-md text-headline-md font-bold mb-10">To create learning experiences that help people <span class="text-white">grow wings</span>, and enjoy the flight!</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="contact.html" class="magnetic btn-pulse inline-block bg-secondary-container hover:bg-secondary text-white px-10 py-4 rounded-full font-label-bold transition-all shadow-xl">Let's Build Something Together</a>
+            <a href="campus.html" class="inline-block border-2 border-white/40 text-white hover:bg-white/10 px-10 py-4 rounded-full font-label-bold transition-all">Explore Our Programs</a>
+          </div>
         </div>
       </div>
     </div>
@@ -316,59 +419,53 @@
 <!-- Footer -->
 <footer class="bg-on-background py-section-padding-sm text-white">
   <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-gutter max-w-container-max mx-auto">
-    <div class="space-y-4">
-      <p class="font-headline-md text-headline-md font-bold text-primary-fixed">Growwings</p>
-      <p class="text-outline-variant text-sm">Upgrade your Human OS. Transformative learning for the future-ready leader.</p>
-    </div>
-    <div>
-      <h5 class="font-label-bold text-primary-fixed mb-4 uppercase tracking-wider text-xs">Navigate</h5>
-      <ul class="space-y-3 text-outline-variant text-sm">
-        <li><a href="courses.html" class="hover:text-white transition-colors">Courses</a></li>
-        <li><a href="methodology.html" class="hover:text-white transition-colors">Methodology</a></li>
-        <li><a href="testimonials.html" class="hover:text-white transition-colors">Testimonials</a></li>
-        <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5 class="font-label-bold text-primary-fixed mb-4 uppercase tracking-wider text-xs">Legal</h5>
-      <ul class="space-y-3 text-outline-variant text-sm">
-        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
-        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
-        <li><a href="#" class="hover:text-white transition-colors">Contact Support</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5 class="font-label-bold text-primary-fixed mb-4 uppercase tracking-wider text-xs">Connect</h5>
-      <div class="relative">
-        <input class="w-full bg-white/5 border border-white/20 rounded-full px-6 py-3 text-white focus:outline-none focus:border-secondary-container text-sm" placeholder="Email Address" type="email"/>
-        <button class="absolute right-2 top-2 bg-secondary-container text-white w-8 h-8 rounded-full flex items-center justify-center">
-          <span class="material-symbols-outlined text-sm">arrow_forward</span>
-        </button>
+    <div class="space-y-5">
+      <img src="logo.png" alt="Growwings" class="h-11 w-auto brightness-0 invert"/>
+      <p class="text-outline-variant text-sm leading-relaxed">We craft learning journeys that turn fresh talent and seasoned professionals into confident, outcome-obsessed leaders.</p>
+      <div class="flex gap-3">
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary-container transition-colors text-sm">f</a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary-container transition-colors text-sm">𝕏</a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary-container transition-colors"><span class="material-symbols-outlined text-sm">photo_camera</span></a>
       </div>
     </div>
+    <div>
+      <h5 class="font-label-bold text-primary-fixed mb-5 uppercase tracking-wider text-xs">Quick Links</h5>
+      <ul class="space-y-3 text-outline-variant text-sm">
+        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+        <li><a href="corporate.html" class="hover:text-white transition-colors">Corporate Offerings</a></li>
+        <li><a href="campus.html" class="hover:text-white transition-colors">Future Ready Campus</a></li>
+        <li><a href="youngminds.html" class="hover:text-white transition-colors">Young Minds</a></li>
+        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+        <li><a href="contact.html" class="hover:text-white transition-colors">Book Appointment</a></li>
+        <li><a href="blogs.html" class="hover:text-white transition-colors">Blogs & Case Studies</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="font-label-bold text-primary-fixed mb-5 uppercase tracking-wider text-xs">Follow Us</h5>
+      <ul class="space-y-3 text-outline-variant text-sm">
+        <li><a href="#" class="hover:text-white transition-colors">Facebook</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Instagram</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="font-label-bold text-primary-fixed mb-5 uppercase tracking-wider text-xs">Get In Touch</h5>
+      <p class="text-outline-variant text-sm mb-2">hello@growwings.in</p>
+      <p class="text-outline-variant text-sm mb-4">+91 96199 41750</p>
+      <p class="text-outline-variant text-sm">Pune, Maharashtra — serving colleges & companies across India</p>
+    </div>
   </div>
-  <div class="mt-12 pt-8 border-t border-white/10 text-center px-gutter max-w-container-max mx-auto">
-    <p class="text-outline-variant text-sm">© 2024 Growwings. The Human OS Upgrade.</p>
+  <div class="mt-12 pt-8 border-t border-white/10 text-center px-gutter">
+    <p class="text-outline-variant text-sm">© 2024 Growwings. Grow. Lead. Change the Game.</p>
   </div>
 </footer>
 
 <script>
-  document.getElementById('menu-toggle').addEventListener('click', () => {
-    document.getElementById('mobile-menu').classList.toggle('open');
-  });
-  window.addEventListener('scroll', () => {
-    document.getElementById('main-header').classList.toggle('shadow-md', window.scrollY > 50);
-  });
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    document.getElementById('form-success').classList.remove('hidden');
-    e.target.reset();
-  }
+  document.getElementById('menu-toggle').addEventListener('click',()=>document.getElementById('mobile-menu').classList.toggle('open'));
+  window.addEventListener('scroll',()=>document.getElementById('main-header').classList.toggle('shadow-md',window.scrollY>50));
+  document.querySelectorAll('.fade-in').forEach(el=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1}).observe(el));
 </script>
+<script src="animations.js"></script>
+<script src="modal.js"></script>
 </body>
 </html>

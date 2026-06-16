@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html class="scroll-smooth" lang="en">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Blogs &amp; Case Studies | Growwings</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Blogs & Case Studies | Growwings</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script>
   tailwind.config={theme:{extend:{
     colors:{"surface-glass":"rgba(255,255,255,0.7)","tertiary-fixed-dim":"#75d1ff","success-green":"#22C55E",
@@ -34,43 +37,191 @@
   #mobile-menu.open{max-height:500px;opacity:1}
   .fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
   .fade-in.visible{opacity:1;transform:translateY(0)}
-  .shimmer-orange{background:linear-gradient(90deg,#fb7800 0%,#ffdbc8 50%,#fb7800 100%);background-size:200% 100%;animation:shimmer 2s infinite linear}
-  .gradient-border-card{position:relative;background:#fff;border-radius:32px;overflow:hidden}
-  .gradient-border-card::before{content:"";position:absolute;inset:0;padding:2px;border-radius:32px;background:linear-gradient(135deg,#32999b,#fb7800);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-  @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-  .acc-item .accordion-content{max-height:0;overflow:hidden;transition:max-height .3s ease}
-  .acc-item.accordion-open .accordion-content{max-height:600px}
-  .acc-item.accordion-open .acc-icon{transform:rotate(180deg)}
-  .acc-icon{transition:transform .3s}
+  .blog-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(15,23,42,0.1)}
+  .blog-card{transition:all .3s ease}
 </style>
-  <link rel="stylesheet" href="animations.css"/>
+<link rel="stylesheet" href="animations.css"/>
 </head>
 <body class="bg-background-main font-body-md text-on-surface">
+
+<!-- Navigation -->
 <header id="main-header" class="w-full sticky top-0 bg-surface-glass backdrop-blur-md shadow-sm z-50">
   <nav class="flex justify-between items-center px-gutter py-3 max-w-container-max mx-auto">
-    <a href="index.html" class="flex items-center gap-2 shrink-0"><img src="logo.png" alt="Growwings" class="h-10 w-auto"/></a>
-    <div class="hidden md:flex items-center space-x-8"><a href="corporate.html" class="text-on-surface-variant hover:text-primary font-body-md transition-colors duration-200">Corporate Offerings</a>
-      <a href="campus.html" class="text-on-surface-variant hover:text-primary font-body-md transition-colors duration-200">Future Ready Campus</a>
-      <a href="contact.html" class="text-on-surface-variant hover:text-primary font-body-md transition-colors duration-200">Book Appointment</a>
-      </div>
-    <a href="contact.html" class="magnetic btn-pulse hidden md:inline-flex bg-secondary-container hover:bg-secondary text-white px-6 py-2 rounded-full font-label-bold transition-all hover:scale-105" data-modal="talk">Talk to Us!</a>
+    <a href="index.html" class="flex items-center gap-2 shrink-0">
+      <img src="logo.png" alt="Growwings" class="h-10 w-auto"/>
+    </a>
+    <div class="hidden md:flex items-center space-x-6">
+      <a href="corporate.html" class="text-on-surface-variant hover:text-primary font-body-md transition-colors duration-200 text-sm">Corporate Offerings</a>
+      <a href="campus.html" class="text-on-surface-variant hover:text-primary font-body-md transition-colors duration-200 text-sm">Future Ready Campus</a>
+      <a href="youngminds.html" class="text-on-surface-variant hover:text-primary font-body-md transition-colors duration-200 text-sm">Young Minds</a>
+      <a href="about.html" class="text-on-surface-variant hover:text-primary font-body-md transition-colors duration-200 text-sm">About Us</a>
+      <a href="contact.html" class="text-on-surface-variant hover:text-primary font-body-md transition-colors duration-200 text-sm">Book Appointment</a>
+    </div>
+    <a href="contact.html" class="hidden md:inline-flex bg-secondary-container hover:bg-secondary text-white px-5 py-2 rounded-full font-label-bold transition-all hover:scale-105 text-sm" data-modal="talk">Talk to Us!</a>
     <button id="menu-toggle" class="md:hidden text-primary"><span class="material-symbols-outlined">menu</span></button>
   </nav>
   <div id="mobile-menu" class="md:hidden bg-white border-t border-outline-variant/20 px-gutter">
-    <div class="py-4 space-y-1"><a href="corporate.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Corporate Offerings</a>
+    <div class="py-4 space-y-1">
+      <a href="corporate.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Corporate Offerings</a>
       <a href="campus.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Future Ready Campus</a>
+      <a href="youngminds.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Young Minds</a>
+      <a href="about.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">About Us</a>
       <a href="contact.html" class="block py-2 font-body-md text-on-surface-variant hover:text-primary">Book Appointment</a>
-      <a href="contact.html" class="inline-block mt-3 bg-secondary-container text-white px-6 py-2 rounded-full font-label-bold text-sm" data-modal="talk">Talk to Us!</a></div>
+      <a href="contact.html" class="inline-block mt-3 bg-secondary-container text-white px-6 py-2 rounded-full font-label-bold text-sm" data-modal="talk">Talk to Us!</a>
+    </div>
   </div>
 </header>
-<main class="py-section-padding-lg px-gutter max-w-container-max mx-auto">
-  <div class="text-center max-w-2xl mx-auto py-section-padding-lg">
-    <span class="material-symbols-outlined text-primary text-6xl mb-6 block" style="font-variation-settings:'FILL' 1;">article</span>
-    <h1 class="font-headline-lg text-headline-lg text-primary mb-4">Blogs &amp; Case Studies</h1>
-    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Stories, insights, and case studies from our training journeys — coming soon.</p>
-    <a href="contact.html" class="magnetic btn-pulse inline-block bg-secondary-container hover:bg-secondary text-white px-8 py-4 rounded-full font-label-bold transition-all">Talk to Us in the Meantime</a>
-  </div>
+
+<main>
+  <!-- Hero -->
+  <section class="py-section-padding-lg px-gutter max-w-container-max mx-auto text-center fade-in">
+    <span class="bg-tertiary-fixed text-on-tertiary-fixed px-4 py-1.5 rounded-full font-label-bold text-label-bold mb-6 inline-block">INSIGHTS & IMPACT</span>
+    <h1 class="font-display-xl text-display-xl text-primary mb-6 leading-tight">Blogs &<br/><span class="text-secondary-container">Case Studies</span></h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Real stories, real impact. Thoughts on L&D, human skills, and the transformations we've helped create across India.</p>
+  </section>
+
+  <!-- Featured Case Study -->
+  <section class="px-gutter max-w-container-max mx-auto pb-section-padding-lg">
+    <div class="bg-primary rounded-[48px] overflow-hidden relative">
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_70%_30%,white,transparent)]"></div>
+      <div class="relative z-10 p-8 md:p-14">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <span class="bg-secondary-container text-white px-4 py-1.5 rounded-full font-label-bold text-xs mb-6 inline-block">FEATURED CASE STUDY</span>
+            <h2 class="font-headline-lg text-headline-lg text-white mb-4">Developing FTM for India's Leading Real Estate Giant</h2>
+            <p class="text-primary-fixed opacity-90 font-body-lg mb-6">Transform challenging customer interactions into opportunities for stronger relationships by equipping participants with a framework to de-escalate conflict and resolve issues with empathy and professionalism.</p>
+            <div class="flex flex-wrap gap-4 mb-8">
+              <div class="bg-white/10 rounded-2xl px-5 py-3 text-center">
+                <p class="text-secondary-fixed-dim font-bold text-2xl">9 hrs</p>
+                <p class="text-primary-fixed text-xs opacity-80">Workshop Duration</p>
+              </div>
+              <div class="bg-white/10 rounded-2xl px-5 py-3 text-center">
+                <p class="text-secondary-fixed-dim font-bold text-2xl">5</p>
+                <p class="text-primary-fixed text-xs opacity-80">Locations</p>
+              </div>
+              <div class="bg-white/10 rounded-2xl px-5 py-3 text-center">
+                <p class="text-secondary-fixed-dim font-bold text-2xl">4.8/5</p>
+                <p class="text-primary-fixed text-xs opacity-80">Avg. Rating</p>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-6">
+            <div class="bg-white/10 backdrop-blur-md rounded-[28px] p-7 text-white">
+              <p class="text-secondary-fixed-dim font-label-bold uppercase text-xs tracking-wider mb-3">The Approach</p>
+              <p class="text-primary-fixed opacity-90 mb-4">We designed a <strong>9-hour, in-person workshop</strong> conducted across <strong>five locations</strong>. Participants:</p>
+              <ul class="space-y-2">
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary-fixed-dim text-sm mt-0.5" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                  <p class="text-primary-fixed opacity-90 text-sm">Analyzed real customer conversations and identified pain points</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary-fixed-dim text-sm mt-0.5" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                  <p class="text-primary-fixed opacity-90 text-sm">Reworked them into stronger, more effective responses</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary-fixed-dim text-sm mt-0.5" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                  <p class="text-primary-fixed opacity-90 text-sm">Practiced tools in <strong>communication, empathy, and assertiveness</strong> through interactive exercises</p>
+                </li>
+              </ul>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md rounded-[28px] p-7 text-white">
+              <p class="text-secondary-fixed-dim font-label-bold uppercase text-xs tracking-wider mb-3">The Result</p>
+              <ul class="space-y-2">
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary-fixed-dim text-sm mt-0.5" style="font-variation-settings:'FILL' 1;">star</span>
+                  <p class="text-primary-fixed opacity-90 text-sm">Participants walked away with <strong>practical, actionable tools</strong> to handle customer challenges with empathy and confidence</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary-fixed-dim text-sm mt-0.5" style="font-variation-settings:'FILL' 1;">star</span>
+                  <p class="text-primary-fixed opacity-90 text-sm">Real conversations were restructured into more constructive responses</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-secondary-fixed-dim text-sm mt-0.5" style="font-variation-settings:'FILL' 1;">star</span>
+                  <p class="text-primary-fixed opacity-90 text-sm">The program was rated <strong>4.8/5 on average</strong>, reflecting its strong impact and effectiveness</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blogs Section -->
+  <section class="py-section-padding-lg px-gutter bg-surface-container-low">
+    <div class="max-w-container-max mx-auto">
+      <div class="text-center mb-14 fade-in">
+        <span class="bg-primary/10 text-primary px-4 py-1.5 rounded-full font-label-bold text-label-bold mb-6 inline-block">FROM OUR DESK</span>
+        <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Latest Blogs</h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Thoughts, insights, and stories from the Growwings team — on learning, leadership, and the human side of growth.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div class="blog-card fade-in bg-white rounded-[32px] overflow-hidden shadow-sm border border-outline-variant/20">
+          <div class="h-48 bg-gradient-to-br from-primary/20 to-tertiary-fixed flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary text-6xl" style="font-variation-settings:'FILL' 1;">psychology</span>
+          </div>
+          <div class="p-7">
+            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-label-bold mb-4 inline-block">Communication</span>
+            <h3 class="font-headline-md text-headline-md text-primary mb-3 text-lg leading-tight">The Art of Speaking Up: Why Most Professionals Stay Silent</h3>
+            <p class="text-on-surface-variant text-sm mb-5">What stops intelligent, capable people from voicing their ideas in meetings? We unpack the psychology behind professional silence and what changes everything.</p>
+            <a href="https://docs.google.com/document/d/1-DJEwsY351KRhbdjEcPwgHS8X-Hk3qxP1V5W8_hWQk0/edit" target="_blank" rel="noopener noreferrer" class="text-primary font-label-bold flex items-center gap-1 hover:gap-2 transition-all text-sm">Read More <span class="material-symbols-outlined text-sm">open_in_new</span></a>
+          </div>
+        </div>
+
+        <div class="blog-card fade-in bg-white rounded-[32px] overflow-hidden shadow-sm border border-outline-variant/20">
+          <div class="h-48 bg-gradient-to-br from-secondary-fixed to-secondary-fixed-dim flex items-center justify-center">
+            <span class="material-symbols-outlined text-secondary text-6xl" style="font-variation-settings:'FILL' 1;">groups</span>
+          </div>
+          <div class="p-7">
+            <span class="bg-secondary-fixed text-secondary text-xs px-3 py-1 rounded-full font-label-bold mb-4 inline-block">Leadership</span>
+            <h3 class="font-headline-md text-headline-md text-primary mb-3 text-lg leading-tight">From Manager to Leader: The One Shift That Changes Everything</h3>
+            <p class="text-on-surface-variant text-sm mb-5">Most managers are promoted for technical skills. But leadership demands something entirely different. Here's the mindset shift that separates good managers from great leaders.</p>
+            <a href="https://docs.google.com/document/d/1-qKZoTvpbcG-o4DbuRM5W5zDR7wLCq1DSR7J7gCRxns/edit" target="_blank" rel="noopener noreferrer" class="text-primary font-label-bold flex items-center gap-1 hover:gap-2 transition-all text-sm">Read More <span class="material-symbols-outlined text-sm">open_in_new</span></a>
+          </div>
+        </div>
+
+        <div class="blog-card fade-in bg-white rounded-[32px] overflow-hidden shadow-sm border border-outline-variant/20">
+          <div class="h-48 bg-gradient-to-br from-tertiary-fixed to-tertiary-fixed-dim flex items-center justify-center">
+            <span class="material-symbols-outlined text-tertiary text-6xl" style="font-variation-settings:'FILL' 1;">school</span>
+          </div>
+          <div class="p-7">
+            <span class="bg-tertiary-fixed text-tertiary text-xs px-3 py-1 rounded-full font-label-bold mb-4 inline-block">Campus</span>
+            <h3 class="font-headline-md text-headline-md text-primary mb-3 text-lg leading-tight">Why Campus Placements Fail: The Skill They Don't Teach</h3>
+            <p class="text-on-surface-variant text-sm mb-5">A 9.2 CGPA won't save you in an HR interview if you can't communicate your story. We explore what campuses miss — and what students must build before placement season.</p>
+            <a href="https://docs.google.com/document/d/1YJKK2CSs_CYtz2Ws_5McQUDBKwYfA9yXwr_jGtKsJQk/edit" target="_blank" rel="noopener noreferrer" class="text-primary font-label-bold flex items-center gap-1 hover:gap-2 transition-all text-sm">Read More <span class="material-symbols-outlined text-sm">open_in_new</span></a>
+          </div>
+        </div>
+
+        <div class="blog-card fade-in bg-white rounded-[32px] overflow-hidden shadow-sm border border-outline-variant/20 md:col-span-2 lg:col-span-3">
+          <div class="flex flex-col md:flex-row">
+            <div class="md:w-72 h-48 md:h-auto bg-gradient-to-br from-primary/10 to-surface-container-high flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-primary text-6xl" style="font-variation-settings:'FILL' 1;">self_improvement</span>
+            </div>
+            <div class="p-7">
+              <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-label-bold mb-4 inline-block">Mindset</span>
+              <h3 class="font-headline-md text-headline-md text-primary mb-3 text-xl">Emotional Intelligence at Work: The Real Superpower</h3>
+              <p class="text-on-surface-variant mb-5">IQ gets you hired. EQ keeps you growing. In a world increasingly shaped by AI, the ability to connect, empathize, and adapt is the competitive edge no algorithm can replicate. This piece explores why EQ is the defining skill of the next decade — and how you can build it.</p>
+              <a href="https://docs.google.com/document/d/183iQeVH5chFqGdSrtqJ-LmwVz3lKkvx56jezRpuPogs/edit" target="_blank" rel="noopener noreferrer" class="text-primary font-label-bold flex items-center gap-1 hover:gap-2 transition-all text-sm">Read More <span class="material-symbols-outlined text-sm">open_in_new</span></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-section-padding-lg px-gutter">
+    <div class="max-w-container-max mx-auto text-center fade-in">
+      <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Want a Case Study Built Around Your Organisation?</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto mb-8">We document transformations — not just deliverables. Let's build something worth writing about.</p>
+      <a href="contact.html" class="magnetic btn-pulse inline-block bg-secondary-container hover:bg-secondary text-white px-12 py-5 rounded-full font-label-bold transition-all shadow-xl text-base">Start a Conversation</a>
+    </div>
+  </section>
 </main>
+
+<!-- Footer -->
 <footer class="bg-on-background py-section-padding-sm text-white">
   <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-gutter max-w-container-max mx-auto">
     <div class="space-y-5">
@@ -85,11 +236,12 @@
     <div>
       <h5 class="font-label-bold text-primary-fixed mb-5 uppercase tracking-wider text-xs">Quick Links</h5>
       <ul class="space-y-3 text-outline-variant text-sm">
-        <li><a href="index.html" class="hover:text-white transition-colors">Home Page</a></li>
+        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
         <li><a href="corporate.html" class="hover:text-white transition-colors">Corporate Offerings</a></li>
         <li><a href="campus.html" class="hover:text-white transition-colors">Future Ready Campus</a></li>
+        <li><a href="youngminds.html" class="hover:text-white transition-colors">Young Minds</a></li>
+        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
         <li><a href="contact.html" class="hover:text-white transition-colors">Book Appointment</a></li>
-        <li><a href="blogs.html" class="hover:text-white transition-colors">Blogs and Case Studies</a></li>
       </ul>
     </div>
     <div>
@@ -97,28 +249,27 @@
       <ul class="space-y-3 text-outline-variant text-sm">
         <li><a href="#" class="hover:text-white transition-colors">Facebook</a></li>
         <li><a href="#" class="hover:text-white transition-colors">Instagram</a></li>
-        <li><a href="#" class="hover:text-white transition-colors">X (Twitter)</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">LinkedIn</a></li>
       </ul>
     </div>
     <div>
-      <h5 class="font-label-bold text-primary-fixed mb-5 uppercase tracking-wider text-xs">Stay Updated</h5>
-      <p class="text-outline-variant text-sm mb-4">Get the latest from Growwings.</p>
-      <div class="relative">
-        <input type="email" placeholder="Email Address" class="w-full bg-white/5 border border-white/20 rounded-full px-5 py-3 text-white text-sm focus:outline-none focus:border-secondary-container"/>
-        <button class="absolute right-2 top-2 bg-secondary-container text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-secondary transition-colors"><span class="material-symbols-outlined text-sm">arrow_forward</span></button>
-      </div>
+      <h5 class="font-label-bold text-primary-fixed mb-5 uppercase tracking-wider text-xs">Get In Touch</h5>
+      <p class="text-outline-variant text-sm mb-2">hello@growwings.in</p>
+      <p class="text-outline-variant text-sm mb-4">+91 96199 41750</p>
+      <p class="text-outline-variant text-sm">Pune, Maharashtra — serving colleges & companies across India</p>
     </div>
   </div>
   <div class="mt-12 pt-8 border-t border-white/10 text-center px-gutter">
     <p class="text-outline-variant text-sm">© 2024 Growwings. Grow. Lead. Change the Game.</p>
   </div>
 </footer>
+
 <script>
   document.getElementById('menu-toggle').addEventListener('click',()=>document.getElementById('mobile-menu').classList.toggle('open'));
   window.addEventListener('scroll',()=>document.getElementById('main-header').classList.toggle('shadow-md',window.scrollY>50));
   document.querySelectorAll('.fade-in').forEach(el=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1}).observe(el));
-  document.querySelectorAll('.acc-btn').forEach(b=>b.addEventListener('click',()=>b.closest('.acc-item').classList.toggle('accordion-open')));
 </script>
 <script src="animations.js"></script>
 <script src="modal.js"></script>
-</body></html>
+</body>
+</html>
