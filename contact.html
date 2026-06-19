@@ -157,15 +157,13 @@
           <div class="w-16 h-16 rounded-full bg-success-green/10 flex items-center justify-center mx-auto mb-4">
             <span class="material-symbols-outlined text-success-green text-4xl" style="font-variation-settings:'FILL' 1;">check_circle</span>
           </div>
-          <h3 class="font-headline-md text-headline-md text-primary mb-2">Ready to Send!</h3>
-          <p class="text-on-surface-variant text-sm mb-6">Your message is prepared. Tap below to open WhatsApp and hit Send.</p>
-          <a id="contact-wa-link" href="#" target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-label-bold px-8 py-4 rounded-full transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 mb-3">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.852L0 24l6.335-1.508A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.888.933-3.64-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
-            Send on WhatsApp
-          </a>
-          <br/>
+          <h3 class="font-headline-md text-headline-md text-primary mb-2">Message Sent!</h3>
+          <p class="text-on-surface-variant text-sm mb-6">Thanks for reaching out. We'll get back to you within 24 hours.</p>
           <button onclick="resetContactForm()" class="text-sm text-on-surface-variant hover:text-primary underline underline-offset-4 transition-colors">Send another message</button>
+        </div>
+        <!-- Error state -->
+        <div id="contact-error" class="hidden mt-4 p-4 bg-red-50 border border-red-200 rounded-2xl text-center">
+          <p class="text-sm text-red-700">Something went wrong. Please try again or email us at <a href="mailto:sharanya.o@growwings.in" class="font-semibold underline">sharanya.o@growwings.in</a></p>
         </div>
       </div>
     </div>
@@ -221,6 +219,8 @@
   document.querySelectorAll('.acc-btn').forEach(b=>b.addEventListener('click',()=>b.closest('.acc-item').classList.toggle('accordion-open')));
 </script>
 <script>
+  var FORMSUBMIT_URL = 'https://formsubmit.co/ajax/sharanya.o@growwings.in';
+
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -237,36 +237,56 @@
     }
     if (!valid) return;
 
-    // Build WhatsApp message
     var name  = document.getElementById('c-name').value.trim();
-    var email = document.getElementById('c-email').value.trim();
+    var email = emailEl.value.trim();
     var phone = document.getElementById('c-phone').value.trim();
     var type  = document.getElementById('c-type').value;
     var msg   = document.getElementById('c-msg').value.trim();
 
-    var lines = [
-      '👋 *New Enquiry from Growwings Website*',
-      '',
-      '*Name:* ' + name,
-      '*Email:* ' + email,
-      phone ? '*Phone:* ' + phone : null,
-      '*Enquiry Type:* ' + type,
-      '',
-      '*Message:*',
-      msg
-    ].filter(function(l){ return l !== null; }).join('\n');
+    // Loading state
+    var submitBtn = document.querySelector('#contact-form button[type="submit"]');
+    var originalText = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span>Sending…</span><span class="material-symbols-outlined animate-spin">progress_activity</span>';
+    document.getElementById('contact-error').classList.add('hidden');
 
-    var waURL = 'https://wa.me/919619941750?text=' + encodeURIComponent(lines);
-
-    document.getElementById('contact-wa-link').href = waURL;
-    document.getElementById('contact-form').classList.add('hidden');
-    document.getElementById('contact-success').classList.remove('hidden');
+    fetch(FORMSUBMIT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        phone: phone || 'Not provided',
+        enquiry_type: type,
+        message: msg,
+        _subject: 'New Enquiry from Growwings Website – ' + name,
+        _template: 'table',
+        _captcha: 'false'
+      })
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.success === 'true' || data.success === true) {
+        document.getElementById('contact-form').classList.add('hidden');
+        document.getElementById('contact-success').classList.remove('hidden');
+      } else {
+        throw new Error('failed');
+      }
+    })
+    .catch(function() {
+      document.getElementById('contact-error').classList.remove('hidden');
+    })
+    .finally(function() {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
+    });
   });
 
   function resetContactForm() {
     document.getElementById('contact-form').reset();
     document.getElementById('contact-form').classList.remove('hidden');
     document.getElementById('contact-success').classList.add('hidden');
+    document.getElementById('contact-error').classList.add('hidden');
   }
 </script>
 <script src="animations.js"></script>

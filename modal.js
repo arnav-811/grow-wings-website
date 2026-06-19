@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  const FORMSUBMIT_URL = 'https://formsubmit.co/ajax/sharanya.o@growwings.in';
+
   /* ── Inject modal HTML ──────────────────────────────────────────── */
   const MODAL_HTML = `
 <div id="ttu-overlay" class="ttu-overlay" role="dialog" aria-modal="true" aria-labelledby="ttu-title">
@@ -39,9 +41,10 @@
         </div>
         <div class="ttu-field">
           <label for="ttu-type">I'm enquiring for…</label>
-          <select id="ttu-type" name="type">
+          <select id="ttu-type" name="enquiry_type">
             <option value="corporate">🏢 Corporate Offerings</option>
             <option value="campus">🎓 Future Ready Campus</option>
+            <option value="youngminds">🌱 Young Minds</option>
             <option value="general">💬 General Enquiry</option>
           </select>
         </div>
@@ -50,9 +53,11 @@
         <label for="ttu-msg">Message <span class="ttu-req">*</span></label>
         <textarea id="ttu-msg" name="message" rows="3" placeholder="Tell us about your team, students, or vision…" required></textarea>
       </div>
-      <button type="submit" class="ttu-submit">
-        <span class="ttu-submit-text">Drop Us a Message</span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      <div id="ttu-error-msg" class="ttu-error-msg ttu-hidden">Something went wrong. Please try again or email us directly at sharanya.o@growwings.in</div>
+      <button type="submit" id="ttu-submit-btn" class="ttu-submit">
+        <span class="ttu-submit-text">Send Message</span>
+        <svg class="ttu-send-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        <svg class="ttu-spinner ttu-hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10" stroke-dasharray="31.4" stroke-dashoffset="10"/></svg>
       </button>
     </form>
 
@@ -61,12 +66,8 @@
       <div class="ttu-success-icon">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
-      <h3>Ready to Send!</h3>
-      <p>Your message is prepared. Tap below to open WhatsApp and hit Send.</p>
-      <a id="ttu-wa-link" href="#" target="_blank" rel="noopener noreferrer" class="ttu-wa-btn">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.852L0 24l6.335-1.508A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.732.888.933-3.64-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
-        Send on WhatsApp
-      </a>
+      <h3>Message Sent!</h3>
+      <p>Thanks for reaching out. We'll get back to you within 24 hours.</p>
       <button class="ttu-done" id="ttu-done">Close</button>
     </div>
   </div>
@@ -180,6 +181,15 @@
   box-shadow: 0 0 0 3px rgba(186,26,26,0.08);
 }
 
+/* Error message */
+.ttu-error-msg {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; color: #ba1a1a;
+  background: rgba(186,26,26,0.06);
+  border: 1px solid rgba(186,26,26,0.2);
+  border-radius: 10px; padding: 10px 14px;
+}
+
 /* Submit */
 .ttu-submit {
   display: flex; align-items: center; justify-content: center; gap: 10px;
@@ -200,11 +210,9 @@
   box-shadow: 0 8px 24px rgba(251,120,0,0.4);
 }
 .ttu-submit:active { transform: none; }
-.ttu-submit svg { transition: transform .2s; }
-.ttu-submit:hover svg { transform: translateX(3px); }
-
-/* Loading state */
-.ttu-submit.ttu-loading { opacity: 0.7; pointer-events: none; }
+.ttu-submit.ttu-loading { opacity: 0.75; pointer-events: none; }
+.ttu-spinner { animation: ttuSpin .8s linear infinite; }
+@keyframes ttuSpin { to { transform: rotate(360deg); } }
 
 /* Success */
 .ttu-hidden { display: none !important; }
@@ -230,26 +238,15 @@
   font-family: 'Inter', sans-serif;
   color: #42474f; margin: 0 0 24px;
 }
-.ttu-wa-btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: #25D366; color: #fff;
-  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700;
-  text-decoration: none;
-  border-radius: 999px;
-  padding: 14px 32px;
-  margin-bottom: 12px;
-  transition: background .2s, transform .2s, box-shadow .2s;
-  box-shadow: 0 4px 20px rgba(37,211,102,0.35);
-}
-.ttu-wa-btn:hover { background: #1ebe5d; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.45); }
 .ttu-done {
-  background: transparent; color: #727780;
-  font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
-  border: 1.5px solid #c2c7d1; border-radius: 999px;
-  padding: 10px 28px; cursor: pointer;
-  transition: background .2s, color .2s;
+  background: #32999b; color: #fff;
+  font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+  border: none; border-radius: 999px;
+  padding: 12px 36px; cursor: pointer;
+  transition: background .2s, transform .2s;
+  box-shadow: 0 4px 16px rgba(50,153,155,0.3);
 }
-.ttu-done:hover { background: #f1f5f9; color: #0b1c30; }
+.ttu-done:hover { background: #267f81; transform: translateY(-2px); }
 </style>`;
 
   document.head.insertAdjacentHTML('beforeend', styles);
@@ -263,7 +260,6 @@
   function openModal() {
     overlay.classList.add('ttu-open');
     document.body.style.overflow = 'hidden';
-    // Focus first field after transition
     setTimeout(() => document.getElementById('ttu-name')?.focus(), 350);
   }
 
@@ -272,45 +268,37 @@
     document.body.style.overflow = '';
   }
 
-  // Hook all nav "Talk to Us!" buttons and any other triggers
   document.querySelectorAll('[data-modal="talk"], .ttu-trigger').forEach(el => {
     el.addEventListener('click', e => { e.preventDefault(); openModal(); });
   });
 
-  // Also intercept links that point to contact.html with text "Talk to Us!"
   document.querySelectorAll('a').forEach(a => {
     if (a.textContent.trim() === 'Talk to Us!' || a.dataset.modal === 'talk') {
       a.addEventListener('click', e => { e.preventDefault(); openModal(); });
     }
   });
 
-  // Close on overlay click
   overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-
-  // Close on × button
   document.getElementById('ttu-close').addEventListener('click', closeModal);
-
-  // Close on Escape
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && overlay.classList.contains('ttu-open')) closeModal();
   });
 
-  // Done button
   document.getElementById('ttu-done').addEventListener('click', () => {
     closeModal();
     setTimeout(() => {
       form.reset();
       form.classList.remove('ttu-hidden');
       success.classList.add('ttu-hidden');
+      document.getElementById('ttu-error-msg').classList.add('ttu-hidden');
     }, 400);
   });
 
-  // Form submit
-  form.addEventListener('submit', e => {
+  /* ── Form submit → FormSubmit AJAX ──────────────────────────────── */
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
     let valid = true;
 
-    // Validate required fields
     ['ttu-name', 'ttu-email', 'ttu-msg'].forEach(id => {
       const el = document.getElementById(id);
       el.classList.remove('ttu-error');
@@ -324,34 +312,53 @@
 
     if (!valid) return;
 
-    // Collect values
     const name  = document.getElementById('ttu-name').value.trim();
     const email = emailEl.value.trim();
     const phone = document.getElementById('ttu-phone').value.trim();
-    const type  = document.getElementById('ttu-type').options[document.getElementById('ttu-type').selectedIndex].text;
+    const typeEl = document.getElementById('ttu-type');
+    const type  = typeEl.options[typeEl.selectedIndex].text;
     const msg   = document.getElementById('ttu-msg').value.trim();
 
-    // Build WhatsApp message
-    const text = [
-      '👋 *New Enquiry from Growwings Website*',
-      '',
-      `*Name:* ${name}`,
-      `*Email:* ${email}`,
-      phone ? `*Phone:* ${phone}` : null,
-      `*Enquiry Type:* ${type}`,
-      '',
-      `*Message:*`,
-      msg,
-    ].filter(l => l !== null).join('\n');
+    // Show loading state
+    const btn = document.getElementById('ttu-submit-btn');
+    btn.classList.add('ttu-loading');
+    btn.querySelector('.ttu-send-icon').classList.add('ttu-hidden');
+    btn.querySelector('.ttu-spinner').classList.remove('ttu-hidden');
+    btn.querySelector('.ttu-submit-text').textContent = 'Sending…';
+    document.getElementById('ttu-error-msg').classList.add('ttu-hidden');
 
-    const waURL = `https://wa.me/919619941750?text=${encodeURIComponent(text)}`;
-
-    // Set the real href on the WhatsApp button — user clicks it themselves
-    // This is the only approach that works on every browser and device
-    document.getElementById('ttu-wa-link').href = waURL;
-
-    form.classList.add('ttu-hidden');
-    success.classList.remove('ttu-hidden');
+    fetch(FORMSUBMIT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        phone: phone || 'Not provided',
+        enquiry_type: type,
+        message: msg,
+        _subject: 'New Enquiry from Growwings Website – ' + name,
+        _template: 'table',
+        _captcha: 'false'
+      })
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.success === 'true' || data.success === true) {
+        form.classList.add('ttu-hidden');
+        success.classList.remove('ttu-hidden');
+      } else {
+        throw new Error('FormSubmit returned failure');
+      }
+    })
+    .catch(function() {
+      document.getElementById('ttu-error-msg').classList.remove('ttu-hidden');
+    })
+    .finally(function() {
+      btn.classList.remove('ttu-loading');
+      btn.querySelector('.ttu-send-icon').classList.remove('ttu-hidden');
+      btn.querySelector('.ttu-spinner').classList.add('ttu-hidden');
+      btn.querySelector('.ttu-submit-text').textContent = 'Send Message';
+    });
   });
 
 })();
