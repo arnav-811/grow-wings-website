@@ -3,6 +3,15 @@
 
   const FORMSUBMIT_URL = 'https://formsubmit.co/ajax/sharanya.o@growwings.in';
 
+  /* ── Detect current page → pre-select enquiry type ─────────────── */
+  var PAGE_TYPE_MAP = {
+    'corporate.html':  'corporate',
+    'campus.html':     'campus',
+    'youngminds.html': 'youngminds'
+  };
+  var _filename = window.location.pathname.split('/').pop() || 'index.html';
+  var DEFAULT_ENQUIRY_TYPE = PAGE_TYPE_MAP[_filename] || 'general';
+
   /* ── Inject modal HTML ──────────────────────────────────────────── */
   const MODAL_HTML = `
 <div id="ttu-overlay" class="ttu-overlay" role="dialog" aria-modal="true" aria-labelledby="ttu-title">
@@ -260,6 +269,7 @@
   function openModal() {
     overlay.classList.add('ttu-open');
     document.body.style.overflow = 'hidden';
+    document.getElementById('ttu-type').value = DEFAULT_ENQUIRY_TYPE;
     setTimeout(() => document.getElementById('ttu-name')?.focus(), 350);
   }
 
