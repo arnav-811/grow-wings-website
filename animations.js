@@ -1,6 +1,23 @@
 (function () {
   'use strict';
 
+  /* ── Page loader ─────────────────────────────────────────────────── */
+  const loader = document.createElement('div');
+  loader.id = 'page-loader';
+  loader.innerHTML = '<img class="pl-logo" src="logo.png" alt="Growwings"/><div class="pl-bar"><div class="pl-fill"></div></div>';
+  document.body.prepend(loader);
+
+  function removeLoader() {
+    loader.classList.add('loaded');
+    setTimeout(() => loader.remove(), 600);
+  }
+  if (document.readyState === 'complete') {
+    setTimeout(removeLoader, 200);
+  } else {
+    window.addEventListener('load', () => setTimeout(removeLoader, 200));
+    setTimeout(removeLoader, 2500); // fallback
+  }
+
   /* ── Scroll progress bar ─────────────────────────────────────────── */
   const prog = document.createElement('div');
   prog.id = 'scroll-progress';
@@ -26,6 +43,18 @@
 
   document.querySelectorAll('.fade-in,.fade-in-left,.fade-in-right,.scale-in')
     .forEach(el => revealObs.observe(el));
+
+  /* ── Reveal-group staggered cards ───────────────────────────────── */
+  const groupObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      [...entry.target.querySelectorAll('.reveal-item')].forEach((item, i) => {
+        setTimeout(() => item.classList.add('visible'), i * 220);
+      });
+      groupObs.unobserve(entry.target);
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal-group').forEach(g => groupObs.observe(g));
 
   /* ── Stat counter ────────────────────────────────────────────────── */
   function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }

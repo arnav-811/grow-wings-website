@@ -327,6 +327,19 @@
     btn.querySelector('.ttu-submit-text').textContent = 'Sending…';
     document.getElementById('ttu-error-msg').classList.add('ttu-hidden');
 
+    var pageNames = {
+      'index.html':      'Home',
+      'corporate.html':  'Corporate Offerings',
+      'campus.html':     'Future Ready Campus',
+      'youngminds.html': 'Young Minds',
+      'about.html':      'About Us',
+      'contact.html':    'Book Appointment',
+      'blogs.html':      'Blogs & Case Studies'
+    };
+    var filename = window.location.pathname.split('/').pop() || 'index.html';
+    if (!filename || filename === '') filename = 'index.html';
+    var sourcePage = pageNames[filename] || filename;
+
     fetch(FORMSUBMIT_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -335,6 +348,7 @@
         email: email,
         phone: phone || 'Not provided',
         enquiry_type: type,
+        source_page: sourcePage,
         message: msg,
         _subject: 'New Enquiry from Growwings Website – ' + name,
         _template: 'table',
